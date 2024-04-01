@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "explorer http://localhost:2000 & next dev -p 2000",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
