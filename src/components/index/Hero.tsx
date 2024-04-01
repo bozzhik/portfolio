@@ -19,21 +19,55 @@ const heroContent = {
       icon: GithubIcon,
     },
     2: {
-      text: 'Commits in 2024',
-      link: 'https://github.com/bozzhik',
-      icon: GainIcon,
-    },
-    3: {
       text: 'Pull Requests in 2024',
       link: 'https://github.com/bozzhik',
       icon: GithubIcon,
+    },
+    3: {
+      text: 'Commits in 2024',
+      link: 'https://github.com/bozzhik',
+      icon: GainIcon,
     },
   },
   description: "Hi, I'm Maxim Bozhik, a computer science student who loves coding and design. What started as a hobby turned into my profession. Currently, I'm focused on creating exciting freelance projects.",
 }
 
 export default function Hero() {
-  const [githubData, setGithubData] = useState<any>(null)
+  const [githubData, setGithubData] = useState({
+    repositories: [],
+    totalPullRequests: 0,
+    totalCommits: 0,
+  })
+
+  const [displayedValues, setDisplayedValues] = useState({
+    repositories: 0,
+    totalPullRequests: 0,
+    totalCommits: 0,
+  })
+
+  const [targetValues, setTargetValues] = useState({
+    repositories: null,
+    totalPullRequests: null,
+    totalCommits: null,
+  })
+
+  const animateValue = (key: keyof typeof targetValues) => {
+    let start = 0
+    const end = targetValues[key] ?? 0
+    const duration = 1000
+    const step = Math.ceil(duration / end)
+
+    const timer = setInterval(() => {
+      start += 1
+      setDisplayedValues((prevValues) => ({
+        ...prevValues,
+        [key]: start,
+      }))
+      if (start === end) {
+        clearInterval(timer)
+      }
+    }, step)
+  }
 
   useEffect(() => {
     const githubUsername = process.env.NEXT_PUBLIC_GITHUB_USERNAME
@@ -46,12 +80,31 @@ export default function Hero() {
 
     fetchGithubData(githubUsername, githubToken)
       .then((data) => {
-        setGithubData(data)
+        if (data) {
+          setGithubData(data)
+          setTargetValues({
+            repositories: data.repositories.length,
+            totalPullRequests: data.totalPullRequests,
+            totalCommits: data.totalCommits,
+          })
+        }
       })
       .catch((error) => {
         console.error('Error:', error)
       })
   }, [])
+
+  useEffect(() => {
+    if (targetValues.repositories !== null) {
+      animateValue('repositories')
+    }
+    if (targetValues.totalPullRequests !== null) {
+      animateValue('totalPullRequests')
+    }
+    if (targetValues.totalCommits !== null) {
+      animateValue('totalCommits')
+    }
+  }, [targetValues])
 
   return (
     <div className="flex flex-col gap-8">
@@ -69,9 +122,9 @@ export default function Hero() {
                 <div className="space-x-1">
                   {githubData && (
                     <span>
-                      {index === 0 && githubData.repositories.length}
-                      {index === 1 && githubData.totalCommits}
-                      {index === 2 && githubData.totalPullRequests}
+                      {index === 0 && displayedValues.repositories}
+                      {index === 1 && displayedValues.totalPullRequests}
+                      {index === 2 && displayedValues.totalCommits}
                     </span>
                   )}
                   <span>{item.text}</span>
