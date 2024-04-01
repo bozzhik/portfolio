@@ -2,8 +2,15 @@ import type {Metadata} from 'next'
 import localFont from 'next/font/local'
 import './globals.css'
 
+import Nav from '@/components/Nav'
+import {navSize} from '@/components/Nav'
+
 const SuisseIntl = localFont({
   src: [
+    {
+      path: '../assets/fonts/SuisseIntl-Light.woff2',
+      weight: '300',
+    },
     {
       path: '../assets/fonts/SuisseIntl-Regular.woff2',
       weight: '400',
@@ -40,7 +47,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${SuisseIntl.className} bg-custom-black text-custom-t-gray`}>
-        <main className="relative w-full h-full pl-[14.2vw] sm:pl-0">{children}</main>
+        <Nav />
+        <main className={`relative w-full h-full ${navSize.pl} sm:pl-0`}>{children}</main>
       </body>
     </html>
   )
