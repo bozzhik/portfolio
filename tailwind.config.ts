@@ -6,9 +6,18 @@ const config: Config = {
   content: ['./src/pages/**/*.{js,ts,jsx,tsx,mdx}', './src/components/**/*.{js,ts,jsx,tsx,mdx}', './src/app/**/*.{js,ts,jsx,tsx,mdx}'],
   theme: {
     extend: {
+      fontWeight: {
+        book: '450',
+      },
       colors: {
         custom: {
-          violet: '#911BED',
+          black: '#111',
+          white: '#EEE',
+          't-gray': '#B4B4B4',
+          'b-gray': '#191919',
+          'b-gray2': '#2A2A2A',
+          'b-gray3': '#2C2C2C',
+          'b-card': '#37373710',
         },
       },
     },
