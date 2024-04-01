@@ -37,7 +37,7 @@ export default function Hero() {
 
   useEffect(() => {
     const githubUsername = process.env.NEXT_PUBLIC_GITHUB_USERNAME
-    const githubToken = process.env.GITHUB_TOKEN
+    const githubToken = process.env.NEXT_PUBLIC_GITHUB_TOKEN
 
     if (!githubUsername || !githubToken) {
       console.error('GitHub username or token not provided.')
