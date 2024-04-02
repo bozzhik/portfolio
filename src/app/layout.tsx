@@ -48,7 +48,7 @@ export default function RootLayout({
       <body className={`${SuisseIntl.className} bg-custom-black text-custom-t-gray`}>
         <Nav />
         <div className="relative w-full h-full pl-[16.5rem] sm:pl-0 ">
-          <main className="relative max-w-[700px] mx-auto px-5 pt-20 pb-44">{children}</main>
+          <main className="relative max-w-[700px] mx-auto px-5 sm:px-6 pt-20 sm:pt-16 pb-44">{children}</main>
         </div>
       </body>
     </html>

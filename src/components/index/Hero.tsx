@@ -108,13 +108,13 @@ export default function Hero() {
   }, [targetValues])
 
   return (
-    <section className="flex flex-col gap-8">
+    <section data-section="hero-index" className="flex flex-col gap-8">
       <div>
         <h1 className="text-3xl font-bold text-white">{heroContent.title}</h1>
         <p>{heroContent.caption}</p>
       </div>
 
-      <div className="flex flex-row items-center gap-6">
+      <div className="flex flex-row items-center gap-6 sm:items-start sm:flex-col">
         <Image className="rounded-lg bg-custom-b-gray" width="85" height="85" src={AvatarImage} priority quality={100} alt="avatar" />
 
         <ul className="space-y-2">
