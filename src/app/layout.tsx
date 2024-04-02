@@ -3,7 +3,6 @@ import localFont from 'next/font/local'
 import './globals.css'
 
 import Nav from '@/components/Nav'
-import {navSize} from '@/components/Nav'
 
 const SuisseIntl = localFont({
   src: [
@@ -48,7 +47,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${SuisseIntl.className} bg-custom-black text-custom-t-gray`}>
         <Nav />
-        <main className={`relative w-full h-full ${navSize.pl} sm:pl-0`}>{children}</main>
+        <main className="relative w-full h-full pl-[16.5rem] sm:pl-0">{children}</main>
       </body>
     </html>
   )
