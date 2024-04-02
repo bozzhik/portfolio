@@ -1,7 +1,8 @@
 'use client'
 
-// import {isMobile} from '@/lib/utils'
-let isMobile = true
+import {isMobile} from '@/lib/utils'
+console.log('🚀 ~ isMobile:', isMobile)
+// let isMobile = true
 
 import {usePathname} from 'next/navigation'
 import Link from 'next/link'
@@ -72,40 +73,42 @@ export default function Nav() {
   const [bodyBgColor, setBodyBgColor] = useState('')
 
   useEffect(() => {
-    const bodyClasses = ['!bg-custom-b-gray', 'text-custom-b-gray', 'duration-300']
+    if (isMobile) {
+      const bodyClasses = ['!bg-custom-b-gray', 'text-custom-b-gray', 'duration-300']
 
-    if (isMenuOpen) {
-      bodyClasses.forEach((className) => {
-        document.body.classList.add(className)
-      })
-      setBodyBgColor(bodyClasses.join(' '))
-    } else {
-      bodyClasses.forEach((className) => {
-        document.body.classList.remove(className)
-      })
-      setBodyBgColor('')
-    }
+      if (isMenuOpen) {
+        bodyClasses.forEach((className) => {
+          document.body.classList.add(className)
+        })
+        setBodyBgColor(bodyClasses.join(' '))
+      } else {
+        bodyClasses.forEach((className) => {
+          document.body.classList.remove(className)
+        })
+        setBodyBgColor('')
+      }
 
-    return () => {
-      bodyClasses.forEach((className) => {
-        document.body.classList.remove(className)
-      })
+      return () => {
+        bodyClasses.forEach((className) => {
+          document.body.classList.remove(className)
+        })
+      }
     }
   }, [isMenuOpen])
 
   useEffect(() => {
-    const handleOutsideClick = (event: MouseEvent) => {
-      console.log('click')
-
-      if (navRef.current && !navRef.current.contains(event.target as Node)) {
-        setMenuOpen(false)
+    if (isMobile) {
+      const handleOutsideClick = (event: MouseEvent) => {
+        if (navRef.current && !navRef.current.contains(event.target as Node)) {
+          setMenuOpen(false)
+        }
       }
-    }
 
-    document.addEventListener('click', handleOutsideClick)
+      document.addEventListener('click', handleOutsideClick)
 
-    return () => {
-      document.removeEventListener('click', handleOutsideClick)
+      return () => {
+        document.removeEventListener('click', handleOutsideClick)
+      }
     }
   }, [])
 
@@ -116,7 +119,7 @@ export default function Nav() {
   return (
     <header ref={navRef}>
       <motion.section
-        initial={{opacity: 0, x: -100}}
+        initial={isMobile && {opacity: 0, x: -100}}
         animate={{opacity: isMenuOpen ? 1 : 0, x: isMenuOpen ? 0 : -100}} // Animation on show/hide
         transition={{duration: 0.3}}
         data-section="desktop-nav"
