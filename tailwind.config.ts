@@ -16,7 +16,6 @@ const config: Config = {
           't-gray': '#B4B4B4',
           'b-gray': '#191919',
           'b-gray2': '#2A2A2A',
-          'b-gray3': '#2C2C2C',
           'b-card': '#37373710',
         },
       },

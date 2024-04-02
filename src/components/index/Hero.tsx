@@ -1,6 +1,7 @@
 'use client'
 
 import {useEffect, useState} from 'react'
+import Link from 'next/link'
 import Image from 'next/image'
 
 import {fetchGithubData} from '@/lib/githubApi'
@@ -107,18 +108,21 @@ export default function Hero() {
   }, [targetValues])
 
   return (
-    <div className="flex flex-col gap-8">
+    <section className="flex flex-col gap-8">
       <div>
         <h1 className="text-3xl font-bold text-white">{heroContent.title}</h1>
         <p>{heroContent.caption}</p>
       </div>
+
       <div className="flex flex-row items-center gap-6">
         <Image className="rounded-lg bg-custom-b-gray" width="85" height="85" src={AvatarImage} priority quality={100} alt="avatar" />
+
         <ul className="space-y-2">
           {Object.values(heroContent.list).map((item, index) => (
             <li key={index}>
-              <a className="flex items-center gap-3" href={item.link}>
+              <Link className="flex items-center gap-3" href={item.link}>
                 <Image className="s-5" src={item.icon} alt={item.text} />
+
                 <div className="space-x-1">
                   {githubData && (
                     <span>
@@ -127,14 +131,16 @@ export default function Hero() {
                       {index === 2 && displayedValues.totalCommits}
                     </span>
                   )}
+
                   <span>{item.text}</span>
                 </div>
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
       </div>
+
       <p>{heroContent.description}</p>
-    </div>
+    </section>
   )
 }
