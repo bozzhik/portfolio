@@ -3,12 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "explorer http://localhost:2000 & next dev -p 2000",
+    "dev": "explorer http://localhost:2000 & next dev -H 100.71.30.73 -p 2000",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "@bozzhik/is-mobile": "^0.1.1",
     "axios": "^1.6.8",
     "framer-motion": "^11.0.24",
     "next": "14.1.4",

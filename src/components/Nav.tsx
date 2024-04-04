@@ -1,7 +1,7 @@
 'use client'
 
-import {isMobile} from '@/lib/utils'
-console.log('🚀 ~ isMobile:', isMobile)
+import {isMobile} from '@bozzhik/is-mobile'
+// console.log('🚀 ~ isMobile:', isMobile)
 // let isMobile = true
 
 import {usePathname} from 'next/navigation'
