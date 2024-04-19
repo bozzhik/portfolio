@@ -11,10 +11,10 @@ const headerData = {
 
 export default function Header() {
   return (
-    <header className={cn('mt-14 mb-16 mx-auto', widthClasses['1/2'])}>
-      <nav className="flex gap-3.5">
+    <header className={cn('mt-14 mb-16 mx-auto ', widthClasses['1/2'])}>
+      <nav className="flex flex-row space-x-0 -ml-[8px]">
         {Object.entries(headerData).map(([key, {name, href}]) => (
-          <Link key={key} href={href} className="duration-200 hover:text-custom-primary">
+          <Link key={key} href={href} className="flex px-2 py-1 duration-200 hover:text-neutral-200">
             {name}
           </Link>
         ))}
