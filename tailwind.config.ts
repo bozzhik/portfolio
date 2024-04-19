@@ -12,11 +12,7 @@ const config: Config = {
       colors: {
         custom: {
           black: '#111',
-          white: '#EEE',
-          't-gray': '#B4B4B4',
-          'b-gray': '#191919',
-          'b-gray2': '#2A2A2A',
-          'b-card': '#37373710',
+          'gray-d4': '#d4d4d4',
         },
       },
     },
