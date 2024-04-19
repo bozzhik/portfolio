@@ -2,6 +2,8 @@ import type {Metadata} from 'next'
 import localFont from 'next/font/local'
 import './globals.css'
 
+import Header from '#/Global/Header'
+
 const SuisseIntl = localFont({
   src: [
     {
@@ -43,7 +45,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${SuisseIntl.className} bg-custom-black text-white`}>{children}</body>
+      <body className={`${SuisseIntl.className} bg-custom-black text-white`}>
+        <Header />
+        {children}
+      </body>
     </html>
   )
 }
