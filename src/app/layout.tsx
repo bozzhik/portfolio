@@ -43,9 +43,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${SuisseIntl.className} bg-custom-black`}>
-        <main>{children}</main>
-      </body>
+      <body className={`${SuisseIntl.className} bg-custom-black text-white`}>{children}</body>
     </html>
   )
 }
