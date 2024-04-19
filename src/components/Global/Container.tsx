@@ -3,14 +3,14 @@ import {cn} from '@/lib/utils'
 interface Props {
   children: React.ReactNode
   width?: '1/2' | '2/3'
-  classes?: string
+  className?: string
 }
 
 export const widthClasses = {
-  '1/2': 'w-[35%]',
-  '2/3': 'w-[55%]',
+  '1/2': 'max-w-2xl sm:mx-6',
+  '2/3': '',
 }
 
-export default function Container({children, width = '1/2', classes}: Props) {
-  return <main className={cn('mx-auto', widthClasses[width], classes)}>{children}</main>
+export default function Container({children, width = '1/2', className}: Props) {
+  return <main className={cn('mx-auto mb-40 flex flex-col antialiased', widthClasses[width], className)}>{children}</main>
 }
