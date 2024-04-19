@@ -1,0 +1,25 @@
+.animate-surfing {
+  animation: surfing 2.5s infinite;
+  animation-iteration-count: 2;
+}
+
+@keyframes surfing {
+  0% {
+    transform: translate(0, 0);
+  }
+  20% {
+    transform: translate(0, -15px);
+  }
+  40% {
+    transform: translate(20px, 0);
+  }
+  60% {
+    transform: translate(0, 10px);
+  }
+  80% {
+    transform: translate(10px, 0);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
