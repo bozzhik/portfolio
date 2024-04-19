@@ -8,6 +8,9 @@ dependencies:
   '@bozzhik/is-mobile':
     specifier: ^0.1.1
     version: 0.1.1
+  anim-loop-engine:
+    specifier: github:tdous/anim-loop-engine
+    version: github.com/tdous/anim-loop-engine/f8c0276ca2785b9469eff407459d932e06b2b0b0
   axios:
     specifier: ^1.6.8
     version: 1.6.8
@@ -17,6 +20,9 @@ dependencies:
   framer-motion:
     specifier: ^11.0.24
     version: 11.0.24(react-dom@18.2.0)(react@18.2.0)
+  map-number-to-range:
+    specifier: github:tdous/map-number-to-range
+    version: github.com/tdous/map-number-to-range/38620825f8a5ffd065b775272e9e61d6a7566c52
   next:
     specifier: 14.1.4
     version: 14.1.4(react-dom@18.2.0)(react@18.2.0)
@@ -3000,3 +3006,15 @@ packages:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
     dev: true
+
+  github.com/tdous/anim-loop-engine/f8c0276ca2785b9469eff407459d932e06b2b0b0:
+    resolution: {tarball: https://codeload.github.com/tdous/anim-loop-engine/tar.gz/f8c0276ca2785b9469eff407459d932e06b2b0b0}
+    name: anim-loop-engine
+    version: 0.2.0
+    dev: false
+
+  github.com/tdous/map-number-to-range/38620825f8a5ffd065b775272e9e61d6a7566c52:
+    resolution: {tarball: https://codeload.github.com/tdous/map-number-to-range/tar.gz/38620825f8a5ffd065b775272e9e61d6a7566c52}
+    name: map-number-to-range
+    version: 0.1.0
+    dev: false
