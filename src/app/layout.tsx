@@ -3,6 +3,7 @@ import localFont from 'next/font/local'
 import './globals.css'
 
 import Header from '#/Global/Header'
+import Starfield from '@/components/Global/Starfield'
 
 const SuisseIntl = localFont({
   src: [
@@ -48,6 +49,7 @@ export default function RootLayout({
       <body className={`${SuisseIntl.className} bg-custom-black text-white`}>
         <Header />
         {children}
+        <Starfield />
       </body>
     </html>
   )
