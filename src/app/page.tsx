@@ -1,9 +1,10 @@
 import Container from '#/Global/Container'
+import Hero from '##/index/Hero'
 
 export default function Index() {
   return (
     <Container>
-      <h1>hey!</h1>
+      <Hero />
     </Container>
   )
 }

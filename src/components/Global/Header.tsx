@@ -11,8 +11,8 @@ const headerData = {
 
 export default function Header() {
   return (
-    <header className={cn('mt-14 mx-auto', widthClasses['1/2'])}>
-      <nav className="flex gap-3">
+    <header className={cn('mt-14 mb-16 mx-auto', widthClasses['1/2'])}>
+      <nav className="flex gap-3.5">
         {Object.entries(headerData).map(([key, {name, href}]) => (
           <Link key={key} href={href} className="duration-200 hover:text-custom-primary">
             {name}
