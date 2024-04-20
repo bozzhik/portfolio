@@ -7,7 +7,7 @@ interface Props {
 }
 
 export const widthClasses = {
-  '1/2': 'max-w-2xl sm:mx-5',
+  '1/2': 'max-w-2xl xl:max-w-lg sm:mx-5',
   '2/3': '',
 }
 
