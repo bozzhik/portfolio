@@ -11,8 +11,8 @@ const config: Config = {
       },
       colors: {
         custom: {
-          black: '#111',
-          'gray-d4': '#d4d4d4',
+          black: '#090909',
+          gray: '#191919',
         },
       },
     },

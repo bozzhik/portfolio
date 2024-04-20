@@ -1,6 +1,6 @@
 .animate-surfing {
   animation: surfing 2.5s infinite;
-  animation-iteration-count: 2;
+  animation-iteration-count: 1;
 }
 
 @keyframes surfing {
