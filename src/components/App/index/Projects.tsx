@@ -38,14 +38,16 @@ const Projects = async () => {
     return <mark>Произошла ошибка при получении данных!</mark>
   }
 
-  projects.sort((a, b) => a.id - b.id)
+  const completeProjects = projects.filter((project) => !project.in_development)
+
+  completeProjects.sort((a, b) => a.id - b.id)
 
   return (
     <section data-section="projects-index" className="mt-8 space-y-8">
       <Text type="heading">my projects</Text>
 
       <div className="flex flex-col gap-5 sm:gap-3">
-        {projects.map((project, index) => (
+        {completeProjects.map((project, index) => (
           <Card project={project} index={index} key={index} />
         ))}
       </div>
