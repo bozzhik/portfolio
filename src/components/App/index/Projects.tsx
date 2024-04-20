@@ -1,6 +1,6 @@
 import {client} from '@/lib/sanity'
 import {Text} from '#/UI/Text'
-import {Card} from '#/UI/Card'
+import {ProjectCard} from '@/components/UI/ProjectCard'
 
 export interface Project {
   name: string
@@ -48,7 +48,7 @@ const Projects = async () => {
 
       <div className="flex flex-col gap-5 sm:gap-3">
         {completeProjects.map((project, index) => (
-          <Card project={project} index={index} key={index} />
+          <ProjectCard project={project} index={index} key={index} />
         ))}
       </div>
     </section>

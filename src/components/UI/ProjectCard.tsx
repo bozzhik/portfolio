@@ -1,6 +1,3 @@
-// import {isMobile} from '@bozzhik/is-mobile'
-// const isMobile = true
-
 import {urlForImage} from '@/lib/sanity'
 import {Project} from '##/index/Projects'
 
@@ -14,7 +11,7 @@ interface Props {
   index: number
 }
 
-const Card: React.FC<Props> = ({project, index}) => {
+const ProjectCard: React.FC<Props> = ({project, index}) => {
   return (
     <Link className={`group relative flex flex-col overflow-hidden h-[35vh] xl:h-[37vh] sm:h-[40vh] duration-500 rounded-2xl sm:rounded-xl border-[1px] border-neutral-800 border-b-0 ${!project.link && 'pointer-events-none'}`} href={`${project.link || ' '}`} key={index}>
       <div className={`absolute inset-0 -z-20 s-full sm:h-[65%] duration-500 ${project.link && 'group-hover:scale-[102%]'}`}>
@@ -35,4 +32,4 @@ const Card: React.FC<Props> = ({project, index}) => {
   )
 }
 
-export {Card}
+export {ProjectCard}
