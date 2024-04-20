@@ -4,7 +4,7 @@ import Projects from '@/components/App/index/Projects'
 
 export default function Index() {
   return (
-    <Container>
+    <Container className="space-y-14">
       <Hero />
       <Projects />
     </Container>

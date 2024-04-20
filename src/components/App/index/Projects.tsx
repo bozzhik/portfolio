@@ -4,6 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 import {Text} from '#/UI/Text'
+// import {Badge} from '#/UI/Badge'
 
 interface Project {
   name: string
@@ -41,22 +42,26 @@ const Projects = async () => {
     return <mark>Произошла ошибка при получении данных!</mark>
   }
 
+  projects.sort((a, b) => a.id - b.id)
+
   return (
     <section data-section="projects-index" className="mt-8">
       <Text type="heading">my projects</Text>
 
-      {projects.map((slide, index) => (
-        <article className="space-y-5 mt-5" key={index}>
-          <div className="s-32">
-            <Image quality={100} priority={true} className="object-cover w-full h-full" src={urlForImage(slide.image).url()} width={100} height={100} alt={slide.name} />
-          </div>
+      <div className="flex flex-col gap-5 mt-5">
+        {projects.map((project, index) => (
+          <Link className={`group relative flex flex-col overflow-hidden h-[35vh] duration-500 rounded-2xl border-[1px] border-neutral-800 border-b-0 ${!project.link && 'pointer-events-none cursor-none'}`} href={`${project.link || ' '}`} key={index}>
+            <Image quality={100} priority={true} className="ant object-cover object-top w-full h-full duration-500 -z-20 group-hover:scale-[102%]" src={urlForImage(project.image).url()} fill={true} sizes="70vw" alt={project.name} />
+            <div className="absolute inset-0 w-full h-full bg-gradient-to-b from-custom-black/0 via-custom-black/30 to-custom-black -z-10"></div>
 
-          <div>
-            <Text type="heading">{slide.name}</Text>
-            <Text>{slide.description}</Text>
-          </div>
-        </article>
-      ))}
+            <div className="flex flex-col pb-5 pl-8 mt-auto text-neutral-300">
+              {/* {project.in_development && <Badge text="COMING SOON" className="mb-1 animate-pulse" />} */}
+              <Text type="heading">{project.name}</Text>
+              <Text className="leading-normal max-w-[35ch]">{project.description}</Text>
+            </div>
+          </Link>
+        ))}
+      </div>
     </section>
   )
 }

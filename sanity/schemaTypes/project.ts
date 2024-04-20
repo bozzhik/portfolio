@@ -26,7 +26,7 @@ const project: SchemaTypeDefinition = {
       name: 'description',
       title: 'Project Description',
       type: 'text',
-      validation: (rule: Rule) => rule.required(),
+      validation: (rule) => rule.required().max(100),
     },
     {
       name: 'image',
