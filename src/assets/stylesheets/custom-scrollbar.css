@@ -1,0 +1,9 @@
+body::-webkit-scrollbar {
+  width: 15px;
+}
+body::-webkit-scrollbar-track {
+  @apply bg-neutral-900;
+}
+body::-webkit-scrollbar-thumb {
+  @apply bg-neutral-800;
+}

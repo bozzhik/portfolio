@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import '../assets/stylesheets/custom-scrollbar.css';
+
+::selection {
+  @apply bg-neutral-800;
+}
