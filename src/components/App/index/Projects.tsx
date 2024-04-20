@@ -1,4 +1,3 @@
-import {unstable_noStore as noStore} from 'next/cache'
 import {client, urlForImage} from '@/lib/sanity'
 
 import Link from 'next/link'
@@ -15,21 +14,24 @@ interface Project {
   in_development: boolean
 }
 
-const getData = async (): Promise<Project[]> => {
-  noStore()
-
-  const query = `
-    *[_type == 'project'] {
+async function getData(): Promise<Project[]> {
+  const data = await client.fetch<Project>(
+    `*[_type == 'project'] {
         name,
         link,
         id,
         description,
         image,
         in_development,
-    }`
-
-  const data: Project[] = await client.fetch(query)
-  return data
+    }`,
+    {},
+    {
+      next: {
+        revalidate: 30,
+      },
+    },
+  )
+  return Array.isArray(data) ? data : []
 }
 
 const Projects = async () => {
