@@ -34,7 +34,6 @@ const project: SchemaTypeDefinition = {
       type: 'image',
       validation: (rule: Rule) => rule.required(),
     },
-
     {
       name: 'in_development',
       title: 'In development?',
