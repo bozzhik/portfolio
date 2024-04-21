@@ -39,6 +39,11 @@ const project: SchemaTypeDefinition = {
       title: 'In development?',
       type: 'boolean',
     },
+    {
+      name: 'is_special',
+      title: 'Is it special',
+      type: 'boolean',
+    },
   ],
   preview: {
     select: {

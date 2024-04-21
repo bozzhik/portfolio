@@ -18,7 +18,7 @@ const ProjectCard: React.FC<Props> = ({project, index}) => {
         <Image quality={100} priority={true} className="object-cover object-top" src={urlForImage(project.image).url()} fill={true} sizes="70vw" alt={project.name} />
       </div>
 
-      <div className="absolute inset-0 w-full h-full bg-gradient-to-b from-custom-black/0 via-custom-black/30 to-custom-black sm:to-custom-gray/30 -z-10"></div>
+      <div className="absolute inset-0 w-full h-full bg-gradient-to-b from-custom-black/0 via-custom-black/40 to-custom-black sm:to-custom-gray/30 -z-10"></div>
 
       <div className="flex flex-col pb-5 pl-8 mt-auto text-neutral-300 sm:p-4">
         {project.in_development && <Badge text="COMING SOON" className="absolute mb-1 right-5 bottom-4 animate-pulse h-fit" />}

@@ -9,6 +9,7 @@ export interface Project {
   description: string
   image: Array<{asset: {url: string}}>
   in_development: boolean
+  is_special: boolean
 }
 
 async function getData(): Promise<Project[]> {
@@ -20,6 +21,7 @@ async function getData(): Promise<Project[]> {
         description,
         image,
         in_development,
+        is_special,
     }`,
     {},
     {
@@ -31,25 +33,31 @@ async function getData(): Promise<Project[]> {
   return Array.isArray(data) ? data : []
 }
 
-const Projects = async () => {
+interface ProjectsProps {
+  filterSpecial?: boolean
+}
+
+const Projects: React.FC<ProjectsProps> = async ({filterSpecial = false}) => {
   const projects: Project[] = await getData()
 
   if (!projects) {
     return <mark>Произошла ошибка при получении данных!</mark>
   }
 
-  const completeProjects = projects.filter((project) => !project.in_development)
-
-  completeProjects.sort((a, b) => a.id - b.id)
+  projects.sort((a, b) => a.id - b.id)
 
   return (
     <section data-section="projects-index" className="mt-8 space-y-8">
       <Text type="heading">my projects</Text>
 
       <div className="flex flex-col gap-5 sm:gap-3">
-        {completeProjects.map((project, index) => (
-          <ProjectCard project={project} index={index} key={index} />
-        ))}
+        {projects.map((project, index) =>
+          filterSpecial && project.is_special ? (
+            <ProjectCard project={project} index={index} key={index} /> // index page
+          ) : !filterSpecial ? (
+            <ProjectCard project={project} index={index} key={index} /> // projects page
+          ) : null,
+        )}
       </div>
     </section>
   )
