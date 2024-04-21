@@ -4,13 +4,14 @@ import {WorkCard} from '@/components/UI/WorkCard'
 
 export interface Work {
   name: string
-  link?: string
+  link: string
   id: number
   description: string
   image: Array<{asset: {url: string}}>
   variant: string
-  stack: Array<{value: string}>
+  stack: Array<{name: string; value: string}>
   in_development: boolean
+  is_special: boolean
 }
 
 async function getData(): Promise<Work[]> {
@@ -22,8 +23,9 @@ async function getData(): Promise<Work[]> {
         description,
         image,
         variant,
-        stack,
+        stack[] -> { name, value },
         in_development,
+        is_special,
     }`,
     {},
     {
@@ -49,9 +51,9 @@ const Works = async () => {
       <Text type="heading">my works</Text>
 
       <div className="flex flex-col gap-5 sm:gap-3">
-        {works.map((work, index) => (
-          <WorkCard work={work} index={index} key={index} />
-        ))}
+        {works.map(
+          (work, index) => work.is_special && <WorkCard work={work} index={index} key={index} />, // display on index page
+        )}
       </div>
     </section>
   )
