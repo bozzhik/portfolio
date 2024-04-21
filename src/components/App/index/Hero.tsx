@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import CursorImage from '%/icons/cursor.svg'
 
+import HeroLinks from '##/index/HeroLinks'
 import {Text} from '#/UI/Text'
 import {Badge} from '#/UI/Badge'
 
@@ -18,6 +19,8 @@ export default function Hero() {
       <Text>
         I&#39;m a website developer and user interface designer. I am studying at the HSE to design and develop <Badge href="#" icon={CursorImage} text="digital products" />. <br className="hidden sm:block" /> I am currently working as a self-employed frontend developer, specializing in creating stunning <Badge href="#" icon={CursorImage} text="landing pages" /> and interactive <Badge href="#" className="mr-[0.5px]" icon={CursorImage} text="websites" />.
       </Text>
+
+      <HeroLinks />
     </section>
   )
 }

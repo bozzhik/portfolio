@@ -1,7 +1,7 @@
 import Container from '#/Global/Container'
 import Hero from '##/index/Hero'
-import Projects from '##/index/Projects'
 import Works from '##/index/Works'
+import Projects from '##/index/Projects'
 
 export default function Index() {
   return (
