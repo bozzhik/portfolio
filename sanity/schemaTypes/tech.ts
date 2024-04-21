@@ -6,6 +6,11 @@ const tech: SchemaTypeDefinition = {
   type: 'document',
   fields: [
     {
+      name: 'name',
+      type: 'string',
+      title: 'Tech Name',
+    },
+    {
       name: 'value',
       type: 'string',
       title: 'Tech Name',
@@ -14,7 +19,8 @@ const tech: SchemaTypeDefinition = {
   ],
   preview: {
     select: {
-      title: 'value',
+      title: 'name',
+      subtitle: 'value',
     },
   },
 }

@@ -15,6 +15,7 @@ const work: SchemaTypeDefinition = {
       name: 'link',
       title: 'Work link',
       type: 'string',
+      validation: (rule: Rule) => rule.required(),
     },
     {
       name: 'id',
@@ -32,7 +33,6 @@ const work: SchemaTypeDefinition = {
       name: 'image',
       title: 'Work Image',
       type: 'image',
-      validation: (rule: Rule) => rule.required(),
     },
     {
       name: 'variant',
@@ -56,6 +56,11 @@ const work: SchemaTypeDefinition = {
     {
       name: 'in_development',
       title: 'In development?',
+      type: 'boolean',
+    },
+    {
+      name: 'is_special',
+      title: 'Is it special',
       type: 'boolean',
     },
   ],
