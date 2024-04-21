@@ -37,7 +37,11 @@ async function getData(): Promise<Work[]> {
   return Array.isArray(data) ? data : []
 }
 
-const Works = async () => {
+interface WorksProps {
+  filterSpecial?: boolean
+}
+
+const Works: React.FC<WorksProps> = async ({filterSpecial = false}) => {
   const works: Work[] = await getData()
 
   if (!works) {
@@ -51,8 +55,12 @@ const Works = async () => {
       <Text type="heading">my works</Text>
 
       <div className="flex flex-col gap-5 sm:gap-3">
-        {works.map(
-          (work, index) => work.is_special && <WorkCard work={work} index={index} key={index} />, // verification
+        {works.map((work, index) =>
+          filterSpecial && work.is_special ? (
+            <WorkCard work={work} index={index} key={index} /> // index page
+          ) : !filterSpecial ? (
+            <WorkCard work={work} index={index} key={index} /> // works page
+          ) : null,
         )}
       </div>
     </section>

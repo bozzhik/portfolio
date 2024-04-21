@@ -7,7 +7,7 @@ export default function Index() {
   return (
     <Container className="space-y-14">
       <Hero />
-      <Works />
+      <Works filterSpecial={true} />
       {/* <Projects /> */}
     </Container>
   )
