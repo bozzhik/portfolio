@@ -6,9 +6,7 @@ import Works from '##/index/Works'
 export default function Index() {
   return (
     <Container className="space-y-14">
-      <Hero />
       <Works />
-      {/* <Projects /> */}
     </Container>
   )
 }

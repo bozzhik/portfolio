@@ -5,8 +5,8 @@ import Link from 'next/link'
 const headerData = {
   1: {name: 'home', href: '/'},
   2: {name: 'works', href: '/works/'},
-  3: {name: 'projects', href: '/projects/'},
-  4: {name: 'cv', href: '/cv/'},
+  // 3: {name: 'projects', href: '/projects/'},
+  // 4: {name: 'cv', href: '/cv/'},
 }
 
 export default function Header() {

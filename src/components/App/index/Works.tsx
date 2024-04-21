@@ -47,12 +47,12 @@ const Works = async () => {
   works.sort((a, b) => a.id - b.id)
 
   return (
-    <section data-section="works-index" className="mt-8 space-y-8">
+    <section data-section="works" className="space-y-8">
       <Text type="heading">my works</Text>
 
       <div className="flex flex-col gap-5 sm:gap-3">
         {works.map(
-          (work, index) => work.is_special && <WorkCard work={work} index={index} key={index} />, // display on index page
+          (work, index) => work.is_special && <WorkCard work={work} index={index} key={index} />, // verification
         )}
       </div>
     </section>
