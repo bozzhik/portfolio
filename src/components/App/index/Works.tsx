@@ -1,4 +1,5 @@
 import {client} from '@/lib/sanity'
+import Link from 'next/link'
 import {Text} from '#/UI/Text'
 import {WorkCard} from '@/components/UI/WorkCard'
 
@@ -38,10 +39,10 @@ async function getData(): Promise<Work[]> {
 }
 
 interface WorksProps {
-  filterSpecial?: boolean
+  isIndex?: boolean
 }
 
-const Works: React.FC<WorksProps> = async ({filterSpecial = false}) => {
+const Works: React.FC<WorksProps> = async ({isIndex = false}) => {
   const works: Work[] = await getData()
 
   if (!works) {
@@ -52,14 +53,23 @@ const Works: React.FC<WorksProps> = async ({filterSpecial = false}) => {
 
   return (
     <section data-section="works" className="space-y-8">
-      <Text type="heading">my works</Text>
+      {isIndex ? (
+        <div className="flex items-end justify-between">
+          <Text type="heading">my works</Text>
+          <Link href="/works" className="text-xl font-medium underline duration-300 underline-offset-2 text-neutral-600 opacity-70 hover:opacity-100">
+            view all
+          </Link>
+        </div>
+      ) : (
+        <Text type="heading">my works</Text>
+      )}
 
       <div className="flex flex-col gap-5 sm:gap-3">
         {works.map((work, index) =>
-          filterSpecial && work.is_special ? (
+          isIndex && work.is_special ? (
             <WorkCard work={work} index={index} key={index} /> // index page
-          ) : !filterSpecial ? (
-            <WorkCard work={work} index={index} key={index} /> // works page
+          ) : !isIndex ? (
+            <WorkCard work={work} index={index} key={index} />
           ) : null,
         )}
       </div>

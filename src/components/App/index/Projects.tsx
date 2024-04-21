@@ -34,10 +34,10 @@ async function getData(): Promise<Project[]> {
 }
 
 interface ProjectsProps {
-  filterSpecial?: boolean
+  isIndex?: boolean
 }
 
-const Projects: React.FC<ProjectsProps> = async ({filterSpecial = false}) => {
+const Projects: React.FC<ProjectsProps> = async ({isIndex = false}) => {
   const projects: Project[] = await getData()
 
   if (!projects) {
@@ -52,9 +52,9 @@ const Projects: React.FC<ProjectsProps> = async ({filterSpecial = false}) => {
 
       <div className="flex flex-col gap-5 sm:gap-3">
         {projects.map((project, index) =>
-          filterSpecial && project.is_special ? (
+          isIndex && project.is_special ? (
             <ProjectCard project={project} index={index} key={index} /> // index page
-          ) : !filterSpecial ? (
+          ) : !isIndex ? (
             <ProjectCard project={project} index={index} key={index} /> // projects page
           ) : null,
         )}

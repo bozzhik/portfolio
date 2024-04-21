@@ -7,8 +7,8 @@ export default function Index() {
   return (
     <Container className="space-y-14">
       <Hero />
-      <Works filterSpecial={true} />
-      <Projects filterSpecial={true} />
+      <Works isIndex={true} />
+      <Projects isIndex={true} />
     </Container>
   )
 }
