@@ -47,7 +47,7 @@ const Projects: React.FC<ProjectsProps> = async ({isIndex = false}) => {
   projects.sort((a, b) => a.id - b.id)
 
   return (
-    <section data-section="projects-index" className="mt-8 space-y-8">
+    <section id="PROJECTS" data-section="projects" className="mt-8 space-y-8">
       <Text type="heading">my projects</Text>
 
       <div className="flex flex-col gap-5 sm:gap-3">

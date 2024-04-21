@@ -45,11 +45,11 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-smooth">
       <body className={`${SuisseIntl.className} bg-custom-black text-white`}>
         <Header />
         {children}
-        <Particles className="fixed inset-0 -z-10 h-screen opacity-70 overflow-hidden" />
+        <Particles className="fixed inset-0 h-screen overflow-hidden -z-10 opacity-70" />
       </body>
     </html>
   )

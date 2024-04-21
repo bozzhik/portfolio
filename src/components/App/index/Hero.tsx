@@ -17,7 +17,7 @@ export default function Hero() {
         </Text>
       </div>
       <Text>
-        I&#39;m a website developer and user interface designer. I am studying at the HSE to design and develop <Badge href="#" icon={CursorImage} text="digital products" />. <br className="hidden sm:block" /> I am currently working as a self-employed frontend developer, specializing in creating stunning <Badge href="#" icon={CursorImage} text="landing pages" /> and interactive <Badge href="#" className="mr-[0.5px]" icon={CursorImage} text="websites" />.
+        I&#39;m a website developer and user interface designer. I am studying at the HSE to design and develop <Badge href="#PROJECTS" icon={CursorImage} text="digital products" />. <br className="hidden sm:block" /> I am currently working as a self-employed frontend developer, specializing in creating stunning <Badge href="#" icon={CursorImage} text="landing pages" /> and interactive <Badge href="#" className="mr-[0.5px]" icon={CursorImage} text="websites" />.
       </Text>
 
       <HeroLinks />
