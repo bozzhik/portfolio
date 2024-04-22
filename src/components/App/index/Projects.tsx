@@ -55,7 +55,7 @@ const Projects: React.FC<ProjectsProps> = async ({isIndex = false}) => {
           isIndex && project.is_special ? (
             <ProjectCard project={project} index={index} key={index} /> // index page
           ) : !isIndex ? (
-            <ProjectCard project={project} index={index} key={index} /> // projects page
+            <ProjectCard project={project} index={index} key={index} />
           ) : null,
         )}
       </div>

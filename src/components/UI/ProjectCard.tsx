@@ -15,7 +15,7 @@ const ProjectCard: React.FC<Props> = ({project, index}) => {
   return (
     <Link className={`group relative flex flex-col overflow-hidden h-[35vh] xl:h-[37vh] sm:h-[40vh] duration-500 rounded-2xl sm:rounded-xl border-[1px] border-neutral-800 border-b-0 ${!project.link && 'pointer-events-none'}`} href={`${project.link || ' '}`} target="_blank" key={index}>
       <div className={`absolute inset-0 -z-20 s-full sm:h-[65%] duration-500 ${project.link && 'group-hover:scale-[102%]'}`}>
-        <Image quality={100} priority={true} className="object-cover object-top" src={urlForImage(project.image).url()} fill={true} sizes="70vw" alt={project.name} />
+        <Image quality={100} priority={project.is_special && true} className="object-cover object-top" src={urlForImage(project.image).url()} fill={true} sizes="70vw" alt={project.name} />
       </div>
 
       <div className="absolute inset-0 w-full h-full bg-gradient-to-b from-custom-black/0 via-custom-black/40 to-custom-black sm:to-custom-gray/30 -z-10"></div>
