@@ -66,7 +66,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <Analytics />
+      {process.env.NODE_ENV === 'production' && <Analytics />}
       <body className={`${SuisseIntl.className} bg-custom-black text-white`}>
         <Header />
         {children}
