@@ -1,4 +1,6 @@
 import {client} from '@/lib/sanity'
+import {revalidateOnTime} from '@/lib/utils'
+
 import {Text} from '#/UI/Text'
 import {ProjectCard} from '@/components/UI/ProjectCard'
 
@@ -26,7 +28,7 @@ async function getData(): Promise<Project[]> {
     {},
     {
       next: {
-        revalidate: 3600,
+        revalidate: revalidateOnTime,
       },
     },
   )

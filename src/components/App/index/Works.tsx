@@ -1,4 +1,5 @@
 import {client} from '@/lib/sanity'
+import {revalidateOnTime} from '@/lib/utils'
 
 import Link from 'next/link'
 import {Text} from '#/UI/Text'
@@ -32,7 +33,7 @@ async function getData(): Promise<Work[]> {
     {},
     {
       next: {
-        revalidate: 3600,
+        revalidate: revalidateOnTime,
       },
     },
   )
