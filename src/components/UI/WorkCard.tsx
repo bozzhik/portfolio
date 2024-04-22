@@ -17,7 +17,7 @@ interface Props {
 
 const WorkCard: React.FC<Props> = ({work, index}) => {
   return (
-    <Link data-variant={work.variant} className="group relative flex flex-col h-[35vh] xl:h-[37vh] rounded-2xl sm:rounded-xl border-[1px] border-neutral-800 border-b-0" href={work.link} key={index}>
+    <Link data-variant={work.variant} className="group relative flex flex-col h-[35vh] xl:h-[37vh] rounded-2xl sm:rounded-xl border-[1px] border-neutral-800 border-b-0" href={work.link} target="_blank" key={index}>
       <div className={`absolute inset-0 -z-20 s-full sm:h-[69%] duration-500 overflow-hidden rounded-2xl sm:rounded-xl`}>
         <Image quality={100} priority={true} className="object-cover object-top duration-500 group-hover:scale-[102%]" src={work.image ? urlForImage(work.image).url() : DefaultImage} fill={true} sizes="70vw" alt={work.name} />
       </div>
