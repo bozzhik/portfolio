@@ -1,10 +1,10 @@
 import Container from '#/Global/Container'
-import Works from '##/index/Works'
+import Hero from '##/index/Hero'
 
-export default function WorksPage() {
+export default function CvPage() {
   return (
     <Container className="space-y-14">
-      <Works />
+      <Hero />
     </Container>
   )
 }
