@@ -26,7 +26,7 @@ async function getData(): Promise<Project[]> {
     {},
     {
       next: {
-        revalidate: 30,
+        revalidate: 3600,
       },
     },
   )

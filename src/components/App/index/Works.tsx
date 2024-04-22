@@ -32,7 +32,7 @@ async function getData(): Promise<Work[]> {
     {},
     {
       next: {
-        revalidate: 30,
+        revalidate: 3600,
       },
     },
   )
