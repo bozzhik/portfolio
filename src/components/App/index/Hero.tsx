@@ -9,7 +9,7 @@ import '%%/stylesheets/animate-surfing.css'
 
 export default function Hero() {
   return (
-    <section data-section="hero-index" className="space-y-8 ">
+    <section data-section="hero-index" className="space-y-8">
       <div className="group">
         <Text type="heading" className="flex items-center">
           hey, I&#39;m bozzhik

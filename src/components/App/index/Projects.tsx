@@ -48,7 +48,7 @@ const Projects: React.FC<ProjectsProps> = async ({isIndex = false}) => {
 
   return (
     <section id="PROJECTS" data-section="projects" className="mt-8 space-y-8">
-      <Text type="heading">my projects</Text>
+      <Text type="heading">my products</Text>
 
       <div className="flex flex-col gap-5 sm:gap-3">
         {projects.map((project, index) =>
