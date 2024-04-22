@@ -2,6 +2,7 @@ import type {Metadata} from 'next'
 import localFont from 'next/font/local'
 import './globals.css'
 
+import Analytics from '#/Global/Analytics'
 import Header from '#/Global/Header'
 import Particles from '#/Global/Particles'
 
@@ -81,6 +82,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
+      <Analytics />
       <body className={`${SuisseIntl.className} bg-custom-black text-white`}>
         <Header />
         {children}
