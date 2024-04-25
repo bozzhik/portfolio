@@ -2,7 +2,7 @@ import {client} from '@/lib/sanity'
 import {revalidateOnTime} from '@/lib/utils'
 
 import {Text} from '#/UI/Text'
-import {ProjectCard} from '@/components/UI/ProjectCard'
+import {ProjectCard} from '#/UI/ProjectCard'
 
 export interface Project {
   name: string
@@ -51,6 +51,8 @@ const Projects: React.FC<ProjectsProps> = async ({isIndex = false}) => {
   return (
     <section id="PROJECTS" data-section="projects" className="mt-8 space-y-8">
       <Text type="heading">my products</Text>
+
+      {isIndex && <Text>This section includes my university projects, in which we create ready-to-launch digital products, as well as interesting projects that I do for myself.</Text>}
 
       <div className="flex flex-col gap-5 sm:gap-3">
         {projects.map((project, index) =>

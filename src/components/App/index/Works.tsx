@@ -66,11 +66,7 @@ const Works: React.FC<WorksProps> = async ({isIndex = false}) => {
         <Text type="heading">my works</Text>
       )}
 
-      {isIndex ? (
-        <Text>Creating landing pages, multi-page websites, and web applications is my forte. I oversee the entire process from idea and design to coding and delivering the final product.</Text>
-      ) : (
-        <Text>I specialize in crafting landing pages, multi-page websites, and web applications. From conceptualization to design, coding, and website publication, I handle the entire process autonomously.</Text> // index page
-      )}
+      {isIndex && <Text>Creating landing pages, multi-page websites, and web applications is my forte. I oversee the entire process from idea and design to coding and delivering the final product.</Text>}
 
       <div className="flex flex-col gap-5 sm:gap-3">
         {works.map((work, index) =>
