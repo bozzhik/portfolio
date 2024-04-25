@@ -8,12 +8,12 @@ import {ArrowLink} from '#/UI/ArrowLink'
 import '%%/stylesheets/animate-surfing.css'
 
 export default function Hero() {
-  const links = {
-    1: {text: 'E-mail', url: 'mailto:bozzhik@yandex.com'},
-    2: {text: 'GitHub', url: 'https://github.com/bozzhik'},
-    3: {text: 'Telegram', url: 'https://t.me/bozzhik'},
-    4: {text: 'Instagram', url: 'https://instagram.com/bozzzzhik'},
-  }
+  const links = [
+    {text: 'E-mail', url: 'mailto:bozzhik@yandex.com'},
+    {text: 'GitHub', url: 'https://github.com/bozzhik'},
+    {text: 'Telegram', url: 'https://t.me/bozzhik'},
+    {text: 'Instagram', url: 'https://instagram.com/bozzzzhik'},
+  ]
 
   return (
     <section data-section="hero-index" className="space-y-8">
@@ -28,8 +28,8 @@ export default function Hero() {
       </Text>
 
       <div className="flex gap-5 xl:gap-3.5 sm:flex-wrap sm:gap-5 text-neutral-300">
-        {Object.values(links).map((link, index) => (
-          <ArrowLink key={index} link={link} index={index} />
+        {links.map((link, index) => (
+          <ArrowLink key={index} href={link.url} text={link.text} />
         ))}
       </div>
     </section>
