@@ -4,6 +4,7 @@ import {revalidateOnTime} from '@/lib/utils'
 import Link from 'next/link'
 import {Text} from '#/UI/Text'
 import {WorkCard} from '#/UI/WorkCard'
+import {ArrowLink} from '#/UI/ArrowLink'
 
 export interface Work {
   name: string
@@ -56,11 +57,9 @@ const Works: React.FC<WorksProps> = async ({isIndex = false}) => {
   return (
     <section data-section="works" className="space-y-8">
       {isIndex ? (
-        <div className="flex items-end justify-between">
+        <div className="flex justify-between items-center">
           <Text type="heading">my works</Text>
-          <Link href="/works" className="text-xl font-medium underline duration-300 underline-offset-2 text-neutral-600 opacity-70 hover:opacity-100">
-            view all
-          </Link>
+          <ArrowLink href="/works/" text="View all" className="text-neutral-500" svgClassName="fill-neutral-500" />
         </div>
       ) : (
         <Text type="heading">my works</Text>
