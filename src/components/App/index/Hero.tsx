@@ -1,13 +1,20 @@
 import Image from 'next/image'
 import CursorImage from '%/icons/cursor.svg'
 
-import HeroLinks from '##/index/HeroLinks'
 import {Text} from '#/UI/Text'
 import {Badge} from '#/UI/Badge'
+import {ArrowLink} from '#/UI/ArrowLink'
 
 import '%%/stylesheets/animate-surfing.css'
 
 export default function Hero() {
+  const links = {
+    1: {text: 'E-mail', url: 'mailto:bozzhik@yandex.com'},
+    2: {text: 'GitHub', url: 'https://github.com/bozzhik'},
+    3: {text: 'Telegram', url: 'https://t.me/bozzhik'},
+    4: {text: 'Instagram', url: 'https://instagram.com/bozzzzhik'},
+  }
+
   return (
     <section data-section="hero-index" className="space-y-8">
       <div className="group">
@@ -20,7 +27,11 @@ export default function Hero() {
         I&#39;m a website developer and user interface designer. I am studying at the HSE to design and develop <Badge href="#PROJECTS" icon={CursorImage} text="digital products" />. <br className="hidden sm:block" /> I am currently working as a self-employed frontend developer, specializing in creating stunning <Badge href="/works/" icon={CursorImage} text="landing pages" /> and interactive <Badge href="/works/" className="mr-[0.5px]" icon={CursorImage} text="websites" />.
       </Text>
 
-      <HeroLinks />
+      <div className="flex gap-5 xl:gap-3.5 sm:flex-wrap sm:gap-5 text-neutral-300">
+        {Object.values(links).map((link, index) => (
+          <ArrowLink key={index} link={link} index={index} />
+        ))}
+      </div>
     </section>
   )
 }
