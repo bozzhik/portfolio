@@ -59,7 +59,7 @@ const Works: React.FC<WorksProps> = async ({isIndex = false}) => {
       {isIndex ? (
         <div className="flex justify-between items-center">
           <Text type="heading">my works</Text>
-          <ArrowLink href="/works/" text="View all" className="text-neutral-500" svgClassName="fill-neutral-500" />
+          <ArrowLink href="/works/" target={false} text="View all" className="text-neutral-500" svgClassName="fill-neutral-500" />
         </div>
       ) : (
         <Text type="heading">my works</Text>
