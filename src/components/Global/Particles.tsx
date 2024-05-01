@@ -11,7 +11,7 @@ interface ParticlesProps {
   refresh?: boolean
 }
 
-export default function Particles({className = '', quantity = 50, staticity = 50, ease = 50, refresh = false}: ParticlesProps) {
+export default function Particles({className = '', quantity = 75, staticity = 250, ease = 50, refresh = false}: ParticlesProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const canvasContainerRef = useRef<HTMLDivElement>(null)
   const context = useRef<CanvasRenderingContext2D | null>(null)
