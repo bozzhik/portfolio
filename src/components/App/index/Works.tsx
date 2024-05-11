@@ -59,7 +59,7 @@ const Works: React.FC<WorksProps> = async ({isIndex = false}) => {
       {isIndex ? (
         <div className="flex justify-between items-center">
           <Text type="heading">my works</Text>
-          <ArrowLink href="/works/" target={false} text="View all" className="text-neutral-500" svgClassName="fill-neutral-500" />
+          {/* <ArrowLink href="/works/" target={false} text="View all" className="text-neutral-500" svgClassName="fill-neutral-500" /> */}
         </div>
       ) : (
         <Text type="heading">my works</Text>
@@ -70,10 +70,15 @@ const Works: React.FC<WorksProps> = async ({isIndex = false}) => {
       <div className="flex flex-col gap-5 sm:gap-3">
         {works.map((work, index) =>
           isIndex && work.is_special ? (
-            <WorkCard work={work} index={index} key={index} /> // index page
+            <WorkCard work={work} index={index} key={index} /> // index page view
           ) : !isIndex ? (
             <WorkCard work={work} index={index} key={index} />
           ) : null,
+        )}
+        {isIndex && (
+          <Link href="/works/" className="py-2 sm:py-2.5 text-center hover:text-white/60 duration-200 sm:text-sm from-neutral-900/50 to-neutral-900/50 bg-gradient-to-b rounded-xl border-[1px] border-neutral-800 border-b-0">
+            View all
+          </Link>
         )}
       </div>
     </section>
