@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "explorer http://localhost:2000 & next dev -p 2000",
+    "dev": "explorer http://localhost:2000 & next dev --turbo -p 2000",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
