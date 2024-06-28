@@ -1,5 +1,7 @@
 # ⚡️developer portfolio
 
+![sky-cast_screenshot01](https://bozzhik.ru/og.jpg)
+
 - **Framework**: [Next.js](https://nextjs.org/)
 - **Database**: [Sanity CMS](https://www.sanity.io/)
 - **Deployment**: [Vercel](https://vercel.com)
