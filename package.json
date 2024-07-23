@@ -11,6 +11,7 @@
   "dependencies": {
     "@bozzhik/is-mobile": "^0.1.1",
     "@sanity/image-url": "^1.0.2",
+    "@vercel/speed-insights": "^1.0.12",
     "axios": "^1.6.8",
     "clsx": "^2.1.0",
     "framer-motion": "^11.0.24",

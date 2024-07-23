@@ -2,6 +2,7 @@ import type {Metadata} from 'next'
 import localFont from 'next/font/local'
 import './globals.css'
 
+import {SpeedInsights} from '@vercel/speed-insights/next'
 import Analytics from '#/Global/Analytics'
 import Header from '#/Global/Header'
 import Particles from '#/Global/Particles'
@@ -70,6 +71,7 @@ export default function RootLayout({
       <body className={`${SuisseIntl.className} bg-custom-black text-white`}>
         <Header />
         {children}
+        <SpeedInsights />
         <Particles className="fixed inset-0 h-screen overflow-hidden -z-10 opacity-70" />
       </body>
     </html>
