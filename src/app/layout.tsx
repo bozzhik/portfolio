@@ -3,7 +3,9 @@ import localFont from 'next/font/local'
 import './globals.css'
 
 import {SpeedInsights} from '@vercel/speed-insights/next'
-import Analytics from '#/Global/Analytics'
+import {Analytics} from '@vercel/analytics/react'
+
+import YandexMetrika from '#/Global/Analytics'
 import Header from '#/Global/Header'
 import Particles from '#/Global/Particles'
 
@@ -67,7 +69,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      {process.env.NODE_ENV === 'production' && <Analytics />}
+      {process.env.NODE_ENV === 'production' && (
+        <>
+          <YandexMetrika />
+          <Analytics />
+        </>
+      )}
       <body className={`${SuisseIntl.className} bg-custom-black text-white`}>
         <Header />
         {children}
