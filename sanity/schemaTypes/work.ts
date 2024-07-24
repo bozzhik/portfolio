@@ -15,7 +15,6 @@ const work: SchemaTypeDefinition = {
       name: 'link',
       title: 'Work link',
       type: 'string',
-      validation: (rule: Rule) => rule.required(),
     },
     {
       name: 'id',
@@ -44,13 +43,6 @@ const work: SchemaTypeDefinition = {
           {title: 'Multi-page website', value: 'multipage'},
         ],
       },
-      validation: (rule: Rule) => rule.required(),
-    },
-    {
-      name: 'stack',
-      title: 'Work Stack',
-      type: 'array',
-      of: [{type: 'reference', to: {type: 'tech'}}],
       validation: (rule: Rule) => rule.required(),
     },
     {
