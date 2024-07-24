@@ -29,7 +29,7 @@ const work: SchemaTypeDefinition = {
       validation: (rule: Rule) => rule.required(),
     },
     {
-      name: 'variant',
+      name: 'type',
       title: 'Work Type',
       type: 'string',
       options: {

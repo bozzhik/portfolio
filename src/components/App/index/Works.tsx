@@ -11,11 +11,10 @@ export interface Work {
   link: string
   id: number
   description: string
-  image: Array<{asset: {url: string}}>
-  variant: string
-  stack: Array<{name: string; value: string}>
-  in_development: boolean
-  is_special: boolean
+  type: string
+  image?: Array<{asset: {url: string}}>
+  in_development?: boolean
+  is_special?: boolean
 }
 
 async function getData(): Promise<Work[]> {
@@ -25,9 +24,8 @@ async function getData(): Promise<Work[]> {
         link,
         id,
         description,
+        type,
         image,
-        variant,
-        stack[] -> { name, value },
         in_development,
         is_special,
     }`,
@@ -47,6 +45,7 @@ interface WorksProps {
 
 const Works: React.FC<WorksProps> = async ({isIndex = false}) => {
   const works: Work[] = await getData()
+  console.log('🚀 ~ constWorks:React.FC<WorksProps>= ~ works:', works)
 
   if (!works) {
     return <mark>Произошла ошибка при получении данных!</mark>
@@ -57,7 +56,7 @@ const Works: React.FC<WorksProps> = async ({isIndex = false}) => {
   return (
     <section data-section="works" className="space-y-8">
       {isIndex ? (
-        <div className="flex justify-between items-center">
+        <div className="flex items-center justify-between">
           <Text type="heading">my works</Text>
           {/* <ArrowLink href="/works/" target={false} text="View all" className="text-neutral-500" svgClassName="fill-neutral-500" /> */}
         </div>
@@ -76,7 +75,7 @@ const Works: React.FC<WorksProps> = async ({isIndex = false}) => {
           ) : null,
         )}
         {isIndex && (
-          <Link href="/works/" className="py-2 sm:py-2.5 text-center hover:text-white/60 duration-200 sm:text-sm from-neutral-900/50 to-neutral-900/50 bg-gradient-to-b rounded-xl border-[1px] border-neutral-800 border-b-0">
+          <Link href="/works" className="py-2 sm:py-2.5 text-center hover:text-white/60 duration-200 sm:text-sm from-neutral-900/50 to-neutral-900/50 bg-gradient-to-b rounded-xl border-[1px] border-neutral-800 border-b-0">
             View all
           </Link>
         )}
