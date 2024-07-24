@@ -29,11 +29,6 @@ const work: SchemaTypeDefinition = {
       validation: (rule: Rule) => rule.required(),
     },
     {
-      name: 'image',
-      title: 'Work Image',
-      type: 'image',
-    },
-    {
       name: 'variant',
       title: 'Work Type',
       type: 'string',
@@ -44,6 +39,16 @@ const work: SchemaTypeDefinition = {
         ],
       },
       validation: (rule: Rule) => rule.required(),
+    },
+    {
+      name: 'image',
+      title: 'Work Image',
+      type: 'image',
+    },
+    {
+      name: 'color',
+      title: 'Hover color',
+      type: 'color',
     },
     {
       name: 'in_development',

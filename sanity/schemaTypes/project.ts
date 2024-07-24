@@ -35,6 +35,12 @@ const project: SchemaTypeDefinition = {
       validation: (rule: Rule) => rule.required(),
     },
     {
+      name: 'color',
+      title: 'Hover color',
+      type: 'color',
+      validation: (rule) => rule.required().max(100),
+    },
+    {
       name: 'in_development',
       title: 'In development?',
       type: 'boolean',
