@@ -45,7 +45,6 @@ interface WorksProps {
 
 const Works: React.FC<WorksProps> = async ({isIndex = false}) => {
   const works: Work[] = await getData()
-  console.log('🚀 ~ constWorks:React.FC<WorksProps>= ~ works:', works)
 
   if (!works) {
     return <mark>Произошла ошибка при получении данных!</mark>

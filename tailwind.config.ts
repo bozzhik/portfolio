@@ -14,6 +14,10 @@ const config: Config = {
           black: '#090909',
           gray: '#191919',
         },
+        gradient: {
+          gray: '#33333350',
+          black: '#10101050',
+        },
       },
     },
     screens: {
