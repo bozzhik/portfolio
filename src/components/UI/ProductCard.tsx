@@ -1,7 +1,7 @@
 import {cn} from '@/lib/utils'
 import {urlForImage} from '@/lib/sanity'
 
-import {Work, Project} from '@/types/product'
+import {Product} from '@/types/product'
 
 import Link from 'next/link'
 import Image from 'next/image'
@@ -12,12 +12,12 @@ import DefaultImage from '%/default-card-img.png'
 
 interface Props {
   type: 'work' | 'project'
-  product: Work | Project
+  product: Product
 }
 
 const cardStyles = {
-  base: 'group relative flex flex-col h-[35vh] xl:h-[37vh]',
-  border: 'overflow-hidden rounded-2xl sm:rounded-xl border-[1px] border-neutral-800 border-b-0',
+  base: 'group relative flex flex-col h-[37vh] xl:h-[43vh] sm:h-[35vh]',
+  border: 'overflow-hidden rounded-2xl sm:rounded-lg border-[1px] border-neutral-800 border-b-0',
   background: 'bg-gradient-to-b from-gradient-gray to-gradient-black',
 
   text_shadow: {
@@ -33,8 +33,8 @@ export default function ProductCard({type, product}: Props) {
 
   return (
     <Link data-variant={product.type} className={cn([base, border, background], `hover:from-[${hoverColor}] hover:via-gradient-gray duration-500`)} href={product.link} target="_blank">
-      <div className={`absolute inset-0 z-10 s-full sm:h-[67%] duration-500 overflow-hidden rounded-2xl sm:rounded-xl`}>
-        <Image quality={100} priority={product.is_best && true} className={`object-cover object-top duration-500  ${type == 'work' ? 'opacity-50 group-hover:opacity-80' : 'opacity-70 group-hover:opacity-90'} group-hover:scale-[101%]`} src={product.image ? urlForImage(product.image).url() : DefaultImage} fill={true} sizes="70vw" alt={product.name} />
+      <div className={`absolute inset-0 z-10 s-full duration-500 overflow-hidden rounded-2xl sm:rounded-xl`}>
+        <Image quality={100} priority={product.is_best && true} className={`object-cover object-top duration-500  ${type == 'work' ? 'opacity-50 group-hover:opacity-80' : 'opacity-70 group-hover:opacity-90'} group-hover:scale-[101%]`} src={product.image ? urlForImage(product.image).url() : DefaultImage} width={1000} height={700} alt={product.name} />
       </div>
 
       <div className={`z-20 flex flex-col ${type == 'work' ? 'px-4 pb-5 mx-4 sm:px-0 sm:pb-4' : 'pb-5 pl-8 sm:p-4'} mt-auto text-neutral-300 ${type == 'work' ? text_shadow.work : text_shadow.project}`}>
@@ -43,7 +43,7 @@ export default function ProductCard({type, product}: Props) {
         <Text type="heading" className="xl:text-xl">
           {product.name}
         </Text>
-        <Text className={`leading-normal ${type == 'work' ? 'max-w-[30ch]' : 'max-w-[33ch]'}  xl:text-sm sm:text-xs`}>{product.description}</Text>
+        <Text className={`leading-normal ${type == 'work' ? 'max-w-[30ch] sm:max-w-[24ch]' : 'max-w-[33ch]'}`}>{product.description}</Text>
       </div>
     </Link>
   )
