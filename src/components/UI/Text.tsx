@@ -3,10 +3,10 @@ import {cn} from '@/lib/utils'
 interface Props {
   type?: 'heading' | 'text'
   className?: string
-  children: React.ReactNode | string // Allow string for HTML content
+  children: React.ReactNode | string
 }
 
-const Text: React.FC<Props> = ({type = 'text', children, className}) => {
+export default function Text({type = 'text', children, className}: Props) {
   if (type === 'heading') {
     return <h1 className={cn('text-2xl font-medium tracking-tight', className)}>{children}</h1>
   } else if (type === 'text') {
@@ -19,5 +19,3 @@ const Text: React.FC<Props> = ({type = 'text', children, className}) => {
     return <p className={cn('text-neutral-300 leading-[1.8rem]', className)}>{children}</p>
   }
 }
-
-export {Text}

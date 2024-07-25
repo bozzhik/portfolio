@@ -5,15 +5,14 @@ import {Work, Project} from '@/types/product'
 
 import Link from 'next/link'
 import Image from 'next/image'
-import {Text} from '#/UI/Text'
-import {Badge} from '#/UI/Badge'
+import Text from '#/UI/Text'
+import Badge from '#/UI/Badge'
 
 import DefaultImage from '%/default-card-img.png'
 
 interface Props {
   type: 'work' | 'project'
   product: Work | Project
-  index: number
 }
 
 const cardStyles = {
@@ -26,15 +25,14 @@ const cardStyles = {
     project: 'bg-gradient-to-b from-custom-black/0 to-custom-black/100',
   },
 }
-
 const {base, border, background, text_shadow} = cardStyles
 
-const ProductCard: React.FC<Props> = ({type, product, index}) => {
+export default function ProductCard({type, product}: Props) {
   const {r, g, b, a} = product.hover_color || {r: 0, g: 0, b: 0, a: 1}
   const hoverColor = `rgba(${r}_${g}_${b}/${a})`
 
   return (
-    <Link data-variant={product.type} className={cn([base, border, background], `hover:from-[${hoverColor}] hover:via-gradient-gray duration-500`)} href={product.link} target="_blank" key={index}>
+    <Link data-variant={product.type} className={cn([base, border, background], `hover:from-[${hoverColor}] hover:via-gradient-gray duration-500`)} href={product.link} target="_blank">
       <div className={`absolute inset-0 z-10 s-full sm:h-[67%] duration-500 overflow-hidden rounded-2xl sm:rounded-xl`}>
         <Image quality={100} priority={product.is_best && true} className={`object-cover object-top duration-500  ${type == 'work' ? 'opacity-50 group-hover:opacity-80' : 'opacity-70 group-hover:opacity-90'} group-hover:scale-[101%]`} src={product.image ? urlForImage(product.image).url() : DefaultImage} fill={true} sizes="70vw" alt={product.name} />
       </div>
@@ -50,5 +48,3 @@ const ProductCard: React.FC<Props> = ({type, product, index}) => {
     </Link>
   )
 }
-
-export default ProductCard

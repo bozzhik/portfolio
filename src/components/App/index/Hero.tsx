@@ -1,8 +1,8 @@
 import Image from 'next/image'
 import CursorImage from '%/icons/cursor.svg'
 
-import {Text} from '#/UI/Text'
-import {Badge} from '#/UI/Badge'
+import Text from '#/UI/Text'
+import Badge from '#/UI/Badge'
 import {ArrowLink} from '#/UI/ArrowLink'
 
 import '%%/stylesheets/animate-surfing.css'

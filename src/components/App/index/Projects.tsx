@@ -3,7 +3,7 @@ import {revalidateTime} from '@/lib/utils'
 
 import {Project} from '@/types/product'
 
-import {Text} from '#/UI/Text'
+import Text from '#/UI/Text'
 import ProductCard from '#/UI/ProductCard'
 
 async function getData(): Promise<Project[]> {
