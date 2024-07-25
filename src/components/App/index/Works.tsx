@@ -13,6 +13,7 @@ export interface Work {
   description: string
   type: string
   image?: Array<{asset: {url: string}}>
+  hover_color?: any
   in_development?: boolean
   is_special?: boolean
 }
@@ -26,6 +27,7 @@ async function getData(): Promise<Work[]> {
         description,
         type,
         image,
+        "hover_color":color.rgb,
         in_development,
         is_special,
     }`,
