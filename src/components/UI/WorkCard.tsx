@@ -29,7 +29,7 @@ const WorkCard: React.FC<Props> = ({work, index}) => {
   return (
     <Link data-variant={work.type} className={cn([base, border, background], `hover:from-[${hoverColor}] hover:via-gradient-gray duration-500`)} href={work.link} target="_blank" key={index}>
       <div className={`absolute inset-0 z-10 s-full sm:h-[69%] duration-500 overflow-hidden rounded-2xl sm:rounded-xl`}>
-        <Image quality={100} priority={work.is_special && true} className="object-cover object-top duration-500 opacity-50 group-hover:opacity-80 group-hover:scale-[101%]" src={work.image ? urlForImage(work.image).url() : DefaultImage} fill={true} sizes="70vw" alt={work.name} />
+        <Image quality={100} priority={work.is_best && true} className="object-cover object-top duration-500 opacity-50 group-hover:opacity-80 group-hover:scale-[101%]" src={work.image ? urlForImage(work.image).url() : DefaultImage} fill={true} sizes="70vw" alt={work.name} />
       </div>
 
       <div className="z-20 flex flex-col px-4 pb-5 mx-4 mt-auto text-neutral-300 sm:p-4 group-hover:bg-gradient-to-b group-hover:from-custom-black/0 group-hover:to-custom-black/100">

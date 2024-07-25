@@ -11,7 +11,7 @@ export interface Project {
   description: string
   image: Array<{asset: {url: string}}>
   in_development: boolean
-  is_special: boolean
+  is_best: boolean
 }
 
 async function getData(): Promise<Project[]> {
@@ -23,7 +23,7 @@ async function getData(): Promise<Project[]> {
         description,
         image,
         in_development,
-        is_special,
+        is_best,
     }`,
     {},
     {
@@ -56,7 +56,7 @@ const Projects: React.FC<ProjectsProps> = async ({isIndex = false}) => {
 
       <div className="flex flex-col gap-5 sm:gap-3">
         {projects.map((project, index) =>
-          isIndex && project.is_special ? (
+          isIndex && project.is_best ? (
             <ProjectCard project={project} index={index} key={index} /> // index page
           ) : !isIndex ? (
             <ProjectCard project={project} index={index} key={index} />

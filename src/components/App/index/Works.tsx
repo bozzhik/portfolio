@@ -15,7 +15,7 @@ export interface Work {
   image?: Array<{asset: {url: string}}>
   hover_color?: any
   in_development?: boolean
-  is_special?: boolean
+  is_best?: boolean
 }
 
 async function getData(): Promise<Work[]> {
@@ -29,7 +29,7 @@ async function getData(): Promise<Work[]> {
         image,
         "hover_color":color.rgb,
         in_development,
-        is_special,
+        is_best,
     }`,
     {},
     {
@@ -69,7 +69,7 @@ const Works: React.FC<WorksProps> = async ({isIndex = false}) => {
 
       <div className="flex flex-col gap-5 sm:gap-3">
         {works.map((work, index) =>
-          isIndex && work.is_special ? (
+          isIndex && work.is_best ? (
             <WorkCard work={work} index={index} key={index} /> // index page view
           ) : !isIndex ? (
             <WorkCard work={work} index={index} key={index} />
