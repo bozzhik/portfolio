@@ -1,9 +1,9 @@
 import {client} from '@/lib/sanity'
-import {revalidateOnTime} from '@/lib/utils'
+import {revalidateTime} from '@/lib/utils'
 
 import Link from 'next/link'
 import {Text} from '#/UI/Text'
-import {WorkCard} from '#/UI/WorkCard'
+import {ProductCard} from '#/UI/ProductCard'
 import {ArrowLink} from '#/UI/ArrowLink'
 
 export interface Work {
@@ -11,11 +11,11 @@ export interface Work {
   link: string
   id: number
   description: string
-  image: Array<{asset: {url: string}}>
-  variant: string
-  stack: Array<{name: string; value: string}>
-  in_development: boolean
-  is_special: boolean
+  type: string
+  image?: Array<{asset: {url: string}}>
+  hover_color?: any
+  is_best?: boolean
+  in_development?: boolean
 }
 
 async function getData(): Promise<Work[]> {
@@ -25,16 +25,16 @@ async function getData(): Promise<Work[]> {
         link,
         id,
         description,
+        type,
         image,
-        variant,
-        stack[] -> { name, value },
+        "hover_color":color.rgb,
+        is_best,
         in_development,
-        is_special,
     }`,
     {},
     {
       next: {
-        revalidate: revalidateOnTime,
+        revalidate: revalidateTime,
       },
     },
   )
@@ -57,7 +57,7 @@ const Works: React.FC<WorksProps> = async ({isIndex = false}) => {
   return (
     <section data-section="works" className="space-y-8">
       {isIndex ? (
-        <div className="flex justify-between items-center">
+        <div className="flex items-center justify-between">
           <Text type="heading">my works</Text>
           {/* <ArrowLink href="/works/" target={false} text="View all" className="text-neutral-500" svgClassName="fill-neutral-500" /> */}
         </div>
@@ -69,14 +69,14 @@ const Works: React.FC<WorksProps> = async ({isIndex = false}) => {
 
       <div className="flex flex-col gap-5 sm:gap-3">
         {works.map((work, index) =>
-          isIndex && work.is_special ? (
-            <WorkCard work={work} index={index} key={index} /> // index page view
+          isIndex && work.is_best ? (
+            <ProductCard type="work" product={work} index={index} key={index} /> // index page view
           ) : !isIndex ? (
-            <WorkCard work={work} index={index} key={index} />
+            <ProductCard type="work" product={work} index={index} key={index} />
           ) : null,
         )}
         {isIndex && (
-          <Link href="/works/" className="py-2 sm:py-2.5 text-center hover:text-white/60 duration-200 sm:text-sm from-neutral-900/50 to-neutral-900/50 bg-gradient-to-b rounded-xl border-[1px] border-neutral-800 border-b-0">
+          <Link href="/works" className="py-2 sm:py-2.5 text-center hover:text-white/60 duration-200 sm:text-sm from-neutral-900/50 to-neutral-900/50 bg-gradient-to-b rounded-xl border-[1px] border-neutral-800 border-b-0">
             View all
           </Link>
         )}

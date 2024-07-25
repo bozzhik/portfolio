@@ -35,13 +35,18 @@ const project: SchemaTypeDefinition = {
       validation: (rule: Rule) => rule.required(),
     },
     {
-      name: 'in_development',
-      title: 'In development?',
+      name: 'color',
+      title: 'Hover color',
+      type: 'color',
+    },
+    {
+      name: 'is_best',
+      title: 'Best work?',
       type: 'boolean',
     },
     {
-      name: 'is_special',
-      title: 'Is it special',
+      name: 'in_development',
+      title: 'In development?',
       type: 'boolean',
     },
   ],
@@ -49,7 +54,16 @@ const project: SchemaTypeDefinition = {
     select: {
       title: 'name',
       subtitle: 'id',
+      best: 'is_best',
       media: 'image',
+    },
+    prepare(selection) {
+      const {title, subtitle, best, media} = selection
+      return {
+        title: title,
+        subtitle: `${subtitle} ${best ? '★' : ''}`,
+        media: media,
+      }
     },
   },
 }

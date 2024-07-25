@@ -5,4 +5,4 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 
-export const revalidateOnTime = 3600
+export const revalidateTime = process.env.NODE_ENV === 'production' ? 3600 : 30

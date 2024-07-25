@@ -15,7 +15,6 @@ const work: SchemaTypeDefinition = {
       name: 'link',
       title: 'Work link',
       type: 'string',
-      validation: (rule: Rule) => rule.required(),
     },
     {
       name: 'id',
@@ -30,12 +29,7 @@ const work: SchemaTypeDefinition = {
       validation: (rule: Rule) => rule.required(),
     },
     {
-      name: 'image',
-      title: 'Work Image',
-      type: 'image',
-    },
-    {
-      name: 'variant',
+      name: 'type',
       title: 'Work Type',
       type: 'string',
       options: {
@@ -47,20 +41,23 @@ const work: SchemaTypeDefinition = {
       validation: (rule: Rule) => rule.required(),
     },
     {
-      name: 'stack',
-      title: 'Work Stack',
-      type: 'array',
-      of: [{type: 'reference', to: {type: 'tech'}}],
-      validation: (rule: Rule) => rule.required(),
+      name: 'image',
+      title: 'Work Image',
+      type: 'image',
+    },
+    {
+      name: 'color',
+      title: 'Hover color',
+      type: 'color',
+    },
+    {
+      name: 'is_best',
+      title: 'Best work?',
+      type: 'boolean',
     },
     {
       name: 'in_development',
       title: 'In development?',
-      type: 'boolean',
-    },
-    {
-      name: 'is_special',
-      title: 'Is it special',
       type: 'boolean',
     },
   ],
@@ -68,7 +65,16 @@ const work: SchemaTypeDefinition = {
     select: {
       title: 'name',
       subtitle: 'id',
+      best: 'is_best',
       media: 'image',
+    },
+    prepare(selection) {
+      const {title, subtitle, best, media} = selection
+      return {
+        title: title,
+        subtitle: `${subtitle} ${best ? '★' : ''}`,
+        media: media,
+      }
     },
   },
 }
