@@ -3,7 +3,7 @@ import {revalidateTime} from '@/lib/utils'
 
 import Link from 'next/link'
 import {Text} from '#/UI/Text'
-import {WorkCard} from '#/UI/WorkCard'
+import {ProductCard} from '#/UI/ProductCard'
 import {ArrowLink} from '#/UI/ArrowLink'
 
 export interface Work {
@@ -14,8 +14,8 @@ export interface Work {
   type: string
   image?: Array<{asset: {url: string}}>
   hover_color?: any
-  in_development?: boolean
   is_best?: boolean
+  in_development?: boolean
 }
 
 async function getData(): Promise<Work[]> {
@@ -28,8 +28,8 @@ async function getData(): Promise<Work[]> {
         type,
         image,
         "hover_color":color.rgb,
-        in_development,
         is_best,
+        in_development,
     }`,
     {},
     {
@@ -70,9 +70,9 @@ const Works: React.FC<WorksProps> = async ({isIndex = false}) => {
       <div className="flex flex-col gap-5 sm:gap-3">
         {works.map((work, index) =>
           isIndex && work.is_best ? (
-            <WorkCard work={work} index={index} key={index} /> // index page view
+            <ProductCard product={work} index={index} key={index} /> // index page view
           ) : !isIndex ? (
-            <WorkCard work={work} index={index} key={index} />
+            <ProductCard product={work} index={index} key={index} />
           ) : null,
         )}
         {isIndex && (
