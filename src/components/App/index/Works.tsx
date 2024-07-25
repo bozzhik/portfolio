@@ -1,22 +1,12 @@
 import {client} from '@/lib/sanity'
 import {revalidateTime} from '@/lib/utils'
 
+import {Work} from '@/types/product'
+
 import Link from 'next/link'
 import {Text} from '#/UI/Text'
-import {ProductCard} from '#/UI/ProductCard'
+import ProductCard from '#/UI/ProductCard'
 import {ArrowLink} from '#/UI/ArrowLink'
-
-export interface Work {
-  name: string
-  link: string
-  id: number
-  description: string
-  type: string
-  image?: Array<{asset: {url: string}}>
-  hover_color?: any
-  is_best?: boolean
-  in_development?: boolean
-}
 
 async function getData(): Promise<Work[]> {
   const data = await client.fetch<Work>(

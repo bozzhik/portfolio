@@ -1,8 +1,7 @@
 import {cn} from '@/lib/utils'
 import {urlForImage} from '@/lib/sanity'
 
-import {Work} from '##/index/Works'
-import {Project} from '##/index/Projects'
+import {Work, Project} from '@/types/product'
 
 import Link from 'next/link'
 import Image from 'next/image'
@@ -52,4 +51,4 @@ const ProductCard: React.FC<Props> = ({type, product, index}) => {
   )
 }
 
-export {ProductCard}
+export default ProductCard
