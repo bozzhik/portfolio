@@ -1,15 +1,13 @@
 import {client} from '@/lib/sanity'
 import {revalidateTime} from '@/lib/utils'
-
-import {Work} from '@/types/product'
+import {Product} from '@/types/product'
 
 import Link from 'next/link'
-import {Text} from '#/UI/Text'
+import Text from '#/UI/Text'
 import ProductCard from '#/UI/ProductCard'
-import {ArrowLink} from '#/UI/ArrowLink'
 
-async function getData(): Promise<Work[]> {
-  const data = await client.fetch<Work>(
+export async function getWorks(): Promise<Product[]> {
+  const data = await client.fetch<Product>(
     `*[_type == 'work'] {
         name,
         link,
@@ -31,12 +29,8 @@ async function getData(): Promise<Work[]> {
   return Array.isArray(data) ? data : []
 }
 
-interface WorksProps {
-  isIndex?: boolean
-}
-
-const Works: React.FC<WorksProps> = async ({isIndex = false}) => {
-  const works: Work[] = await getData()
+export default async function Works() {
+  const works: Product[] = await getWorks()
 
   if (!works) {
     return <mark>Произошла ошибка при получении данных!</mark>
@@ -45,34 +39,23 @@ const Works: React.FC<WorksProps> = async ({isIndex = false}) => {
   works.sort((a, b) => a.id - b.id)
 
   return (
-    <section data-section="works" className="space-y-8">
-      {isIndex ? (
-        <div className="flex items-center justify-between">
-          <Text type="heading">my works</Text>
-          {/* <ArrowLink href="/works/" target={false} text="View all" className="text-neutral-500" svgClassName="fill-neutral-500" /> */}
-        </div>
-      ) : (
+    <section data-section="works-index" className="space-y-8 sm:space-y-6">
+      <div className="space-y-4 sm:space-y-3">
         <Text type="heading">my works</Text>
-      )}
+        <Text className="sm:hidden">Creating unique websites and designing interfaces is my passion. I oversee the entire process from idea and design to coding and delivering the final product.</Text>
+      </div>
 
-      {isIndex && <Text>Creating landing pages, multi-page websites, and web applications is my forte. I oversee the entire process from idea and design to coding and delivering the final product.</Text>}
+      <div className="flex flex-col gap-5 sm:gap-4">
+        {works
+          .filter((work) => work.is_best)
+          .map((work, index) => (
+            <ProductCard type="work" product={work} key={index} />
+          ))}
 
-      <div className="flex flex-col gap-5 sm:gap-3">
-        {works.map((work, index) =>
-          isIndex && work.is_best ? (
-            <ProductCard type="work" product={work} index={index} key={index} /> // index page view
-          ) : !isIndex ? (
-            <ProductCard type="work" product={work} index={index} key={index} />
-          ) : null,
-        )}
-        {isIndex && (
-          <Link href="/works" className="py-2 sm:py-2.5 text-center hover:text-white/60 duration-200 sm:text-sm from-neutral-900/50 to-neutral-900/50 bg-gradient-to-b rounded-xl border-[1px] border-neutral-800 border-b-0">
-            View all
-          </Link>
-        )}
+        <Link href="/works" className="w-full block py-2 font-book sm:font-normal text-center hover:text-white/60 duration-200 sm:text-base from-neutral-900/50 to-neutral-900/50 bg-gradient-to-b rounded-xl sm:rounded-lg border-[1px] border-neutral-800 border-b-0">
+          View all
+        </Link>
       </div>
     </section>
   )
 }
-
-export default Works
