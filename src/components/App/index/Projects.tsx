@@ -1,13 +1,12 @@
 import {client} from '@/lib/sanity'
 import {revalidateTime} from '@/lib/utils'
-
-import {Project} from '@/types/product'
+import {Product} from '@/types/product'
 
 import Text from '#/UI/Text'
 import ProductCard from '#/UI/ProductCard'
 
-async function getData(): Promise<Project[]> {
-  const data = await client.fetch<Project>(
+export async function getProjects(): Promise<Product[]> {
+  const data = await client.fetch<Product>(
     `*[_type == 'project'] {
         name,
         link,
@@ -29,12 +28,8 @@ async function getData(): Promise<Project[]> {
   return Array.isArray(data) ? data : []
 }
 
-interface ProjectsProps {
-  isIndex?: boolean
-}
-
-const Projects: React.FC<ProjectsProps> = async ({isIndex = false}) => {
-  const projects: Project[] = await getData()
+export default async function Projects() {
+  const projects: Product[] = await getProjects()
 
   if (!projects) {
     return <mark>Произошла ошибка при получении данных!</mark>
@@ -43,22 +38,19 @@ const Projects: React.FC<ProjectsProps> = async ({isIndex = false}) => {
   projects.sort((a, b) => a.id - b.id)
 
   return (
-    <section id="PROJECTS" data-section="projects" className="mt-8 space-y-8">
-      <Text type="heading">my products</Text>
+    <section id="PROJECTS" data-section="projects-index" className="scroll-mt-8 sm:scroll-mt-5 space-y-8">
+      <div className="space-y-4 sm:space-y-3">
+        <Text type="heading">my products</Text>
+        <Text>This section includes my university projects, in which we create ready-to-launch digital products, as well as interesting projects that I do for myself.</Text>
+      </div>
 
-      {isIndex && <Text>This section includes my university projects, in which we create ready-to-launch digital products, as well as interesting projects that I do for myself.</Text>}
-
-      <div className="flex flex-col gap-5 sm:gap-3">
-        {projects.map((project, index) =>
-          isIndex && project.is_best ? (
-            <ProductCard type="project" product={project} index={index} key={index} /> // index page
-          ) : !isIndex ? (
-            <ProductCard type="project" product={project} index={index} key={index} />
-          ) : null,
-        )}
+      <div className="flex flex-col gap-5 sm:gap-4">
+        {projects
+          .filter((project) => project.is_best)
+          .map((project, index) => (
+            <ProductCard type="project" product={project} key={index} />
+          ))}
       </div>
     </section>
   )
 }
-
-export default Projects
