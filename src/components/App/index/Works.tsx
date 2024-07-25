@@ -70,9 +70,9 @@ const Works: React.FC<WorksProps> = async ({isIndex = false}) => {
       <div className="flex flex-col gap-5 sm:gap-3">
         {works.map((work, index) =>
           isIndex && work.is_best ? (
-            <ProductCard product={work} index={index} key={index} /> // index page view
+            <ProductCard type="work" product={work} index={index} key={index} /> // index page view
           ) : !isIndex ? (
-            <ProductCard product={work} index={index} key={index} />
+            <ProductCard type="work" product={work} index={index} key={index} />
           ) : null,
         )}
         {isIndex && (

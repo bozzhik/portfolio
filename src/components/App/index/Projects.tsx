@@ -2,16 +2,18 @@ import {client} from '@/lib/sanity'
 import {revalidateTime} from '@/lib/utils'
 
 import {Text} from '#/UI/Text'
-import {ProjectCard} from '#/UI/ProjectCard'
+import {ProductCard} from '#/UI/ProductCard'
 
 export interface Project {
   name: string
-  link?: string
+  link: string
   id: number
   description: string
+  type: string
   image: Array<{asset: {url: string}}>
-  in_development: boolean
+  hover_color?: any
   is_best: boolean
+  in_development: boolean
 }
 
 async function getData(): Promise<Project[]> {
@@ -21,9 +23,11 @@ async function getData(): Promise<Project[]> {
         link,
         id,
         description,
+        type,
         image,
-        in_development,
+        "hover_color":color.rgb,
         is_best,
+        in_development,
     }`,
     {},
     {
@@ -57,9 +61,9 @@ const Projects: React.FC<ProjectsProps> = async ({isIndex = false}) => {
       <div className="flex flex-col gap-5 sm:gap-3">
         {projects.map((project, index) =>
           isIndex && project.is_best ? (
-            <ProjectCard project={project} index={index} key={index} /> // index page
+            <ProductCard type="project" product={project} index={index} key={index} /> // index page
           ) : !isIndex ? (
-            <ProjectCard project={project} index={index} key={index} />
+            <ProductCard type="project" product={project} index={index} key={index} />
           ) : null,
         )}
       </div>
