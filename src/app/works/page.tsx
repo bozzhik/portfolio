@@ -1,3 +1,5 @@
+import {Suspense} from 'react'
+
 import {Product} from '@/types/product'
 import {getWorks} from '##/index/Works'
 
@@ -20,7 +22,9 @@ export default async function WorksPage() {
         <Text type="heading">my works</Text>
       </div>
 
-      <WorkFilter works={works} />
+      <Suspense>
+        <WorkFilter works={works} />
+      </Suspense>
     </Container>
   )
 }
