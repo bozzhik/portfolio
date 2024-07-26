@@ -5,10 +5,10 @@ import Projects from '##/index/Projects'
 
 export default function IndexPage() {
   return (
-    <Container className="space-y-14">
+    <Container className="space-y-12 sm:space-y-10">
       <Hero />
-      <Works isIndex={true} />
-      <Projects isIndex={true} />
+      <Works />
+      <Projects />
     </Container>
   )
 }

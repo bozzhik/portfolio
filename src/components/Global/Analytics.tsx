@@ -2,14 +2,11 @@ import NextScript from 'next/script'
 
 export default function Analytics() {
   return (
-    <>
-      {process.env.NODE_ENV === 'production' && (
-        <>
-          <NextScript
-            id="yandex_metrika"
-            strategy="afterInteractive"
-            dangerouslySetInnerHTML={{
-              __html: `
+    <NextScript
+      id="yandex_metrika"
+      strategy="afterInteractive"
+      dangerouslySetInnerHTML={{
+        __html: `
                 (function(m,e,t,r,i,k,a){
                   m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
                   m[i].l=1*new Date();
@@ -26,10 +23,7 @@ export default function Analytics() {
                   webvisor:true
                 });
               `,
-            }}
-          />
-        </>
-      )}
-    </>
+      }}
+    />
   )
 }

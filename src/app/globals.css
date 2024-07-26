@@ -7,3 +7,7 @@
 ::selection {
   @apply bg-neutral-800;
 }
+
+mark {
+  @apply s-fit px-1 bg-purple-400;
+}
