@@ -1,5 +1,5 @@
 import Container from '#/Global/Container'
-import Hero from '##/index/Hero'
+import Hero from '##/cv/Hero'
 
 export default function CvPage() {
   return (
