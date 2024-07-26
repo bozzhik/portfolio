@@ -25,7 +25,7 @@ const SuisseIntl = localFont({
 const website = {
   siteName: 'BOZZHIK',
   title: 'BOZZHIK',
-  description: "I'm a website developer and user interface designer. I am studying at the HSE to design and develop digital products. I am currently working as a self-employed frontend developer, specializing in creating stunning landing pages and interactive websites.",
+  description: "I'm a website developer and user interface designer. I am currently working as a self-employed frontend developer, specializing in creating stunning landing pages and interactive websites.",
   keywords: 'bozzhik, bozhik, bojic, maxim bozhik, maxim bojic',
 
   url: 'https://bozzhik.ru',
