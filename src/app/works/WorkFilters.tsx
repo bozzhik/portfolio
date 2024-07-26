@@ -1,7 +1,9 @@
 'use client'
 
 import {useState, useEffect, useMemo} from 'react'
+import {useRouter, useSearchParams} from 'next/navigation'
 import {shuffleArray} from '@/utils/shuffleArray'
+
 import {Product} from '@/types/product'
 import ProductCard from '#/UI/ProductCard'
 
@@ -21,13 +23,17 @@ const worksTypesData: WorksTypeData = {
 }
 
 export default function WorkFilter({works}: WorksFilterProps) {
+  const router = useRouter()
+  const searchParams = useSearchParams()
+  const initialFilter = searchParams.get('type') || 'all'
+
   const [filteredWorks, setFilteredWorks] = useState<Product[]>(works)
-  const [filter, setFilter] = useState<string>('all')
+  const [filter, setFilter] = useState<string>(initialFilter)
 
   const types = useMemo(() => {
     const extractedTypes = Array.from(new Set(works.map((work) => work.type)))
     const orderedTypes = Object.keys(worksTypesData).filter((type) => extractedTypes.includes(type))
-    const otherTypes = extractedTypes.filter((type) => !worksTypesData.hasOwnProperty(type))
+    const otherTypes = extractedTypes.filter((type) => !worksTypesData[type])
 
     return [...orderedTypes, ...otherTypes]
   }, [works])
@@ -35,6 +41,10 @@ export default function WorkFilter({works}: WorksFilterProps) {
   useEffect(() => {
     setFilteredWorks(filter === 'all' ? works : shuffleArray(works.filter((work) => work.type === filter)))
   }, [filter, works])
+
+  useEffect(() => {
+    router.push(`?type=${filter}`, {scroll: false})
+  }, [filter, router])
 
   const handleFilterChange = (type: string) => setFilter(type)
 

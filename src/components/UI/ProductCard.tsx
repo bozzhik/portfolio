@@ -34,7 +34,7 @@ export default function ProductCard({type, product}: Props) {
   return (
     <Link data-variant={product.type} className={cn([base, border, background], `hover:from-[${hoverColor}] hover:via-gradient-gray duration-500`)} href={product.link} target="_blank">
       <div className={`absolute inset-0 z-10 s-full duration-500 overflow-hidden rounded-2xl sm:rounded-xl`}>
-        <Image quality={100} priority={product.is_best && true} className={`object-cover object-top duration-500  ${type == 'work' ? 'opacity-50 group-hover:opacity-80' : 'opacity-70 group-hover:opacity-90'} group-hover:scale-[101%]`} src={product.image ? urlForImage(product.image).url() : DefaultImage} width={1000} height={700} alt={product.name} />
+        <Image quality={100} priority className={`object-cover object-top duration-500  ${type == 'work' ? 'opacity-50 group-hover:opacity-80' : 'opacity-70 group-hover:opacity-90'} group-hover:scale-[101%]`} src={product.image ? urlForImage(product.image).url() : DefaultImage} width={1000} height={700} alt={product.name} />
       </div>
 
       <div className={`z-20 flex flex-col ${type == 'work' ? 'px-4 pb-5 mx-4 sm:px-0 sm:pb-4' : 'pb-5 pl-8 sm:p-4'} mt-auto text-neutral-300 ${type == 'work' ? text_shadow.work : text_shadow.project}`}>
