@@ -12,7 +12,7 @@ interface Props {
 
 export default function ArrowLink({href, text, target = true, active = false, className, svgClassName}: Props) {
   const ArrowIcon = (
-    <svg className={cn('duration-500 fill-neutral-300 s-5 group-hover:rotate-45 group-hover:fill-neutral-400', active ? 'rotate-45 fill-neutral-400' : '', svgClassName)} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <svg className={cn('duration-500 fill-neutral-300 s-5 group-hover:rotate-45 group-hover:fill-neutral-400', active ? 'fill-neutral-400' : '', svgClassName)} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
       <path d="M6 7v2h8.59L5 17.59 6.41 19 16 9.41V18h2V6z"></path>
     </svg>
   )
