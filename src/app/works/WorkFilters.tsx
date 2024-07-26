@@ -1,8 +1,7 @@
 'use client'
 
-import {useState, useEffect} from 'react'
+import {useState, useEffect, useMemo} from 'react'
 import {shuffleArray} from '@/utils/shuffleArray'
-
 import {Product} from '@/types/product'
 import ProductCard from '#/UI/ProductCard'
 
@@ -10,23 +9,34 @@ interface WorksFilterProps {
   works: Product[]
 }
 
+interface WorksTypeData {
+  [key: string]: {
+    title: string
+  }
+}
+
+const worksTypesData: WorksTypeData = {
+  landing: {title: 'Landing'},
+  multipage: {title: 'Website'},
+}
+
 export default function WorkFilter({works}: WorksFilterProps) {
   const [filteredWorks, setFilteredWorks] = useState<Product[]>(works)
   const [filter, setFilter] = useState<string>('all')
 
-  const types = Array.from(new Set(works.map((work) => work.type)))
+  const types = useMemo(() => {
+    const extractedTypes = Array.from(new Set(works.map((work) => work.type)))
+    const orderedTypes = Object.keys(worksTypesData).filter((type) => extractedTypes.includes(type))
+    const otherTypes = extractedTypes.filter((type) => !worksTypesData.hasOwnProperty(type))
+
+    return [...orderedTypes, ...otherTypes]
+  }, [works])
 
   useEffect(() => {
-    let newFilteredWorks = works
-    if (filter !== 'all') {
-      newFilteredWorks = works.filter((work) => work.type === filter)
-    }
-    setFilteredWorks(shuffleArray(newFilteredWorks))
+    setFilteredWorks(filter === 'all' ? works : shuffleArray(works.filter((work) => work.type === filter)))
   }, [filter, works])
 
-  const handleFilterChange = (type: string) => {
-    setFilter(type)
-  }
+  const handleFilterChange = (type: string) => setFilter(type)
 
   return (
     <>
@@ -34,17 +44,15 @@ export default function WorkFilter({works}: WorksFilterProps) {
         <button onClick={() => handleFilterChange('all')} className={`btn ${filter === 'all' ? 'text-purple-400' : ''}`}>
           All
         </button>
-
         {types.map((type) => (
           <button key={type} onClick={() => handleFilterChange(type)} className={`btn ${filter === type ? 'text-purple-400' : ''}`}>
-            {type.charAt(0).toUpperCase() + type.slice(1)}
+            {worksTypesData[type]?.title || type.charAt(0).toUpperCase() + type.slice(1)}
           </button>
         ))}
       </div>
-
       <div className="flex flex-col gap-5 sm:gap-4">
         {filteredWorks.map((work) => (
-          <ProductCard type="work" product={work} key={work.id} />
+          <ProductCard key={work.id} type="work" product={work} />
         ))}
       </div>
     </>
