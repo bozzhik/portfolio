@@ -34,7 +34,7 @@ export default function Hero() {
 
       <div className="flex gap-5 xl:gap-3.5 sm:flex-wrap sm:gap-x-3.5 sm:gap-y-2 text-neutral-300">
         {links.map((link, index) => (
-          <ArrowLink key={index} href={link.url} text={link.text} />
+          <ArrowLink iconStyles="stroke-neutral-300" key={index} href={link.url} text={link.text} />
         ))}
       </div>
     </section>
