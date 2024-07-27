@@ -1,28 +1,58 @@
 import Image from 'next/image'
-import MeImage from '%/cv/me.jpg'
+
+import VkFestConcertImage from '%/cv/grid/vkfest-concert.jpg'
+import MountainTurkeyImage from '%/cv/grid/mountain-turkey.jpg'
+import RunningMarathonImage from '%/cv/grid/running-marathon.jpg'
+import VkFestImage from '%/cv/grid/vk-fest.jpg'
+import MoscowSubwayImage from '%/cv/grid/moskow-subway.jpg'
+import MoscowCityImage from '%/cv/grid/moskow-city.jpg'
+
+const gridData = {
+  main: {
+    'vkfest-concert': {
+      image: VkFestConcertImage,
+      alt: 'Me at a concert at VK Fest 2024',
+      class: 'h-44',
+      video: true,
+    },
+    'vk-fest': {
+      image: VkFestImage,
+      alt: 'Me in the volunteer team at VK Fest 2024',
+      class: 'row-span-2',
+    },
+    'running-marathon': {
+      image: RunningMarathonImage,
+      alt: 'Me at a running marathon in Sochi at the World Youth Festival 2024',
+      class: 'h-44',
+    },
+    'mountain-turkey': {
+      image: MountainTurkeyImage,
+      alt: 'Me on some mountain in Turkey',
+      class: 'row-span-2',
+    },
+    'moskow-city': {
+      image: MoscowCityImage,
+      alt: 'Me somewhere between the skyscrapers in Moscow City',
+      class: 'row-span-2',
+    },
+    'moskow-subway': {
+      image: MoscowSubwayImage,
+      alt: 'Me in the Moscow Metro',
+      class: 'h-44',
+      video: true,
+    },
+  },
+}
 
 export default function ImageGrid() {
   return (
     <section data-section="hero-cv">
       <div className="grid grid-cols-3 grid-rows-3 gap-4 sm:grid-cols-2 sm:grid-rows-4">
-        <div className="relative h-40">
-          <Image quality={100} alt="Me speaking on stage at React Summit about the future of Next.js" src={MeImage} fill sizes="70vw" priority className="object-cover rounded-lg" />
-        </div>
-        <div className="relative row-span-2 sm:row-span-1">
-          <Image quality={100} alt="Me standing on stage at Reactathon delivering the keynote" src={MeImage} fill sizes="70vw" priority className="object-cover object-top rounded-lg sm:object-center" />
-        </div>
-        <div className="relative">
-          <Image quality={100} alt="Me and Guillermo Rauch on stage for Vercel Ship, answering questions from the Next.js community" src={MeImage} fill sizes="70vw" priority className="object-cover rounded-lg" />
-        </div>
-        <div className="relative row-span-2">
-          <Image quality={100} alt="Me, Lydia, and Delba filming the Next.js Conf keynote" src={MeImage} fill sizes="70vw" priority className="object-cover rounded-lg sm:object-center" />
-        </div>
-        <div className="relative row-span-2">
-          <Image quality={100} alt="My badge on top of a pile of badges from a Vercel meetup we held" src={MeImage} fill sizes="70vw" priority className="object-cover rounded-lg" />
-        </div>
-        <div className="relative h-40">
-          <Image quality={100} alt="Me standing on stage at SmashingConf giving a talk about my optimism for the web" src={MeImage} fill sizes="70vw" priority className="object-cover rounded-lg" />
-        </div>
+        {Object.entries(gridData.main).map(([key, {image, alt, class: customClass}]) => (
+          <div key={key} className={`relative ${customClass}`}>
+            <Image quality={100} alt={alt} src={image} fill sizes="35vw" priority className="object-cover bg-purple-500 rounded-lg sm:object-center" />
+          </div>
+        ))}
       </div>
     </section>
   )
