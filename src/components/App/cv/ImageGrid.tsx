@@ -22,13 +22,13 @@ const gridData: GridData = {
     'vkfest-concert': {
       src: '/vkfest-concert.mp4',
       alt: 'Me at a concert at VK Fest 2024',
-      classes: 'h-44',
+      classes: 'h-44 sm:col-span-2',
       video: true,
     },
     'vk-fest': {
       src: VkFestImage,
       alt: 'Me in the volunteer team at VK Fest 2024',
-      classes: 'row-span-2',
+      classes: 'row-span-2 sm:row-span-1',
     },
     'running-marathon': {
       src: RunningMarathonImage,
@@ -38,15 +38,15 @@ const gridData: GridData = {
     'mountain-turkey': {
       src: MountainTurkeyImage,
       alt: 'Me on some mountain in Turkey',
-      classes: 'row-span-2',
+      classes: 'row-span-2 sm:hidden',
     },
     'moskow-city': {
       src: MoscowCityImage,
       alt: 'Me somewhere between the skyscrapers in Moscow City',
-      classes: 'row-span-2',
+      classes: 'row-span-2 sm:row-span-1',
     },
     'moskow-subway': {
-      src: '/moskow-subway.mp4',
+      src: '/moskow-subway2.mp4',
       alt: 'Me in the Moscow Metro',
       classes: 'h-44',
       video: true,
@@ -57,7 +57,7 @@ const gridData: GridData = {
 export default function ImageGrid() {
   return (
     <section data-section="hero-cv">
-      <div className="grid grid-cols-3 grid-rows-3 gap-4 sm:grid-cols-2 sm:grid-rows-4">
+      <div className="grid grid-cols-3 grid-rows-3 gap-4 sm:gap-2.5 sm:grid-cols-2 sm:grid-rows-4">
         {Object.entries(gridData.main).map(([key, {src, alt, classes, video}]) => (
           <div key={key} className={`relative rounded-lg overflow-hidden ${classes}`}>
             {video ? (
