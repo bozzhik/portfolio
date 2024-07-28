@@ -1,44 +1,54 @@
 import Image from 'next/image'
 
-import VkFestConcertImage from '%/cv/grid/vkfest-concert.jpg'
 import MountainTurkeyImage from '%/cv/grid/mountain-turkey.jpg'
 import RunningMarathonImage from '%/cv/grid/running-marathon.jpg'
 import VkFestImage from '%/cv/grid/vk-fest.jpg'
-import MoscowSubwayImage from '%/cv/grid/moskow-subway.jpg'
 import MoscowCityImage from '%/cv/grid/moskow-city.jpg'
 
-const gridData = {
+type GridData = {
+  main: Record<
+    string,
+    {
+      src: any
+      video?: boolean
+      classes: string
+      alt: string
+    }
+  >
+}
+
+const gridData: GridData = {
   main: {
     'vkfest-concert': {
-      image: VkFestConcertImage,
+      src: '/vkfest-concert.mp4',
       alt: 'Me at a concert at VK Fest 2024',
-      class: 'h-44',
+      classes: 'h-44',
       video: true,
     },
     'vk-fest': {
-      image: VkFestImage,
+      src: VkFestImage,
       alt: 'Me in the volunteer team at VK Fest 2024',
-      class: 'row-span-2',
+      classes: 'row-span-2',
     },
     'running-marathon': {
-      image: RunningMarathonImage,
+      src: RunningMarathonImage,
       alt: 'Me at a running marathon in Sochi at the World Youth Festival 2024',
-      class: 'h-44',
+      classes: 'h-44',
     },
     'mountain-turkey': {
-      image: MountainTurkeyImage,
+      src: MountainTurkeyImage,
       alt: 'Me on some mountain in Turkey',
-      class: 'row-span-2',
+      classes: 'row-span-2',
     },
     'moskow-city': {
-      image: MoscowCityImage,
+      src: MoscowCityImage,
       alt: 'Me somewhere between the skyscrapers in Moscow City',
-      class: 'row-span-2',
+      classes: 'row-span-2',
     },
     'moskow-subway': {
-      image: MoscowSubwayImage,
+      src: '/moskow-subway.mp4',
       alt: 'Me in the Moscow Metro',
-      class: 'h-44',
+      classes: 'h-44',
       video: true,
     },
   },
@@ -48,9 +58,16 @@ export default function ImageGrid() {
   return (
     <section data-section="hero-cv">
       <div className="grid grid-cols-3 grid-rows-3 gap-4 sm:grid-cols-2 sm:grid-rows-4">
-        {Object.entries(gridData.main).map(([key, {image, alt, class: customClass}]) => (
-          <div key={key} className={`relative ${customClass}`}>
-            <Image quality={100} alt={alt} src={image} fill sizes="35vw" priority className="object-cover bg-purple-500 rounded-lg sm:object-center" />
+        {Object.entries(gridData.main).map(([key, {src, alt, classes, video}]) => (
+          <div key={key} className={`relative rounded-lg overflow-hidden ${classes}`}>
+            {video ? (
+              <video className="s-full object-cover" width="100%" height="100%" muted loop autoPlay playsInline preload="auto">
+                <source src={src} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            ) : (
+              <Image quality={100} alt={alt} src={src} fill sizes="35vw" priority className="object-cover sm:object-center" />
+            )}
           </div>
         ))}
       </div>
