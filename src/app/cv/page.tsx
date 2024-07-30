@@ -5,6 +5,7 @@ import Block from '##/cv/Block'
 import Hero from '##/cv/Hero'
 import ImageGrid from '##/cv/ImageGrid'
 import Jobs from '##/cv/Jobs'
+import Skills from '##/cv/Skills'
 import GetMe from '##/cv/GetMe'
 
 export default function CvPage() {
@@ -18,6 +19,8 @@ export default function CvPage() {
       </Block>
 
       <Jobs />
+
+      <Skills />
 
       <GetMe />
     </Container>

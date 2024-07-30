@@ -13,7 +13,7 @@ interface Props {
 export default function Badge({size = 'small', text, icon, href, className}: Props) {
   const badgeSizes = {
     small: 'space-x-1 px-1 py-[3px] text-sm rounded',
-    medium: 'space-x-2 px-2.5 py-2 text-base rounded-md',
+    medium: 'space-x-2 sm:space-x-1.5 px-2.5 py-2 sm:px-2 sm:py-1 text-base sm:text-sm rounded-md',
   }
   const badgeStyles = `group w-fit inline-flex items-center ${!href ? 'cursor-default' : ''} ${badgeSizes[size] || badgeSizes['small']} border leading-4 no-underline border-neutral-700 bg-custom-gray text-neutral-100`
 
