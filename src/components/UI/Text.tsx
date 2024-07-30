@@ -8,14 +8,14 @@ interface Props {
 
 export default function Text({type = 'text', children, className}: Props) {
   if (type === 'heading') {
-    return <h1 className={cn('text-2xl font-medium tracking-tight', className)}>{children}</h1>
+    return <h1 className={cn('text-2xl xs:text-xl font-medium tracking-tight', className)}>{children}</h1>
   } else if (type === 'text') {
     const hasHTML = typeof children === 'string' && /<\/?[a-z][\s\S]*>/i.test(children)
+    const textClasses = 'text-neutral-300 xs:text-sm sm:leading-[1.7rem] xs:leading-[1.4rem] leading-[1.8rem]'
 
     if (hasHTML) {
-      return <p className={cn('text-neutral-300 leading-[1.8rem]', className)} dangerouslySetInnerHTML={{__html: children}} />
+      return <p className={cn(textClasses, className)} dangerouslySetInnerHTML={{__html: children}} />
     }
-
-    return <p className={cn('text-neutral-300 leading-[1.8rem]', className)}>{children}</p>
+    return <p className={cn(textClasses, className)}>{children}</p>
   }
 }

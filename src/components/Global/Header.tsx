@@ -26,7 +26,7 @@ export default function Header() {
         {Object.entries(headerData.nav).map(([key, {name, href}]) => {
           const isActive = currentRoute === href && href !== '/'
           return (
-            <Link key={key} href={href} className={cn('flex px-2 py-1 duration-200 hover:text-neutral-400 sm:text-lg', isActive ? 'text-neutral-400' : 'text-white')}>
+            <Link key={key} href={href} className={cn('flex px-2 sm:px-1.5 py-1 duration-200 hover:text-neutral-400 sm:text-lg xs:text-base', isActive ? 'text-neutral-400' : 'text-white')}>
               {name}
             </Link>
           )

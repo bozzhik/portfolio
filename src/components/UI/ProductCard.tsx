@@ -16,7 +16,7 @@ interface Props {
 }
 
 const cardStyles = {
-  base: 'group relative flex flex-col h-[37vh] max-h-[370px] min-h-[350px] xl:h-[43vh] xl:min-h-[320px] sm:h-[35vh] sm:min-h-0 sm:max-h-[270px]',
+  base: 'group relative flex flex-col h-[37vh] max-h-[370px] min-h-[350px] xl:h-[43vh] xl:min-h-[320px] sm:h-[35vh] sm:min-h-0 sm:max-h-[270px] xs:h-[38vh]',
   border: 'overflow-hidden rounded-2xl sm:rounded-lg border-[1px] border-neutral-800 border-b-0',
   background: 'bg-gradient-to-b from-gradient-gray to-gradient-black',
 

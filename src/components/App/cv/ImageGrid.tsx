@@ -17,7 +17,7 @@ type GridData = {
   >
 }
 
-const gridImageHeight = 'h-44 xl:h-32 sm:h-40'
+const gridImageHeight = 'h-44 xl:h-32 sm:h-40 xs:h-32'
 
 const gridData: GridData = {
   main: {
@@ -63,7 +63,7 @@ export default function ImageGrid() {
         {Object.entries(gridData.main).map(([key, {src, alt, classes, video}]) => (
           <div key={key} className={`relative rounded-lg overflow-hidden ${classes}`}>
             {video ? (
-              <video className="s-full object-cover" width="100%" height="100%" muted loop autoPlay playsInline preload="auto">
+              <video className="object-cover s-full" width="100%" height="100%" muted loop autoPlay playsInline preload="auto">
                 <source src={src} type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
