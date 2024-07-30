@@ -41,6 +41,15 @@ const work: SchemaTypeDefinition = {
       validation: (rule: Rule) => rule.required(),
     },
     {
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      options: {
+        source: 'name',
+      },
+      validation: (rule: Rule) => rule.required(),
+    },
+    {
       name: 'image',
       title: 'Work Image',
       type: 'image',

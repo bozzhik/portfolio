@@ -14,6 +14,7 @@ export async function getWorks(): Promise<Product[]> {
         id,
         description,
         type,
+        "slug": slug.current,
         image,
         "hover_color":color.rgb,
         is_best,

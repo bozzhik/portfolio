@@ -13,6 +13,7 @@ export async function getProjects(): Promise<Product[]> {
         id,
         description,
         type,
+        "slug": slug.current,
         image,
         "hover_color":color.rgb,
         is_best,
