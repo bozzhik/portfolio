@@ -2,6 +2,17 @@ import Block from '##/cv/Block'
 import Text from '#/UI/Text'
 import Badge from '@/components/UI/Badge'
 
+import TsLogo from '%/cv/tech/typescript.svg'
+import PythonLogo from '%/cv/tech/python.svg'
+import RubyLogo from '%/cv/tech/ruby.svg'
+import ReactLogo from '%/cv/tech/react.svg'
+import NextLogo from '%/cv/tech/nextjs.svg'
+import NestLogo from '%/cv/tech/nest.svg'
+import NodeLogo from '%/cv/tech/node.svg'
+import RailsLogo from '%/cv/tech/rails.svg'
+import SassLogo from '%/cv/tech/sass.svg'
+import TailwindLogo from '%/cv/tech/tailwind.svg'
+
 const tech: any = {
   ts: {
     name: 'Typescript',
