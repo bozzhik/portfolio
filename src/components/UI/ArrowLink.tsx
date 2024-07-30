@@ -7,6 +7,7 @@ interface Props {
   href: string
   text: string
   target?: boolean
+  active?: boolean
   className?: string
   iconStyles?: string
 }

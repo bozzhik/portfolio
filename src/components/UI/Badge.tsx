@@ -3,19 +3,24 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 interface Props {
+  size?: 'small' | 'medium'
   text: string
-  href?: string
   icon?: string
+  href?: string
   className?: string
 }
 
-export default function Badge({icon, href, text, className}: Props) {
-  const badgeStyles = 'group w-fit inline-flex items-center rounded border px-1 py-[3px] text-sm leading-4 no-underline border-neutral-700 bg-custom-gray text-neutral-100'
+export default function Badge({size = 'small', text, icon, href, className}: Props) {
+  const badgeSizes = {
+    small: 'space-x-1 px-1 py-[3px] text-sm rounded',
+    medium: 'space-x-2 sm:space-x-1.5 px-2.5 py-2 sm:px-2 sm:py-1 text-base sm:text-sm rounded-md',
+  }
+  const badgeStyles = `group w-fit inline-flex items-center ${!href ? 'cursor-default' : ''} ${badgeSizes[size] || badgeSizes['small']} border leading-4 no-underline border-neutral-700 bg-custom-gray text-neutral-100`
 
   const BadgeContent = (
     <>
-      {icon && <Image className="object-contain mr-1 s-3.5 group-hover:rotate-[-15deg] duration-300" src={icon} alt={`icon ${text}`} />}
-      <span className="text-white" dangerouslySetInnerHTML={{__html: text || ''}} />
+      {icon && <Image className={`object-contain ${size == 'medium' ? 's-4' : 's-3.5'} group-hover:rotate-[-15deg] duration-300`} src={icon} alt={`icon ${text}`} />}
+      <span className="ml-0.5" dangerouslySetInnerHTML={{__html: text || ''}} />
     </>
   )
 

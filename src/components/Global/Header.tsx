@@ -14,7 +14,7 @@ const headerData = {
     // about: {name: 'about', href: '/about'},
   },
 
-  cv: {name: 'CV', href: 'https://bozzhik.notion.site/Bozhik-Maxim-f6e1f61bd2454194b229e612e91f5180'},
+  cv: {name: 'CV', href: '/cv'},
 }
 
 export default function Header() {
@@ -33,7 +33,7 @@ export default function Header() {
         })}
       </nav>
 
-      {headerData.cv && <ArrowLink href={headerData.cv.href} text={headerData.cv.name} />}
+      {headerData.cv && <ArrowLink active={currentRoute === headerData.cv.href && headerData.cv.href !== '/' && true} href={headerData.cv.href} text={headerData.cv.name} target={false} />}
     </header>
   )
 }
