@@ -17,12 +17,14 @@ type GridData = {
   >
 }
 
+const gridImageHeight = 'h-44 xl:h-32 sm:h-40'
+
 const gridData: GridData = {
   main: {
     'vkfest-concert': {
       src: '/vkfest-concert.mp4',
       alt: 'Me at a concert at VK Fest 2024',
-      classes: 'h-44 sm:col-span-2',
+      classes: `${gridImageHeight} sm:col-span-2`,
       video: true,
     },
     'vk-fest': {
@@ -33,7 +35,7 @@ const gridData: GridData = {
     'running-marathon': {
       src: RunningMarathonImage,
       alt: 'Me at a running marathon in Sochi at the World Youth Festival 2024',
-      classes: 'h-44',
+      classes: gridImageHeight,
     },
     'mountain-turkey': {
       src: MountainTurkeyImage,
@@ -48,7 +50,7 @@ const gridData: GridData = {
     'moskow-subway': {
       src: '/moskow-subway2.mp4',
       alt: 'Me in the Moscow Metro',
-      classes: 'h-44',
+      classes: gridImageHeight,
       video: true,
     },
   },
@@ -57,7 +59,7 @@ const gridData: GridData = {
 export default function ImageGrid() {
   return (
     <section data-section="hero-cv">
-      <div className="grid grid-cols-3 grid-rows-3 gap-4 sm:gap-2.5 sm:grid-cols-2 sm:grid-rows-4">
+      <div className="grid grid-cols-3 grid-rows-3 gap-4 xl:gap-3 sm:gap-2.5 sm:grid-cols-2">
         {Object.entries(gridData.main).map(([key, {src, alt, classes, video}]) => (
           <div key={key} className={`relative rounded-lg overflow-hidden ${classes}`}>
             {video ? (

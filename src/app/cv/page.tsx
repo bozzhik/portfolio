@@ -9,7 +9,7 @@ import Text from '#/UI/Text'
 
 export default function CvPage() {
   return (
-    <Container className="space-y-8">
+    <Container className="space-y-8 xl:space-y-6 sm:space-y-8">
       <Hero />
       <ImageGrid />
 
