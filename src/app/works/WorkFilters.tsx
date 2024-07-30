@@ -62,7 +62,7 @@ export default function WorkFilter({works}: WorksFilterProps) {
         <div className="flex gap-2.5 sm:gap-1.5">
           {types.map((type) => (
             <button key={type} onClick={() => handleFilterChange(type)} className={`hover:text-neutral-400 duration-200 ${filter === type ? 'text-neutral-400' : ''}`}>
-              <div className="px-3 py-1 rounded-lg from-neutral-800/50 to-neutral-900/50 bg-gradient-to-b border-[1px] border-neutral-800 border-b-0">{worksTypesData[type]?.title || type.charAt(0).toUpperCase() + type.slice(1)}</div>
+              <div className="px-3 py-1 rounded-lg from-neutral-800/50 to-neutral-800/50 bg-gradient-to-b border-[1px] border-neutral-800 border-b-0">{worksTypesData[type]?.title || type.charAt(0).toUpperCase() + type.slice(1)}</div>
             </button>
           ))}
         </div>
