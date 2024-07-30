@@ -59,17 +59,15 @@ const tech: any = {
 export default function Skills() {
   return (
     <Block index="skills" heading="Skills">
-      <div className="space-y-4">
-        <Text>
-          With over 3 years of <span className="text-white">front-end development</span> and <span className="text-white">design</span> experience, I specialize in crafting intuitive user interfaces and delivering high-quality web solutions.
-        </Text>
+      <Text>
+        With over 3 years of <span className="text-white">front-end development</span> and <span className="text-white">design</span> experience, I specialize in crafting intuitive user interfaces and delivering high-quality web solutions.
+      </Text>
 
-        <div className="flex flex-wrap gap-2 sm:grid-cols-3 md:grid-cols-4">
-          {Object.keys(tech).map((key) => {
-            const item = tech[key]
-            return <Badge className="text-neutral-200" size="medium" text={item.name} icon={item.icon} key={item} />
-          })}
-        </div>
+      <div className="flex flex-wrap gap-2 sm:grid-cols-3 md:grid-cols-4">
+        {Object.keys(tech).map((key) => {
+          const item = tech[key]
+          return <Badge className="text-neutral-200" size="medium" text={item.name} icon={item.icon} key={item} />
+        })}
       </div>
     </Block>
   )
