@@ -1,10 +1,11 @@
+import {Suspense} from 'react'
+
 import {Product} from '@/types/product'
 import {getWorks} from '##/index/Works'
 
-import Text from '#/UI/Text'
-import ProductCard from '#/UI/ProductCard'
-
 import Container from '#/Global/Container'
+import Text from '#/UI/Text'
+import WorkFilter from '@/app/works/WorkFilters'
 
 export default async function WorksPage() {
   const works: Product[] = await getWorks()
@@ -21,11 +22,9 @@ export default async function WorksPage() {
         <Text type="heading">my works</Text>
       </div>
 
-      <div className="flex flex-col gap-5 sm:gap-4">
-        {works.map((work, index) => (
-          <ProductCard type="work" product={work} key={index} />
-        ))}
-      </div>
+      <Suspense>
+        <WorkFilter works={works} />
+      </Suspense>
     </Container>
   )
 }
