@@ -4,6 +4,7 @@ import Block from '##/cv/Block'
 
 import Hero from '##/cv/Hero'
 import Jobs from '##/cv/Jobs'
+import Education from '##/cv/Education'
 import Products from '##/cv/Products'
 import Skills from '##/cv/Skills'
 import GetMe from '##/cv/GetMe'
@@ -19,6 +20,7 @@ export default function CvPage() {
       </Block>
 
       <Jobs />
+      <Education />
       <Products />
       <Skills />
       <GetMe />

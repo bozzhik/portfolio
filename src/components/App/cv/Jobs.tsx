@@ -11,7 +11,7 @@ const jobsData: any = {
   'custom-freelance': {
     title: 'Freelance',
     caption: 'Developer and UX/UI designer',
-    duration: 'Nov 2021 - Now',
+    duration: 'Nov 2021 - Present',
     link: '/works',
     logo: FreelanceImage,
   },
