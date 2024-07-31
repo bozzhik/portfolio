@@ -13,6 +13,7 @@ import DefaultImage from '%/default-card-img.png'
 interface Props {
   type: 'work' | 'project'
   product: Product
+  mini?: boolean
 }
 
 const cardStyles = {
@@ -27,17 +28,36 @@ const cardStyles = {
 }
 const {base, border, background, text_shadow} = cardStyles
 
-export default function ProductCard({type, product}: Props) {
+export default function ProductCard({type, product, mini = false}: Props) {
   const {r, g, b, a} = product.hover_color || {r: 0, g: 0, b: 0, a: 1}
   const hoverColor = `rgba(${r}_${g}_${b}/${a})`
 
+  if (!mini) {
+    return (
+      <Link data-variant={product.type} className={cn([base, border, background], `hover:from-[${hoverColor}] hover:via-gradient-gray duration-500`)} href={product.link} target="_blank">
+        <div className={`absolute inset-0 z-10 s-full duration-500 overflow-hidden rounded-2xl sm:rounded-xl`}>
+          <Image quality={100} priority className={`object-cover object-top duration-500  ${type == 'work' ? 'opacity-50 group-hover:opacity-80' : 'opacity-70 group-hover:opacity-90'} group-hover:scale-[101%]`} src={product.image ? urlForImage(product.image).url() : DefaultImage} width={1000} height={700} alt={product.name} />
+        </div>
+
+        <div className={`z-20 flex flex-col ${type == 'work' ? 'px-4 pb-5 mx-4 sm:px-0 sm:pb-4' : 'pb-5 pl-8 sm:p-4'} mt-auto text-neutral-300 ${type == 'work' ? text_shadow.work : text_shadow.project}`}>
+          {product.in_development && <Badge text="COMING SOON" className="absolute mb-1 right-5 bottom-4 animate-pulse h-fit" />}
+
+          <Text type="heading" className="xl:text-xl">
+            {product.name}
+          </Text>
+          <Text className={`leading-normal ${type == 'work' ? 'max-w-[30ch] sm:max-w-[24ch]' : 'max-w-[33ch]'}`}>{product.description}</Text>
+        </div>
+      </Link>
+    )
+  }
+
   return (
-    <Link data-variant={product.type} className={cn([base, border, background], `hover:from-[${hoverColor}] hover:via-gradient-gray duration-500`)} href={product.link} target="_blank">
-      <div className={`absolute inset-0 z-10 s-full duration-500 overflow-hidden rounded-2xl sm:rounded-xl`}>
+    <Link data-variant={product.type} className="overflow-hidden relative px-6 py-10 rounded-2xl sm:rounded-lg border-[1px] border-neutral-800 border-b-0 bg-gradient-to-b from-gradient-gray to-gradient-black" href={product.link} target="_blank">
+      <div className={`absolute top-2 right-2 z-10 w-1/2 duration-500 overflow-hidden rounded-2xl sm:rounded-xl`}>
         <Image quality={100} priority className={`object-cover object-top duration-500  ${type == 'work' ? 'opacity-50 group-hover:opacity-80' : 'opacity-70 group-hover:opacity-90'} group-hover:scale-[101%]`} src={product.image ? urlForImage(product.image).url() : DefaultImage} width={1000} height={700} alt={product.name} />
       </div>
 
-      <div className={`z-20 flex flex-col ${type == 'work' ? 'px-4 pb-5 mx-4 sm:px-0 sm:pb-4' : 'pb-5 pl-8 sm:p-4'} mt-auto text-neutral-300 ${type == 'work' ? text_shadow.work : text_shadow.project}`}>
+      <div className={`z-20 flex flex-col mt-auto text-neutral-300 ${type == 'work' ? text_shadow.work : text_shadow.project}`}>
         {product.in_development && <Badge text="COMING SOON" className="absolute mb-1 right-5 bottom-4 animate-pulse h-fit" />}
 
         <Text type="heading" className="xl:text-xl">

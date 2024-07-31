@@ -34,7 +34,7 @@ export default async function Products() {
 
       <div className="flex flex-col gap-5 sm:gap-4">
         {filteredAndSortedProducts.map((product, index) => (
-          <ProductCard type="work" product={product} key={index} />
+          <ProductCard mini={true} type="work" product={product} key={index} />
         ))}
       </div>
 
