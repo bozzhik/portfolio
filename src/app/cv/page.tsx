@@ -7,6 +7,7 @@ import Jobs from '##/cv/Jobs'
 import Products from '##/cv/Products'
 import Skills from '##/cv/Skills'
 import GetMe from '##/cv/GetMe'
+import Pdf from '##/cv/Pdf'
 
 export default function CvPage() {
   return (
@@ -21,6 +22,8 @@ export default function CvPage() {
       <Products />
       <Skills />
       <GetMe />
+
+      <Pdf />
     </Container>
   )
 }

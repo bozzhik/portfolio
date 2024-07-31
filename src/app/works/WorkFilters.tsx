@@ -3,12 +3,14 @@
 import {useState, useEffect, useMemo} from 'react'
 import {useRouter, useSearchParams} from 'next/navigation'
 
+import {cn} from '@/lib/utils'
 import {isMobile} from '@bozzhik/is-mobile'
 import {shuffleArray} from '@/utils/shuffleArray'
 
 import {X} from 'lucide-react'
 import {Product} from '@/types/product'
 import ProductCard from '#/UI/ProductCard'
+import {styledButton} from '##/cv/Download'
 
 interface WorksFilterProps {
   works: Product[]
@@ -62,7 +64,7 @@ export default function WorkFilter({works}: WorksFilterProps) {
         <div className="flex gap-2.5 sm:gap-1.5">
           {types.map((type) => (
             <button key={type} onClick={() => handleFilterChange(type)} className={`hover:text-neutral-400 duration-200 ${filter === type ? 'text-neutral-400' : ''}`}>
-              <div className="px-3 py-1 rounded-lg from-neutral-800/50 to-neutral-800/50 bg-gradient-to-b border-[1px] border-neutral-800 border-b-0">{worksTypesData[type]?.title || type.charAt(0).toUpperCase() + type.slice(1)}</div>
+              <div className={cn('px-3 py-1', styledButton)}>{worksTypesData[type]?.title || type.charAt(0).toUpperCase() + type.slice(1)}</div>
             </button>
           ))}
         </div>
