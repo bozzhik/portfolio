@@ -10,7 +10,7 @@ import {shuffleArray} from '@/utils/shuffleArray'
 import {X} from 'lucide-react'
 import {Product} from '@/types/product'
 import ProductCard from '#/UI/ProductCard'
-import {styledButton} from '##/cv/Download'
+import {styledButton} from '##/cv/Pdf'
 
 interface WorksFilterProps {
   works: Product[]
