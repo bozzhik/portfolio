@@ -2,9 +2,9 @@ import {client} from '@/lib/sanity'
 import {revalidateTime} from '@/lib/utils'
 import {Product} from '@/types/product'
 
-import Link from 'next/link'
 import Text from '#/UI/Text'
 import ProductCard from '#/UI/ProductCard'
+import Button from '#/UI/Button'
 
 export async function getWorks(): Promise<Product[]> {
   const data = await client.fetch<Product>(
@@ -53,9 +53,7 @@ export default async function Works() {
             <ProductCard type="work" product={work} key={index} />
           ))}
 
-        <Link href="/works" className="w-full block py-2 font-book sm:font-normal text-center hover:text-white/60 duration-200 sm:text-base from-neutral-900/50 to-neutral-900/50 bg-gradient-to-b rounded-xl sm:rounded-lg border-[1px] border-neutral-800 border-b-0">
-          View all
-        </Link>
+        <Button href="/works" text="View All" />
       </div>
     </section>
   )

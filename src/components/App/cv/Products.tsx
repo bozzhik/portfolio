@@ -2,11 +2,10 @@ import {Product} from '@/types/product'
 import {getWorks} from '##/index/Works'
 import {getProjects} from '##/index/Projects'
 
-import Link from 'next/link'
-
 import Block from '##/cv/Block'
 import Text from '#/UI/Text'
 import ProductCard from '#/UI/ProductCard'
+import Button from '#/UI/Button'
 
 export default async function Products() {
   const works: Product[] = await getWorks()
@@ -38,9 +37,7 @@ export default async function Products() {
         ))}
       </div>
 
-      <Link href="/works" className="w-full block py-2 font-book sm:font-normal text-center hover:text-white/60 duration-200 sm:text-base from-neutral-900/50 to-neutral-900/50 bg-gradient-to-b rounded-xl sm:rounded-lg border-[1px] border-neutral-800 border-b-0">
-        View all
-      </Link>
+      <Button href="/works" text="View All" />
     </Block>
   )
 }
