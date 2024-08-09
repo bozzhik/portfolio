@@ -3,6 +3,7 @@ import Text from '#/UI/Text'
 
 import Image from 'next/image'
 import FreelanceImage from '%/cv/freelance.jpg'
+import MarakuImage from '%/cv/maraku.jpg'
 import StarNetImage from '%/cv/starnet.jpg'
 
 import {ArrowUpRight} from 'lucide-react'
@@ -17,6 +18,13 @@ const jobsData: any = {
       duration: 'Nov 2021 - Present',
       link: '/works',
       logo: FreelanceImage,
+    },
+    'maraku-ru': {
+      title: 'Maraku',
+      caption: 'Frontend Developer and Designer',
+      duration: 'Apr 2022 - May 2023',
+      link: 'https://www.starnet.md',
+      logo: MarakuImage,
     },
     'star-net': {
       title: 'StarNet Solutions',
