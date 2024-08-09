@@ -10,7 +10,7 @@ import {shuffleArray} from '@/utils/shuffleArray'
 import {X} from 'lucide-react'
 import {Product} from '@/types/product'
 import ProductCard from '#/UI/ProductCard'
-import {styledButton} from '##/cv/Pdf'
+import Button from '#/UI/Button'
 
 interface WorksFilterProps {
   works: Product[]
@@ -47,7 +47,11 @@ export default function WorkFilter({works}: WorksFilterProps) {
   }, [filter, works])
 
   useEffect(() => {
-    router.push(`?type=${filter}`, {scroll: false})
+    if (filter) {
+      router.push(`?type=${filter}`, {scroll: false})
+    } else {
+      router.push('', {scroll: false})
+    }
   }, [filter, router])
 
   const handleFilterChange = (type: string) => {
@@ -59,12 +63,12 @@ export default function WorkFilter({works}: WorksFilterProps) {
   }
 
   return (
-    <>
+    <section data-section="filters-works" className="space-y-4">
       <div className="flex items-center justify-between sm:text-sm">
         <div className="flex gap-2.5 sm:gap-1.5">
           {types.map((type) => (
             <button key={type} onClick={() => handleFilterChange(type)} className={`hover:text-neutral-400 duration-200 ${filter === type ? 'text-neutral-400' : ''}`}>
-              <div className={cn('px-3 py-1', styledButton)}>{worksTypesData[type]?.title || type.charAt(0).toUpperCase() + type.slice(1)}</div>
+              <Button className="px-6 text-base sm:text-sm" href="#" text={worksTypesData[type]?.title || type.charAt(0).toUpperCase() + type.slice(1)} />
             </button>
           ))}
         </div>
@@ -81,6 +85,6 @@ export default function WorkFilter({works}: WorksFilterProps) {
           <ProductCard key={work.id} type="work" product={work} />
         ))}
       </div>
-    </>
+    </section>
   )
 }
