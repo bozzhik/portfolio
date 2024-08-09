@@ -20,7 +20,7 @@ const jobsData: any = {
       title: 'Maraku',
       caption: 'Frontend Developer and Designer',
       duration: 'Apr 2022 - May 2023',
-      link: 'https://www.starnet.md',
+      link: 'https://www.maraku.ru',
       icon: MarakuImage,
     },
     'star-net': {

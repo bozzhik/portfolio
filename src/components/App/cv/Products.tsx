@@ -12,7 +12,7 @@ const productList = {
 }
 
 const productsData = {
-  heading: 'my projects',
+  heading: 'projects',
   text: 'Explore some of the <span class="text-white">projects</span> I have worked on, showcasing my expertise and creativity in development and design. From sleek landing pages to complex multi-page websites and interactive web applications, here are a few examples.',
 }
 const {heading, text} = productsData
