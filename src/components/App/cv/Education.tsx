@@ -1,10 +1,10 @@
+import Block from '#/UI/Block'
+import Text from '#/UI/Text'
+
 import Image from 'next/image'
 import HseImage from '%/cv/hse.jpg'
 
 import {ArrowUpRight} from 'lucide-react'
-
-import Block from '##/cv/Block'
-import Text from '#/UI/Text'
 
 const education: any = {
   'hse-university': {
@@ -18,7 +18,7 @@ const education: any = {
 
 export default function Education() {
   return (
-    <Block index="education" heading="education" className="space-y-4">
+    <Block token={'education-cv'} heading="education" className="space-y-4">
       {Object.keys(education).map((key) => {
         const {title, caption, duration, link, logo} = education[key]
         return (

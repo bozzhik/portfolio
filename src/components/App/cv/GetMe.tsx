@@ -1,4 +1,6 @@
-import Block from '##/cv/Block'
+import Link from 'next/link'
+
+import Block from '#/UI/Block'
 import Text from '#/UI/Text'
 import ArrowLink from '#/UI/ArrowLink'
 
@@ -6,16 +8,16 @@ import {links} from '@/lib/constants'
 
 export default function GetMe() {
   return (
-    <Block index="get-me" heading="get in touch">
+    <Block token={'touch-cv'} heading="get in touch" className="space-y-4">
       <Text>
         Want to hire me? Got a question or need a website? Feel free to{' '}
-        <a className="text-white underline hover:no-underline underline-offset-2" href={links.email.url}>
+        <Link className="text-white underline hover:no-underline underline-offset-2" href={links.email.url}>
           email me
-        </a>{' '}
+        </Link>{' '}
         directly. Try finding me anywhere else at{' '}
-        <a target="_blank" href="https://www.google.com/search?q=bozzhik" className="text-white">
+        <Link target="_blank" href="https://www.google.com/search?q=bozzhik" className="text-white">
           @bozzhik
-        </a>
+        </Link>
       </Text>
 
       <div className="flex gap-5 xl:gap-3.5 sm:flex-wrap sm:gap-x-3.5 sm:gap-y-2 text-neutral-300">

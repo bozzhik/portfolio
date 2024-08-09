@@ -1,39 +1,40 @@
+import Block from '#/UI/Block'
+import Text from '#/UI/Text'
+
 import Image from 'next/image'
 import FreelanceImage from '%/cv/freelance.jpg'
 import StarNetImage from '%/cv/starnet.jpg'
 
 import {ArrowUpRight} from 'lucide-react'
 
-import Block from '##/cv/Block'
-import Text from '#/UI/Text'
-
 const jobsData: any = {
-  'custom-freelance': {
-    title: 'Freelance',
-    caption: 'Developer and UX/UI designer',
-    duration: 'Nov 2021 - Present',
-    link: '/works',
-    logo: FreelanceImage,
-  },
-  'star-net': {
-    title: 'StarNet Solutions',
-    caption: 'Junior Frontend developer',
-    duration: 'May 2020 - Sep 2021',
-    link: 'https://www.starnet.md',
-    logo: StarNetImage,
+  heading: 'work',
+  text: 'Below is a list of companies where I have worked as a <span class="text-white">Software Developer</span>',
+  items: {
+    'custom-freelance': {
+      title: 'Freelance',
+      caption: 'Developer and UX/UI designer',
+      duration: 'Nov 2021 - Present',
+      link: '/works',
+      logo: FreelanceImage,
+    },
+    'star-net': {
+      title: 'StarNet Solutions',
+      caption: 'Junior Frontend developer',
+      duration: 'May 2020 - Sep 2021',
+      link: 'https://www.starnet.md',
+      logo: StarNetImage,
+    },
   },
 }
+const {heading, text, items} = jobsData
 
 export default function Jobs() {
   return (
-    <Block index="jobs" heading="work">
-      <Text>
-        Below is a list of companies where I have worked as a <span className="text-white">Software Developer</span>:
-      </Text>
-
+    <Block token={'jobs-cv'} heading={heading} text={text} className="space-y-4">
       <div className="space-y-6">
-        {Object.keys(jobsData).map((key) => {
-          const {title, caption, duration, link, logo} = jobsData[key]
+        {Object.keys(items).map((key) => {
+          const {title, caption, duration, link, logo} = items[key]
           return (
             <a href={link} className="flex items-center justify-between group sm:items-start sm:flex-col" target="_blank" key={key}>
               <div className="flex items-center justify-between gap-4">
