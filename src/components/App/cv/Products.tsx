@@ -37,7 +37,7 @@ export default async function Products() {
         ))}
       </div>
 
-      <Button href="/works" text="View All" />
+      <Button link="/works" text="View All" />
     </Block>
   )
 }

@@ -54,7 +54,7 @@ export default async function Works() {
             <ProductCard type="work" product={work} key={index} />
           ))}
 
-        <Button href="/works" text="View All" />
+        <Button link="/works" text="View All" />
       </div>
     </Block>
   )

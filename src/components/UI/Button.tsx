@@ -6,17 +6,17 @@ import Link from 'next/link'
 
 type Props = {
   text: string
-  href: string
+  link: string
   blank?: boolean
   className?: string
 }
 
 const MotionLink = motion(Link)
 
-export default function Button({text, href, blank, className}: Props) {
+export default function Button({text, link, blank, className}: Props) {
   return (
     <MotionLink
-      href={href}
+      href={link}
       target={blank ? '_blank' : '_self'}
       className="inline-flex w-full overflow-hidden rounded-xl bg-[linear-gradient(120deg,#111_calc(var(--button-x)-25%),#333_var(--button-x),#111_calc(var(--button-x)+25%))] [--button-x:0%]"
       initial={
