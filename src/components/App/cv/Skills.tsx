@@ -1,6 +1,7 @@
-import Block from '##/cv/Block'
 import Text from '#/UI/Text'
-import Badge from '@/components/UI/Badge'
+import Badge from '#/UI/Badge'
+
+import Block from '##/cv/Block'
 
 import TsLogo from '%/cv/tech/typescript.svg'
 import PythonLogo from '%/cv/tech/python.svg'

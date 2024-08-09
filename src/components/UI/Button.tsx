@@ -5,16 +5,18 @@ import {motion} from 'framer-motion'
 import Link from 'next/link'
 
 type Props = {
-  href: string
   text: string
+  href: string
+  blank?: boolean
 }
 
 const MotionLink = motion(Link)
 
-export default function Button({href, text}: Props) {
+export default function Button({text, href, blank}: Props) {
   return (
     <MotionLink
       href={href}
+      target={blank ? '_blank' : '_self'}
       className="inline-flex w-full overflow-hidden rounded-xl bg-[linear-gradient(120deg,#111_calc(var(--button-x)-25%),#333_var(--button-x),#111_calc(var(--button-x)+25%))] [--button-x:0%]"
       initial={
         {
