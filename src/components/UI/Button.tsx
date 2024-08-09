@@ -41,7 +41,7 @@ export default function Button({text, href, blank, className}: Props) {
         },
       }}
     >
-      <span className={cn('w-full px-4 py-1.5 text-lg sm:text-base text-center', 'duration-200 hover:text-neutral-400 sm:hover:text-white sm:active:text-neutral-400', 'bg-neutral-800/50 border-[1px] border-b-0 border-neutral-800', 'm-[0.25rem] rounded-[calc(0.7rem-0.125rem)] backdrop-blur-sm', className)}>{text}</span>
+      <span className={cn('w-full px-4 py-1.5 text-center', 'duration-200 hover:text-neutral-400 sm:hover:text-white sm:active:text-neutral-400', 'bg-neutral-800/50 border-[1px] border-b-0 border-neutral-800', 'm-[0.25rem] rounded-[calc(0.7rem-0.125rem)] backdrop-blur-sm', className)}>{text}</span>
     </MotionLink>
   )
 }
