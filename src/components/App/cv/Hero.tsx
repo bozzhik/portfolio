@@ -8,8 +8,8 @@ import '%%/stylesheets/animate-surfing.css'
 
 export default function Hero() {
   return (
-    <section data-section="hero-cv" className="space-y-4">
-      <div className="space-y-3">
+    <section data-section="hero-cv" className="space-y-5">
+      <div className="space-y-2.5">
         <div className="group w-fit">
           <Text type="heading" className="flex items-center">
             Maxim Bozhik

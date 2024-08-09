@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     title: website.title,
     description: website.description,
     siteName: website.title,
-    images: `${website.url}/og.jpg`,
+    images: `${website.url}/seo.jpg`,
   },
   robots: {
     index: true,

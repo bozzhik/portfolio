@@ -22,7 +22,7 @@ const gridImageHeight = 'h-44 xl:h-32 sm:h-40 xs:h-32'
 const gridData: GridData = {
   main: {
     'vkfest-concert': {
-      src: '/vkfest-concert.mp4',
+      src: 'videos/vkfest-concert.mp4',
       alt: 'Me at a concert at VK Fest 2024',
       classes: `${gridImageHeight} sm:col-span-2`,
       video: true,
@@ -48,7 +48,7 @@ const gridData: GridData = {
       classes: 'row-span-2 sm:row-span-1',
     },
     'moskow-subway': {
-      src: '/moskow-subway2.mp4',
+      src: 'videos/moskow-subway2.mp4',
       alt: 'Me in the Moscow Metro',
       classes: gridImageHeight,
       video: true,

@@ -3,7 +3,6 @@
 import {useState, useEffect, useMemo} from 'react'
 import {useRouter, useSearchParams} from 'next/navigation'
 
-import {cn} from '@/lib/utils'
 import {isMobile} from '@bozzhik/is-mobile'
 import {shuffleArray} from '@/utils/shuffleArray'
 
@@ -68,14 +67,14 @@ export default function WorkFilter({works}: WorksFilterProps) {
         <div className="flex gap-2.5 sm:gap-1.5">
           {types.map((type) => (
             <button key={type} onClick={() => handleFilterChange(type)} className={`hover:text-neutral-400 duration-200 ${filter === type ? 'text-neutral-400' : ''}`}>
-              <Button className="px-6 text-base sm:text-sm" href="#" text={worksTypesData[type]?.title || type.charAt(0).toUpperCase() + type.slice(1)} />
+              <Button className="px-8 text-base sm:px-6 xl:text-sm sm:text-sm" link="#" text={worksTypesData[type]?.title || type.charAt(0).toUpperCase() + type.slice(1)} />
             </button>
           ))}
         </div>
 
         {filter && (
           <button onClick={handleClearFilters} className="text-neutral-400">
-            {!isMobile ? 'Clear Filters' : <X />}
+            {isMobile ? 'Clear Filters' : <X />}
           </button>
         )}
       </div>
