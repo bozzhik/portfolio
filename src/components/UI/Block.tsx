@@ -7,11 +7,12 @@ interface Props {
   heading: string
   text?: string
   className?: string
+  id?: string
 }
 
-export default function Block({children, token, heading, text, className}: Props) {
+export default function Block({children, token, heading, text, className, id}: Props) {
   return (
-    <section data-section={token} className={cn('space-y-6', className)}>
+    <section id={id || undefined} data-section={token} className={cn('space-y-6', className)}>
       <div className="space-y-3 group w-fit">
         <Text type="heading" className="flex items-center">
           {heading}
