@@ -1,0 +1,15 @@
+.animate-skeleton {
+  animation: skeleton 2s infinite;
+}
+
+@keyframes skeleton {
+  0% {
+    background-color: #111;
+  }
+  50% {
+    background-color: #151515;
+  }
+  100% {
+    background-color: #111;
+  }
+}

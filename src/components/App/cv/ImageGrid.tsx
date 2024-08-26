@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import '../../../assets/stylesheets/animate-skeleton.css'
 
 import MountainTurkeyImage from '%/cv/grid/mountain-turkey.jpg'
 import RunningMarathonImage from '%/cv/grid/running-marathon.jpg'
@@ -61,7 +62,7 @@ export default function ImageGrid() {
     <section data-section="hero-cv">
       <div className="grid grid-cols-3 grid-rows-3 gap-4 xl:gap-3 sm:gap-2.5 sm:grid-cols-2">
         {Object.entries(gridData.main).map(([key, {src, alt, classes, video}]) => (
-          <div key={key} className={`relative rounded-lg overflow-hidden ${classes}`}>
+          <div key={key} className={`relative rounded-lg overflow-hidden animate-skeleton ${classes}`}>
             {video ? (
               <video className="object-cover s-full" width="100%" height="100%" muted loop autoPlay playsInline preload="auto">
                 <source src={src} type="video/mp4" />
