@@ -80,9 +80,11 @@ export default function WorkFilter({works}: WorksFilterProps) {
       </div>
 
       <div className="flex flex-col gap-5 sm:gap-4">
-        {filteredWorks.map((work) => (
-          <ProductCard key={work.id} type="work" product={work} />
-        ))}
+        {filteredWorks
+          .filter((work) => !work.is_draft)
+          .map((work) => (
+            <ProductCard key={work.id} type="work" product={work} />
+          ))}
       </div>
     </section>
   )

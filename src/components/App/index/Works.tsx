@@ -19,6 +19,7 @@ export async function getWorks(): Promise<Product[]> {
         "hover_color":color.rgb,
         is_best,
         in_development,
+        is_draft,
     }`,
     {},
     {
@@ -49,7 +50,7 @@ export default async function Works() {
     <Block token={'works-index'} heading={heading} text={text}>
       <div className="flex flex-col gap-5 sm:gap-4">
         {works
-          .filter((work) => work.is_best)
+          .filter((work) => work.is_best && !work.is_draft)
           .map((work, index) => (
             <ProductCard type="work" product={work} key={index} />
           ))}

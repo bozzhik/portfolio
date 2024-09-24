@@ -9,4 +9,5 @@ export type Product = {
   hover_color?: any
   is_best?: boolean
   in_development?: boolean
+  is_draft?: boolean
 }

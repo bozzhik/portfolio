@@ -61,12 +61,17 @@ const work: SchemaTypeDefinition = {
     },
     {
       name: 'is_best',
-      title: 'Best work?',
+      title: 'Best work',
       type: 'boolean',
     },
     {
       name: 'in_development',
-      title: 'In development?',
+      title: 'In development',
+      type: 'boolean',
+    },
+    {
+      name: 'is_draft',
+      title: 'Draft',
       type: 'boolean',
     },
   ],
@@ -74,15 +79,16 @@ const work: SchemaTypeDefinition = {
     select: {
       title: 'name',
       subtitle: 'id',
-      best: 'is_best',
       media: 'image',
+      best: 'is_best',
+      draft: 'is_draft',
     },
     prepare(selection) {
-      const {title, subtitle, best, media} = selection
+      const {title, subtitle, media, best, draft} = selection
       return {
         title: title,
-        subtitle: `${subtitle} ${best ? '★' : ''}`,
         media: media,
+        subtitle: `${subtitle} ${best ? '★' : ''} ${draft ? '[hidden]' : ''}`,
       }
     },
   },

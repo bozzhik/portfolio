@@ -18,6 +18,7 @@ export async function getProjects(): Promise<Product[]> {
         "hover_color":color.rgb,
         is_best,
         in_development,
+        is_draft,
     }`,
     {},
     {
@@ -48,7 +49,7 @@ export default async function Projects() {
     <Block id="PROJECTS" token={'projects-index'} className="scroll-mt-8 sm:scroll-mt-5" heading={heading} text={text}>
       <div className="flex flex-col gap-5 sm:gap-4">
         {projects
-          .filter((project) => project.is_best)
+          .filter((project) => project.is_best && !project.is_draft)
           .map((project, index) => (
             <ProductCard type="project" product={project} key={index} />
           ))}
