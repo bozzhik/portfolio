@@ -7,6 +7,16 @@ const nextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: '/:path*/snable',
+        destination: 'https://snable.website',
+        permanent: true,
+        basePath: false,
+      },
+    ]
+  },
 }
 
 export default nextConfig
