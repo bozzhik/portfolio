@@ -16,6 +16,12 @@ const nextConfig: NextConfig = {
         permanent: true,
         basePath: false,
       },
+      {
+        source: '/cv-pdf', // https://bozzhik.com/cv-maxim-bojic.pdf
+        destination: '/cv-maxim-bojic.pdf',
+        permanent: true,
+        basePath: false,
+      },
     ]
   },
 }

@@ -33,7 +33,7 @@ const jobs: JobItem[] = [
   {
     title: 'StarNet Solutions',
     caption: 'Junior Frontend developer',
-    duration: 'May 2020 - Sep 2021',
+    duration: 'May 2021 - Aug 2021',
     link: 'https://www.starnet.md',
     icon: StarNetLogo,
   },
