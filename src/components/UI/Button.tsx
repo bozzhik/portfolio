@@ -1,7 +1,8 @@
 'use client'
 
-import {cn} from '@/lib/utils'
 import {motion} from 'framer-motion'
+import {cn} from '@/lib/utils'
+
 import Link from 'next/link'
 
 type Props = {
@@ -11,7 +12,7 @@ type Props = {
   className?: string
 }
 
-const MotionLink = motion(Link)
+const MotionLink = motion.create(Link)
 
 export default function Button({text, link, blank, className}: Props) {
   return (
@@ -19,17 +20,13 @@ export default function Button({text, link, blank, className}: Props) {
       href={link}
       target={blank ? '_blank' : '_self'}
       className="inline-flex w-full overflow-hidden rounded-xl bg-[linear-gradient(120deg,#111_calc(var(--button-x)-25%),#333_var(--button-x),#111_calc(var(--button-x)+25%))] [--button-x:0%]"
-      initial={
-        {
-          scale: 1,
-          '--button-x': '-100%',
-        } as any
-      }
-      animate={
-        {
-          '--button-x': '200%',
-        } as any
-      }
+      initial={{
+        scale: 1,
+        '--button-x': '-100%',
+      }}
+      animate={{
+        '--button-x': '200%',
+      }}
       transition={{
         stiffness: 500,
         damping: 20,

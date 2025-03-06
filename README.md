@@ -1,6 +1,6 @@
 # ⚡️developer portfolio
 
-![sky-cast_screenshot01](https://bozzhik.com/seo.jpg)
+![bozzhik.com snapshot](https://bozzhik.com/og.jpg)
 
 - **Framework**: [Next.js](https://nextjs.org/)
 - **Database**: [Sanity CMS](https://www.sanity.io/)

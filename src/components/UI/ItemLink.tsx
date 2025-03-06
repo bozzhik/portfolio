@@ -1,8 +1,9 @@
-import Image, {StaticImageData} from 'next/image'
-import {ArrowUpRight} from 'lucide-react'
-import Text from '#/UI/Text'
+import Image, {type StaticImageData} from 'next/image'
 
-interface Props {
+import Text from '#/UI/Text'
+import {ArrowUpRight} from 'lucide-react'
+
+type Props = {
   title: string
   caption: string
   duration: string

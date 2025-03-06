@@ -1,10 +1,8 @@
-import Image from 'next/image'
 import CursorImage from '%/icons/cursor.svg'
 
+import Image from 'next/image'
 import ImageGrid from '##/cv/ImageGrid'
 import Text from '#/UI/Text'
-
-import '%%/stylesheets/animate-surfing.css'
 
 export default function Hero() {
   return (

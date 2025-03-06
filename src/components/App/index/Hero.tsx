@@ -1,12 +1,11 @@
-import Image from 'next/image'
 import CursorImage from '%/icons/cursor.svg'
 
+import {links} from '@/lib/constants'
+
+import Image from 'next/image'
 import Text from '#/UI/Text'
 import Badge from '#/UI/Badge'
 import ArrowLink from '#/UI/ArrowLink'
-
-import {links} from '@/lib/constants'
-import '%%/stylesheets/animate-surfing.css'
 
 export default function Hero() {
   return (

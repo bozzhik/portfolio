@@ -1,8 +1,9 @@
 import {cn} from '@/lib/utils'
+
 import Link from 'next/link'
 import Image from 'next/image'
 
-interface Props {
+type Props = {
   size?: 'small' | 'medium'
   text: string
   icon?: string

@@ -1,10 +1,9 @@
-import Link from 'next/link'
+import {links} from '@/lib/constants'
 
+import Link from 'next/link'
 import Block from '#/UI/Block'
 import Text from '#/UI/Text'
 import ArrowLink from '#/UI/ArrowLink'
-
-import {links} from '@/lib/constants'
 
 export default function GetMe() {
   return (

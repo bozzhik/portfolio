@@ -1,6 +1,7 @@
+import type {Product} from '@/types/product'
+
 import {client} from '@/lib/sanity'
 import {revalidateTime} from '@/lib/utils'
-import {Product} from '@/types/product'
 
 import Block from '#/UI/Block'
 import ProductCard from '#/UI/ProductCard'
@@ -35,7 +36,6 @@ const worksData = {
   heading: 'my works',
   text: 'Creating unique websites and designing interfaces is my passion. I oversee the entire process from idea and design to coding and delivering the final product.',
 }
-const {heading, text} = worksData
 
 export default async function Works() {
   const works: Product[] = await getWorks()
@@ -47,7 +47,7 @@ export default async function Works() {
   works.sort((a, b) => a.id - b.id)
 
   return (
-    <Block token={'works-index'} heading={heading} text={text}>
+    <Block token={'works-index'} heading={worksData.heading} text={worksData.text}>
       <div className="flex flex-col gap-5 sm:gap-4">
         {works
           .filter((work) => work.is_best && !work.is_draft)

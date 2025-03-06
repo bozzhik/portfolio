@@ -1,7 +1,7 @@
-import {Suspense} from 'react'
-
-import {Product} from '@/types/product'
+import type {Product} from '@/types/product'
 import {getWorks} from '##/index/Works'
+
+import {Suspense} from 'react'
 
 import Container from '#/Global/Container'
 import Block from '#/UI/Block'

@@ -1,6 +1,6 @@
 import {cn} from '@/lib/utils'
 
-interface Props {
+type Props = {
   type?: 'heading' | 'text'
   className?: string
   children: React.ReactNode | string

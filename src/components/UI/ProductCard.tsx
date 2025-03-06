@@ -1,7 +1,7 @@
 import {cn} from '@/lib/utils'
 import {urlForImage} from '@/lib/sanity'
 
-import {Product} from '@/types/product'
+import type {Product} from '@/types/product'
 
 import Link from 'next/link'
 import Image from 'next/image'
@@ -10,7 +10,7 @@ import Badge from '#/UI/Badge'
 
 import DefaultImage from '%/default-card-img.png'
 
-interface Props {
+type Props = {
   type: 'work' | 'project'
   product: Product
 }
