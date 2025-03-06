@@ -1,14 +1,22 @@
-import {Config} from 'tailwindcss'
+import type {Config} from 'tailwindcss'
+
+import defaultTheme from 'tailwindcss/defaultTheme'
 import plugin from 'tailwindcss/plugin'
 
-const config: Config = {
-  mode: 'jit',
-  content: ['./src/pages/**/*.{js,ts,jsx,tsx,mdx}', './src/components/**/*.{js,ts,jsx,tsx,mdx}', './src/app/**/*.{js,ts,jsx,tsx,mdx}'],
+export default {
   theme: {
+    screens: {
+      xl: {max: '1780px'},
+      sm: {max: '500px'},
+    },
+    fontFamily: {
+      sans: ['var(--font-suisse-intl)', ...defaultTheme.fontFamily.sans],
+    },
+    fontWeight: {
+      normal: '400',
+      medium: '500',
+    },
     extend: {
-      fontWeight: {
-        book: '450',
-      },
       colors: {
         custom: {
           black: '#090909',
@@ -20,19 +28,11 @@ const config: Config = {
         },
       },
     },
-    screens: {
-      xl: {max: '1536px'},
-      lg: {max: '1024px'},
-      sm: {max: '768px'},
-      xs: {max: '350px'},
-    },
   },
-  safelist: ['hover:from-[rgba(102_102_102/0)]', 'hover:from-[rgba(252_112_143/0.4)]', 'hover:from-[rgba(74_123_86/0.4)]', 'hover:from-[rgba(102_102_102/0.4)]', 'hover:from-[rgba(245_253_90/0.4)]', 'hover:from-[rgba(204_204_204/0.4)]', 'hover:from-[rgba(203_251_69/0.4)]', 'hover:from-[rgba(68_68_68/0.4)]', 'hover:from-[rgba(153_28_47/0.4)]', 'hover:from-[rgba(125_117_111/0.4)]', 'hover:from-[rgba(163_139_244/0.4)]', 'hover:from-[rgba(200_42_34/0.4)]', 'hover:from-[rgba(251_107_179/0.4)]'],
+  // safelist: ['hover:from-[rgba(102_102_102/0)]', 'hover:from-[rgba(252_112_143/0.4)]', 'hover:from-[rgba(74_123_86/0.4)]', 'hover:from-[rgba(102_102_102/0.4)]', 'hover:from-[rgba(245_253_90/0.4)]', 'hover:from-[rgba(204_204_204/0.4)]', 'hover:from-[rgba(203_251_69/0.4)]', 'hover:from-[rgba(68_68_68/0.4)]', 'hover:from-[rgba(153_28_47/0.4)]', 'hover:from-[rgba(125_117_111/0.4)]', 'hover:from-[rgba(163_139_244/0.4)]', 'hover:from-[rgba(200_42_34/0.4)]', 'hover:from-[rgba(251_107_179/0.4)]'],
   plugins: [
     plugin(function sizePlugin(api) {
       api.matchUtilities({s: (value: string) => ({width: value, height: value})}, {values: api.theme('width')})
     }),
   ],
-}
-
-export default config
+} satisfies Config

@@ -1,13 +1,10 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+@config '../../tailwind.config.ts';
 
-@import '../assets/stylesheets/custom-scrollbar.css';
+@import '../assets/stylesheets/custom-scrollbar.css' layer(base);
+@import '../assets/stylesheets/animate-skeleton.css' layer(base);
+@import '../assets/stylesheets/animate-surfing.css' layer(base);
 
 ::selection {
   @apply bg-neutral-800;
-}
-
-mark {
-  @apply s-fit px-1 bg-purple-400;
 }

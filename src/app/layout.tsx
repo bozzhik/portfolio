@@ -1,15 +1,16 @@
 import type {Metadata} from 'next'
 import localFont from 'next/font/local'
-import './globals.css'
+import '@/app/globals.css'
 
 import {SpeedInsights} from '@vercel/speed-insights/next'
-import {Analytics} from '@vercel/analytics/react'
+import {Analytics as VercelAnalytics} from '@vercel/analytics/react'
 
 import YandexMetrika from '#/Global/Analytics'
 import Header from '#/Global/Header'
 import Particles from '#/Global/Particles'
 
-const SuisseIntl = localFont({
+export const suisseIntl = localFont({
+  variable: '--font-suisse-intl',
   src: [
     {
       path: '../assets/fonts/SuisseIntl-Regular.woff2',
@@ -69,17 +70,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      {process.env.NODE_ENV === 'production' && (
-        <>
-          <YandexMetrika />
-          <Analytics />
-        </>
-      )}
-      <body className={`${SuisseIntl.className} bg-custom-black text-white`}>
+      <body className={`${suisseIntl.variable} antialiased bg-custom-black text-white`}>
         <Header />
         {children}
-        <SpeedInsights />
         <Particles className="fixed inset-0 h-screen overflow-hidden -z-10 opacity-70" />
+
+        <>
+          {process.env.NODE_ENV === 'production' && (
+            <>
+              <YandexMetrika />
+              <VercelAnalytics />
+            </>
+          )}
+          <SpeedInsights />
+        </>
       </body>
     </html>
   )
