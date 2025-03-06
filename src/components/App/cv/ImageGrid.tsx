@@ -42,7 +42,7 @@ const gridData: GridItem[] = [
     classes: 'row-span-2 sm:row-span-1',
   },
   {
-    src: 'videos/moskow-subway2.mp4',
+    src: 'videos/moskow-subway.mp4',
     alt: 'Me in the Moscow Metro',
     classes: gridImageHeight,
     video: true,
