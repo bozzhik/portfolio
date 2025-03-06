@@ -1,6 +1,6 @@
 import {cn} from '@/lib/utils'
 
-interface Props {
+type Props = {
   children: React.ReactNode
   width?: '1/2' | '2/3'
   className?: string

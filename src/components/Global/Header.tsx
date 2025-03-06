@@ -1,11 +1,12 @@
 'use client'
 
+import {widthClasses} from '#/Global/Container'
+
 import {usePathname} from 'next/navigation'
-import {widthClasses} from './Container'
 import {cn} from '@/lib/utils'
 
 import Link from 'next/link'
-import ArrowLink from '../UI/ArrowLink'
+import ArrowLink from '#/UI/ArrowLink'
 
 const headerData = {
   nav: {

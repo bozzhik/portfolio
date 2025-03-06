@@ -3,7 +3,7 @@ import {cn} from '@/lib/utils'
 import Link from 'next/link'
 import {ArrowUpRight} from 'lucide-react'
 
-interface Props {
+type Props = {
   href: string
   text: string
   target?: boolean

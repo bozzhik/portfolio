@@ -1,7 +1,8 @@
 import {cn} from '@/lib/utils'
+
 import Text from '#/UI/Text'
 
-interface Props {
+type Props = {
   children?: React.ReactNode
   token: string
   heading: string

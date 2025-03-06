@@ -1,16 +1,14 @@
 # ⚡️developer portfolio
 
-![sky-cast_screenshot01](https://bozzhik.ru/seo.jpg)
+![bozzhik.com snapshot](https://bozzhik.com/og.jpg)
 
 - **Framework**: [Next.js](https://nextjs.org/)
 - **Database**: [Sanity CMS](https://www.sanity.io/)
-- **Deployment**: [Vercel](https://vercel.com)
 - **Styling**: [Tailwind CSS](https://tailwindcss.com)
+- **Deployment**: [Vercel](https://vercel.com)
 - **Analytics**: [Yandex Metrika](https://metrika.yandex.ru/promo/product)
 
 ## Running Locally
-
-This application requires Node.js v18+
 
 ```bash
 git clone https://github.com/bozzhik/portfolio.git
