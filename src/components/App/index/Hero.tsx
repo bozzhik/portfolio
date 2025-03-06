@@ -1,6 +1,6 @@
 import CursorImage from '%/icons/cursor.svg'
 
-import {links} from '@/lib/constants'
+import {SOCIALS} from '@/lib/constants'
 
 import Image from 'next/image'
 import Text from '#/UI/Text'
@@ -23,7 +23,7 @@ export default function Hero() {
       </Text>
 
       <div className="flex gap-5 xl:gap-3.5 sm:flex-wrap sm:gap-x-3.5 sm:gap-y-2 text-neutral-300">
-        {Object.entries(links).map(([key, link]) => (
+        {Object.entries(SOCIALS).map(([key, link]) => (
           <ArrowLink key={key} href={link.url} text={link.text} className={key == 'inst' ? 'sm:hidden' : ''} />
         ))}
       </div>
