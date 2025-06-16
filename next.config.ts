@@ -1,13 +1,6 @@
 import type {NextConfig} from 'next'
 
 const nextConfig: NextConfig = {
-  images: {
-    remotePatterns: [
-      {
-        hostname: 'cdn.sanity.io',
-      },
-    ],
-  },
   async redirects() {
     return [
       {
@@ -17,8 +10,8 @@ const nextConfig: NextConfig = {
         basePath: false,
       },
       {
-        source: '/cv-pdf', // https://bozzhik.com/cv-maxim-bojic.pdf
-        destination: '/cv-maxim-bojic.pdf',
+        source: '/cv-pdf',
+        destination: '/cv-maxim-bozhik.pdf',
         permanent: true,
         basePath: false,
       },
