@@ -2,6 +2,9 @@ import BozzhikImage from '$/bozzhik.jpg'
 import GithubIcon from '$/icons/github.svg'
 import EmailIcon from '$/icons/email.svg'
 
+import GraphiteImage from '$/projects/graphite.png'
+import MurinoImage from '$/projects/murino.png'
+
 export const CONTENT = {
   global: {
     person: {
@@ -18,6 +21,20 @@ export const CONTENT = {
         link: 'mailto:bozzhik@yandex.com',
         icon: EmailIcon,
       },
+    },
+  },
+  projects: {
+    graphite: {
+      title: 'Graphite House',
+      description: 'Landing page with event poster and details for the concert venue',
+      image: GraphiteImage,
+      link: 'https://graphite.house',
+    },
+    murino: {
+      title: 'Murino',
+      description: 'Website for a football complex in the Leningrad region',
+      image: MurinoImage,
+      link: 'https://murino.ru',
     },
   },
   homePage: {
