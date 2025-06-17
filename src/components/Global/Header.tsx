@@ -1,8 +1,10 @@
 import {CONTENT} from '@/content'
+
 import {cn} from '@/lib/utils'
 
 import Link from 'next/link'
 import Image from 'next/image'
+import {H1, SPAN} from '~/UI/Typography'
 
 export default function Header() {
   const {person, socials} = CONTENT.global
@@ -13,8 +15,8 @@ export default function Header() {
         <Image quality={100} className="size-14 rounded-[10px]" src={person.picture} alt={`${person.name} — Frontend & Mobile Developer`} />
 
         <div>
-          <h1 className="text-xl font-semibold text-foreground">{person.name}</h1>
-          <p className="text-base text-gray">{person.taglines[Math.floor(Math.random() * person.taglines.length)]}</p>
+          <H1>{person.name}</H1>
+          <SPAN>{person.taglines[Math.floor(Math.random() * person.taglines.length)]}</SPAN>
         </div>
       </div>
 
