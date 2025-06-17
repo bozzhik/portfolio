@@ -6,6 +6,8 @@ import {cn} from '@/lib/utils'
 
 import {SpeedInsights} from '@vercel/speed-insights/next'
 import {Analytics as VercelAnalytics} from '@vercel/analytics/react'
+
+import Header from '~/Global/Header'
 import YandexMetrika from '~/Global/Analytics'
 
 export default function RootLayout({
@@ -16,6 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={cn(sfProDisplay.variable, 'bg-background text-foreground', 'font-sans antialiased')}>
+        <Header />
         {children}
 
         {process.env.NODE_ENV === 'production' && (
