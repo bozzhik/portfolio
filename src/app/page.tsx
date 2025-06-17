@@ -1,5 +1,10 @@
 import Container from '~/Global/Container'
+import About from '~~/home/About'
 
 export default function Home() {
-  return <Container>bozzhik.com</Container>
+  return (
+    <Container>
+      <About />
+    </Container>
+  )
 }

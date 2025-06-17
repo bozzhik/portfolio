@@ -20,4 +20,10 @@ export const CONTENT = {
       },
     },
   },
+  homePage: {
+    about: {
+      text: 'I develop interactive web applications using React, Next JS, and Tailwind CSS, while creating powerful mobile apps with React Native.',
+      badges: ['React Native', 'React', 'Next JS', 'Tailwind CSS'],
+    },
+  },
 }

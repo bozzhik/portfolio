@@ -10,10 +10,12 @@ export type TypoTypes = keyof typeof typoClasses
 
 export const typoClasses = {
   h1: cn('text-xl font-semibold tracking-[0.01em]', 'text-foreground'),
+  p: cn('text-lg tracking-[0.01em]', 'text-gray'),
   span: cn('text-base tracking-[0.01em]', 'text-gray'),
 } as const
 
 export const H1 = createTypography('h1')
+export const P = createTypography('p')
 export const SPAN = createTypography('span')
 
 function Typography({type, className, children, ...props}: Props) {
