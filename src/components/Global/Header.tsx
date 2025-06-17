@@ -1,3 +1,4 @@
+import {WEBSITE_BOX} from '~/Global/Container'
 import {CONTENT} from '@/content'
 
 import {cn} from '@/lib/utils'
@@ -10,7 +11,7 @@ export default function Header() {
   const {person, socials} = CONTENT.global
 
   return (
-    <header className={cn('max-w-2xl xl:max-w-[35rem] mx-auto sm:mx-4', 'mt-20', 'flex items-center justify-between')}>
+    <header className={cn(WEBSITE_BOX, 'mt-20', 'flex items-center justify-between')}>
       <div className="flex items-center gap-3.5">
         <Image quality={100} className="size-14 rounded-[10px]" src={person.picture} alt={`${person.name} — Frontend & Mobile Developer`} />
 
