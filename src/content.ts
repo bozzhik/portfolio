@@ -29,12 +29,14 @@ export const CONTENT = {
       description: 'Landing page with event poster and details for the concert venue',
       image: GraphiteImage,
       link: 'https://graphite.house',
+      color: '#FB6BB3',
     },
     murino: {
       title: 'Murino',
       description: 'Website for a football complex in the Leningrad region',
       image: MurinoImage,
       link: 'https://murino.ru',
+      color: '#58944A',
     },
   },
   homePage: {

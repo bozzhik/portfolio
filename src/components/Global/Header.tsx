@@ -23,7 +23,7 @@ export default function Header() {
 
       <div className="flex gap-1.5">
         {Object.entries(socials).map(([key, item]) => (
-          <Link className={cn('p-2', 'grid place-items-center size-fit', 'bg-gray-dark rounded-[10px] border border-foreground/10')} href={item.link} target="_blank" rel="noopener noreferrer" key={key}>
+          <Link className={cn('p-2', 'grid place-items-center size-fit', 'bg-gray-medium rounded-[10px] border border-foreground/10')} href={item.link} target="_blank" rel="noopener noreferrer" key={key}>
             <Image className="size-5.5" src={item.icon} alt={`${key} icon`} />
           </Link>
         ))}
