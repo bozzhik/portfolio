@@ -1,4 +1,6 @@
 import BozzhikImage from '$/profile/bozzhik.jpg'
+import BozzhikImage2 from '$/profile/bozzhik2.jpg'
+import BozzhikImage3 from '$/profile/bozzhik3.jpg'
 
 import GithubIcon from '$/icons/github.svg'
 import XIcon from '$/icons/x.svg'
@@ -12,7 +14,7 @@ export const CONTENT = {
     person: {
       name: 'Maxim Bozhik',
       taglines: ['Turning caffeine into code.', 'Making pixels push themselves.', "I make websites work. You're welcome.", 'Just a dev doing dev things.', 'Coding, creating, conquering (bugs).', 'Making websites that magically work.'],
-      picture: BozzhikImage,
+      pictures: [BozzhikImage, BozzhikImage2, BozzhikImage3],
     },
     socials: {
       github: {
