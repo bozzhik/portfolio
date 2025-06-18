@@ -1,4 +1,5 @@
-import BozzhikImage from '$/bozzhik.jpg'
+import BozzhikImage from '$/profile/bozzhik.jpg'
+
 import GithubIcon from '$/icons/github.svg'
 import XIcon from '$/icons/x.svg'
 import TelegramIcon from '$/icons/telegram.svg'
@@ -17,20 +18,14 @@ export const CONTENT = {
       github: {
         link: 'https://github.com/bozzhik',
         content: GithubIcon,
-        color: '#24292E',
-        contrast: false,
       },
       x: {
         link: 'https://x.com/bozzhik',
         content: XIcon,
-        color: '#070707',
-        contrast: true,
       },
       telegram: {
         link: 'https://t.me/bozzhik',
         content: TelegramIcon,
-        color: '#1E78A4',
-        contrast: true,
       },
       cv: {
         link: '/cv-pdf',
