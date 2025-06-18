@@ -6,6 +6,7 @@ import {cn} from '@/lib/utils'
 import {useState, useEffect} from 'react'
 import {motion, AnimatePresence} from 'motion/react'
 
+import Link from 'next/link'
 import Image from 'next/image'
 import {H1, SPAN} from '~/UI/Typography'
 
@@ -70,25 +71,27 @@ export default function Profile() {
   return (
     <div data-block="profile-header" className="flex items-center gap-3.5">
       <motion.div className="relative size-14" onHoverStart={() => setIsHovered(true)} onHoverEnd={() => setIsHovered(false)}>
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={currentImageIndex}
-            initial={{opacity: 0, scale: 0.9}}
-            animate={{
-              opacity: 1,
-              scale: 1,
-              transition: {duration: 0.5},
-            }}
-            exit={{
-              opacity: 0,
-              scale: 1.1,
-              transition: {duration: 0.5},
-            }}
-            className="absolute inset-0"
-          >
-            <Image quality={100} className="rounded-[10px]" src={person.pictures[currentImageIndex]} alt={`${person.name} — Frontend & Mobile Developer`} sizes="56px" fill priority />
-          </motion.div>
-        </AnimatePresence>
+        <Link href="/">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentImageIndex}
+              initial={{opacity: 0, scale: 0.9}}
+              animate={{
+                opacity: 1,
+                scale: 1,
+                transition: {duration: 0.5},
+              }}
+              exit={{
+                opacity: 0,
+                scale: 1.1,
+                transition: {duration: 0.5},
+              }}
+              className="absolute inset-0"
+            >
+              <Image quality={100} className="rounded-[10px]" src={person.pictures[currentImageIndex]} alt={`${person.name} — Frontend & Mobile Developer`} sizes="56px" fill priority />
+            </motion.div>
+          </AnimatePresence>
+        </Link>
       </motion.div>
 
       <div className="group" onMouseEnter={handleHover}>

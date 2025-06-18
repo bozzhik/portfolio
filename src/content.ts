@@ -47,14 +47,14 @@ export const CONTENT = {
   projects: {
     graphite: {
       title: 'Graphite House',
-      description: 'Landing page with event poster and details for the concert venue',
+      description: "Venue's Event Page",
       image: GraphiteImage,
       link: 'https://graphite.house',
       color: '#FB6BB3',
     },
     murino: {
       title: 'Murino',
-      description: 'Website for a football complex in the Leningrad region',
+      description: 'Football Complex Website',
       image: MurinoImage,
       link: 'https://murino.ru',
       color: '#58944A',

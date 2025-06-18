@@ -25,7 +25,11 @@ export default {
       neutral: colors.neutral,
       transparent: colors.transparent,
     }),
-    extend: {},
+    extend: {
+      transitionDuration: {
+        '400': '400ms',
+      },
+    },
   },
   plugins: [],
 } satisfies Config
