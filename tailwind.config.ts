@@ -19,7 +19,6 @@ export default {
       foreground: '#EEEEEE',
       gray: {
         DEFAULT: '#B4B4B4',
-        medium: '#202020',
         card: '#2A2A2A',
       },
 

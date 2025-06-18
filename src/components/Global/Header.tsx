@@ -21,10 +21,10 @@ export default function Header() {
         </div>
       </div>
 
-      <div className="flex gap-1.5">
+      <div className="flex gap-1.25">
         {Object.entries(socials).map(([key, item]) => (
-          <Link className={cn('p-2', 'grid place-items-center size-fit', 'bg-gray-medium rounded-[10px] border border-foreground/10')} href={item.link} target="_blank" rel="noopener noreferrer" key={key}>
-            <Image className="size-5.5" src={item.icon} alt={`${key} icon`} />
+          <Link className={cn('p-2 size-fit group grid place-items-center', 'group hover:bg-opacity-10 duration-200', 'rounded-[10px] border', item.contrast ? 'border-foreground/15' : 'border-foreground/7')} style={{backgroundColor: item.color || '#202020'}} href={item.link} target="_blank" rel="noopener noreferrer" key={key}>
+            {typeof item.content === 'string' ? <SPAN className="px-1.5 text-foreground group-hover:scale-[1.04] duration-300">{item.content}</SPAN> : <Image className="size-5.5 group-hover:scale-[1.1] duration-300" src={item.content} alt={`bozzhik ${key} icon`} />}
           </Link>
         ))}
       </div>

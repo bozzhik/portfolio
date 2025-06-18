@@ -1,6 +1,7 @@
 import BozzhikImage from '$/bozzhik.jpg'
 import GithubIcon from '$/icons/github.svg'
-import EmailIcon from '$/icons/email.svg'
+import XIcon from '$/icons/x.svg'
+import TelegramIcon from '$/icons/telegram.svg'
 
 import GraphiteImage from '$/projects/graphite.png'
 import MurinoImage from '$/projects/murino.png'
@@ -9,17 +10,33 @@ export const CONTENT = {
   global: {
     person: {
       name: 'Maxim Bozhik',
-      taglines: ['Turning caffeine into code.', 'Making pixels push themselves.', 'Just a dev doing dev things.', 'Coding, creating, conquering (bugs).', `Making websites work, so you don't have to.`],
+      taglines: ['Turning caffeine into code.', 'Making pixels push themselves.', "I make websites work. You're welcome.", 'Just a dev doing dev things.', 'Coding, creating, conquering (bugs).', 'Making websites that magically work.'],
       picture: BozzhikImage,
     },
     socials: {
       github: {
         link: 'https://github.com/bozzhik',
-        icon: GithubIcon,
+        content: GithubIcon,
+        color: '#24292E',
+        contrast: false,
       },
-      email: {
-        link: 'mailto:bozzhik@yandex.com',
-        icon: EmailIcon,
+      x: {
+        link: 'https://x.com/bozzhik',
+        content: XIcon,
+        color: '#070707',
+        contrast: true,
+      },
+      telegram: {
+        link: 'https://t.me/bozzhik',
+        content: TelegramIcon,
+        color: '#1E78A4',
+        contrast: true,
+      },
+      cv: {
+        link: '/cv-pdf',
+        content: 'Resume',
+        color: null,
+        contrast: false,
       },
     },
   },
