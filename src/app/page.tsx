@@ -5,8 +5,8 @@ import Projects from '~~/home/Projects'
 export default function Home() {
   return (
     <Container className="gap-8">
-      <About />
-      <Projects />
+      <About delay={0.2} />
+      <Projects delay={0.4} />
     </Container>
   )
 }

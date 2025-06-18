@@ -25,11 +25,11 @@ function Gradient({color, className}: {color?: string; className?: string}) {
   )
 }
 
-export default function Projects() {
+export default function Projects({delay}: {delay?: number}) {
   const {projects} = CONTENT
 
   return (
-    <Block section="projects" className="gap-3.5">
+    <Block section="projects" className="gap-3.5" delay={delay}>
       <div className="space-y-4.5">
         {Object.entries(projects).map(([key, project]) => (
           <Link className={cn('relative overflow-hidden group', 'p-3 flex flex-col', 'border border-gray/10 rounded-[14px]', 'bg-gray-card/20')} href={project.link} target="_blank" rel="noopener noreferrer" key={key}>

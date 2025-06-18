@@ -1,7 +1,6 @@
 'use client'
 
 import {CONTENT} from '@/content'
-
 import {cn} from '@/lib/utils'
 
 import {useState, useEffect} from 'react'
