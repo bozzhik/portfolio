@@ -2,6 +2,8 @@
 
 import {CONTENT} from '@/content'
 
+import {cn} from '@/lib/utils'
+
 import {useState, useEffect} from 'react'
 import {motion, AnimatePresence} from 'motion/react'
 
@@ -20,6 +22,7 @@ export default function Profile() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
   const [isHovered, setIsHovered] = useState(false)
   const [randomTagline, setRandomTagline] = useState(person.taglines[0])
+  const [isAnimating, setIsAnimating] = useState(true)
 
   useEffect(() => {
     person.pictures.forEach((pic) => {
@@ -53,6 +56,18 @@ export default function Profile() {
     setRandomTagline(person.taglines[Math.floor(Math.random() * person.taglines.length)])
   }, [person.taglines])
 
+  useEffect(() => {
+    const timer = setTimeout(() => setIsAnimating(false), 2500)
+    return () => clearTimeout(timer)
+  }, [])
+
+  const handleHover = () => {
+    if (!isAnimating) {
+      setIsAnimating(true)
+      setTimeout(() => setIsAnimating(false), 2500)
+    }
+  }
+
   return (
     <div data-block="profile-header" className="flex items-center gap-3.5">
       <motion.div className="relative size-14" onHoverStart={() => setIsHovered(true)} onHoverEnd={() => setIsHovered(false)}>
@@ -77,8 +92,13 @@ export default function Profile() {
         </AnimatePresence>
       </motion.div>
 
-      <div>
-        <H1>{person.name}</H1>
+      <div className="group" onMouseEnter={handleHover}>
+        <div className="flex items-center gap-2">
+          <H1>{person.name}</H1>
+
+          <Image className={cn('size-6', isAnimating && 'animate-cursoring')} src={person.cursor} alt="bozzhik cursor" />
+        </div>
+
         <SPAN>{randomTagline}</SPAN>
       </div>
     </div>

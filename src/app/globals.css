@@ -2,6 +2,7 @@
 @config '../../tailwind.config.ts';
 
 @import '../assets/stylesheets/scrollbar.css' layer(base);
+@import '../assets/stylesheets/animate-cursoring.css' layer(base);
 
 ::selection {
   @apply bg-neutral-800;
