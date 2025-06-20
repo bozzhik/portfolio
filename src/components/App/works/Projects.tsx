@@ -6,7 +6,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import Block from '~/UI/Block'
 import {SPAN} from '~/UI/Typography'
-import Button from '~/UI/Button'
+import NavigationButton from '~/UI/NavigationButton'
 
 function Gradient({color, className}: {color?: string; className?: string}) {
   const dye = (color: string, opacity: number) => {
@@ -49,11 +49,7 @@ export default function Projects({view, delay}: {view: 'home' | 'works'; delay?:
             </Link>
           ))}
 
-        {view === 'home' && (
-          <Button as="link" href="/works" variant="secondary" className="w-full rounded-[14px]">
-            <SPAN className="px-1.5 text-foreground group-hover:scale-[1.04] duration-300">More works</SPAN>
-          </Button>
-        )}
+        {view === 'home' && <NavigationButton href="/works" text="More works" />}
       </div>
     </Block>
   )

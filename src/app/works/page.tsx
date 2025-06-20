@@ -7,9 +7,13 @@ export const metadata: Metadata = {
 import Container from '~/Global/Container'
 import Projects from '@/components/App/works/Projects'
 
+import NavigationButton from '~/UI/NavigationButton'
+
 export default function WorksPage() {
   return (
     <Container>
+      <NavigationButton href="/" text="← Back home" />
+
       <Projects view="works" delay={0.2} />
     </Container>
   )
