@@ -27,12 +27,12 @@ function Gradient({color, className}: {color?: string; className?: string}) {
   )
 }
 
-export default function Projects({delay}: {delay?: number}) {
+export default function Projects({view, delay}: {view: 'home' | 'works'; delay?: number}) {
   return (
-    <Block section="works" heading="best works" className="gap-3.5" delay={delay}>
+    <Block section="works" heading={view === 'home' ? 'best works' : 'works'} className="gap-3.5" delay={delay}>
       <div className="space-y-4.5">
         {Object.entries(PROJECTS)
-          .filter(([, project]) => project.featured)
+          .filter(([, project]) => (view === 'home' ? project.featured : true))
           .map(([key, project]) => (
             <Link className={cn('relative overflow-hidden group', 'p-3 flex flex-col', 'border border-gray/10 rounded-[14px]', 'bg-gray-card/20')} href={project.link} target="_blank" rel="noopener noreferrer" key={key}>
               <Image quality={100} src={project.image} alt={`${project.name} — ${project.descriptor}`} className={cn('w-full h-auto rounded-lg', 'opacity-70 group-hover:opacity-90 duration-400', 'pointer-events-none')} />
@@ -49,9 +49,11 @@ export default function Projects({delay}: {delay?: number}) {
             </Link>
           ))}
 
-        <Button as="link" href="/projects" variant="secondary" className="w-full">
-          <SPAN className="px-1.5 text-foreground group-hover:scale-[1.04] duration-300">More works</SPAN>
-        </Button>
+        {view === 'home' && (
+          <Button as="link" href="/works" variant="secondary" className="w-full rounded-[14px]">
+            <SPAN className="px-1.5 text-foreground group-hover:scale-[1.04] duration-300">More works</SPAN>
+          </Button>
+        )}
       </div>
     </Block>
   )
