@@ -20,6 +20,7 @@ export default {
       gray: {
         DEFAULT: '#B4B4B4',
         card: '#2A2A2A',
+        button: '#202020',
       },
 
       neutral: colors.neutral,

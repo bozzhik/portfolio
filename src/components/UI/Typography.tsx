@@ -11,7 +11,7 @@ export type TypoTypes = keyof typeof typoClasses
 export const typoClasses = {
   h1: cn('text-xl font-semibold tracking-[0.01em]', 'text-foreground'),
   p: cn('text-lg tracking-[0.01em]', 'text-gray'),
-  span: cn('text-base tracking-[0.015em]', 'text-gray'),
+  span: cn('text-base tracking-[0.015em]', 'block text-gray'),
 } as const
 
 export const H1 = createTypography('h1')
