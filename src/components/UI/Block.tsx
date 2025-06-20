@@ -6,7 +6,7 @@ import {motion} from 'motion/react'
 
 import {H1} from '~/UI/Typography'
 
-export default function Block({section, className, delay = 0, children}: {section: string; className?: string; delay?: number; children: React.ReactNode}) {
+export default function Block({section, heading, className, delay = 0, children}: {section: string; heading?: string; className?: string; delay?: number; children: React.ReactNode}) {
   return (
     <motion.section
       data-section={section}
@@ -19,7 +19,7 @@ export default function Block({section, className, delay = 0, children}: {sectio
         ease: 'backOut',
       }}
     >
-      <H1 className="first-letter:uppercase">{section}</H1>
+      <H1 className="capitalize">{heading || section}</H1>
 
       <div>{children}</div>
     </motion.section>

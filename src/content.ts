@@ -7,13 +7,13 @@ import GithubIcon from '$/icons/github.svg'
 import XIcon from '$/icons/x.svg'
 import TelegramIcon from '$/icons/telegram.svg'
 
-import GraphiteImage from '$/projects/graphite.png'
-import MurinoImage from '$/projects/murino.png'
-
 import ReactNativeIcon from '$/icons/about/react-native.svg'
 import ReactIcon from '$/icons/about/react.svg'
 import NextJSIcon from '$/icons/about/nextjs.svg'
 import TailwindCSSIcon from '$/icons/about/tailwindcss.svg'
+
+import GraphiteImage from '$/projects/graphite.png'
+import MurinoImage from '$/projects/murino.png'
 
 export const CONTENT = {
   global: {
@@ -44,22 +44,6 @@ export const CONTENT = {
       },
     },
   },
-  projects: {
-    graphite: {
-      title: 'Graphite House',
-      description: "Venue's Event Page",
-      image: GraphiteImage,
-      link: 'https://graphite.house',
-      color: '#FB6BB3',
-    },
-    murino: {
-      title: 'Murino',
-      description: 'Football Complex Website',
-      image: MurinoImage,
-      link: 'https://murino.ru',
-      color: '#58944A',
-    },
-  },
   homePage: {
     about: {
       text: 'I develop interactive web applications using React, Next JS, and Tailwind CSS, while creating powerful mobile apps with React Native.',
@@ -70,5 +54,24 @@ export const CONTENT = {
         {text: 'Tailwind CSS', icon: TailwindCSSIcon},
       ],
     },
+  },
+}
+
+export const PROJECTS = {
+  graphite: {
+    name: 'Graphite House',
+    descriptor: "Venue's Event Page",
+    image: GraphiteImage,
+    link: 'https://graphite.house',
+    color: '#FB6BB3',
+    featured: true,
+  },
+  murino: {
+    name: 'Murino',
+    descriptor: 'Football Complex Website',
+    image: MurinoImage,
+    link: 'https://murino.ru',
+    color: '#58944A',
+    featured: true,
   },
 }
