@@ -49,25 +49,35 @@ function Badge({className, children, icon}: {className?: string; children: React
   )
 }
 
-export default function About({delay}: {delay?: number}) {
-  const {text, badges} = CONTENT.homePage.about
+function TextWithBadges({text, badges}: {text: string; badges: typeof CONTENT.homePage.about.badges}) {
   const badgeTexts = badges.map((badge) => badge.text)
 
   return (
-    <Block section="about" delay={delay}>
-      <P>
-        {text.split(new RegExp(`(${badgeTexts.join('|')})`, 'g')).map((part, i) => {
-          const badge = badges.find((b) => b.text === part)
+    <P>
+      {text.split(new RegExp(`(${badgeTexts.join('|')})`, 'g')).map((part, i) => {
+        const badge = badges.find((b) => b.text === part)
 
-          return badge ? (
-            <Badge className="text-foreground font-semibold" icon={badge.icon} key={i}>
-              {badge.text}
-            </Badge>
-          ) : (
-            part
-          )
-        })}
-      </P>
+        return badge ? (
+          <Badge className="text-foreground font-semibold" icon={badge.icon} key={i}>
+            {badge.text}
+          </Badge>
+        ) : (
+          part
+        )
+      })}
+    </P>
+  )
+}
+
+export default function About({view = 'home', delay}: {view?: 'home' | 'cv'; delay?: number}) {
+  const {text, text2, badges} = CONTENT.homePage.about
+
+  return (
+    <Block section="about" delay={delay}>
+      <div className="space-y-4">
+        <TextWithBadges text={text} badges={badges} />
+        {view === 'cv' && <TextWithBadges text={text2} badges={badges} />}
+      </div>
     </Block>
   )
 }

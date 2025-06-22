@@ -11,6 +11,7 @@ import ReactNativeIcon from '$/icons/about/react-native.svg'
 import ReactIcon from '$/icons/about/react.svg'
 import NextJSIcon from '$/icons/about/nextjs.svg'
 import TailwindCSSIcon from '$/icons/about/tailwindcss.svg'
+import HSEIcon from '$/icons/about/hse.svg'
 
 import GraphiteImage from '$/projects/graphite.png'
 import MurinoImage from '$/projects/murino.png'
@@ -60,11 +61,13 @@ export const CONTENT = {
   homePage: {
     about: {
       text: 'I develop interactive web applications using React, Next JS, and Tailwind CSS, while creating powerful mobile apps with React Native.',
+      text2: "Having completed my Computer Science degree at HSE University, I'm driven by a passion for design, coding, and shaping visually compelling digital experiences.",
       badges: [
         {text: 'React Native', icon: ReactNativeIcon},
         {text: 'React', icon: ReactIcon},
         {text: 'Next JS', icon: NextJSIcon},
         {text: 'Tailwind CSS', icon: TailwindCSSIcon},
+        {text: 'HSE University', icon: HSEIcon},
       ],
     },
   },
