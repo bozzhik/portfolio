@@ -35,13 +35,13 @@ function Gradient({color, className}: {color?: string; className?: string}) {
 
 export default function Card({name, descriptor, image, link, color}: Props) {
   return (
-    <Link className={cn('relative overflow-hidden group', 'p-3 flex flex-col', 'border border-gray/10 rounded-[14px]', 'bg-gray-card/20')} href={link} target="_blank" rel="noopener noreferrer">
-      <Image quality={100} src={image} alt={`${name} — ${descriptor}`} className={cn('w-full h-auto rounded-lg', 'opacity-70 group-hover:opacity-90 duration-400', 'pointer-events-none')} />
+    <Link className={cn('relative overflow-hidden group', 'p-3 sm:p-1.25 flex flex-col', 'border border-gray/10 rounded-[14px] sm:rounded-[10px]', 'bg-gray-card/20')} href={link} target="_blank" rel="noopener noreferrer">
+      <Image quality={100} src={image} alt={`${name} — ${descriptor}`} className={cn('w-full h-auto rounded-[8px] sm:rounded-[8px]', 'opacity-70 group-hover:opacity-90 duration-400', 'pointer-events-none')} />
 
-      <div className={cn('p-3 absolute z-20 bottom-0 left-0')}>
-        <div className={cn('px-1.5 flex items-center gap-2', 'bg-gray/10 backdrop-blur-xs rounded-xl')}>
-          <div className={cn('size-2.5 bg-gray rounded-full', 'scale-75 group-hover:scale-100 duration-400')} />
-          <SPAN className="lowercase pr-0.5">{descriptor}</SPAN>
+      <div className={cn('p-3 sm:p-1.25 absolute z-20 bottom-0 left-0')}>
+        <div className={cn('px-1.5 flex items-center gap-2 sm:gap-1.25', 'bg-gray/10 sm:bg-background/30 backdrop-blur-xs sm:backdrop-blur-sm rounded-xl')}>
+          <div className={cn('size-2.5 sm:size-2.25 bg-gray rounded-full', 'scale-75 group-hover:scale-100 duration-400')} />
+          <SPAN className="lowercase sm:text-sm pr-0.5">{descriptor}</SPAN>
         </div>
       </div>
 

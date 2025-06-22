@@ -17,7 +17,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={cn(sfProDisplay.variable, 'space-y-16', 'bg-background text-foreground', 'font-sans antialiased')}>
+      <body className={cn(sfProDisplay.variable, 'space-y-16 sm:space-y-10', 'bg-background text-foreground', 'font-sans antialiased')}>
         <Header />
         {children}
 
