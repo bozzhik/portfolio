@@ -13,6 +13,11 @@ import NextJSIcon from '$/icons/about/nextjs.svg'
 import TailwindCSSIcon from '$/icons/about/tailwindcss.svg'
 import HSEIcon from '$/icons/about/hse.svg'
 
+import MountainImage from '$/cv/gallery/mountain.jpg'
+import MarathonImage from '$/cv/gallery/marathon.jpg'
+import FestImage from '$/cv/gallery/fest.jpg'
+import SkyscrapersImage from '$/cv/gallery/skyscrapers.jpg'
+
 import GraphiteImage from '$/projects/graphite.png'
 import MurinoImage from '$/projects/murino.png'
 import SnableImage from '$/projects/snable.png'
@@ -70,6 +75,36 @@ export const CONTENT = {
         {text: 'HSE University', icon: HSEIcon},
       ],
     },
+  },
+  cvPage: {
+    gallery: [
+      {
+        src: 'videos/vkfest-concert.mp4',
+        alt: 'Me at a concert at VK Fest 2024',
+        video: true,
+      },
+      {
+        src: FestImage,
+        alt: 'Me in the volunteer team at VK Fest 2024',
+      },
+      {
+        src: MarathonImage,
+        alt: 'Me at a running marathon in Sochi at the World Youth Festival 2024',
+      },
+      {
+        src: MountainImage,
+        alt: 'Me on some mountain in Turkey',
+      },
+      {
+        src: SkyscrapersImage,
+        alt: 'Me somewhere between the skyscrapers in Moscow City',
+      },
+      {
+        src: 'videos/moskow-subway.mp4',
+        alt: 'Me in the Moscow Metro',
+        video: true,
+      },
+    ],
   },
 }
 

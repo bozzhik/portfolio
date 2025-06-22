@@ -6,6 +6,7 @@ export const metadata: Metadata = {
 
 import Container from '~/Global/Container'
 import About from '~~/home/About'
+import Gallery from '~~/cv/Gallery'
 
 import NavigationButton from '~/UI/NavigationButton'
 
@@ -17,7 +18,8 @@ export default function CVPage() {
         <NavigationButton href="/cv-pdf" target="_blank" text="Download CV" />
       </div>
 
-      <About view="cv" delay={0.2} />
+      <Gallery delay={0.2} />
+      <About view="cv" delay={0.4} />
     </Container>
   )
 }
