@@ -5,7 +5,7 @@ export const metadata: Metadata = {
 }
 
 import Container from '~/Global/Container'
-import Projects from '@/components/App/works/Projects'
+import Projects from '~~/works/Projects'
 
 import NavigationButton from '~/UI/NavigationButton'
 
