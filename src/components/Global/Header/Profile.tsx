@@ -70,7 +70,7 @@ export default function Profile() {
 
   return (
     <div data-block="profile-header" className="flex items-center gap-3.5">
-      <motion.div className="relative size-14" onHoverStart={() => setIsHovered(true)} onHoverEnd={() => setIsHovered(false)}>
+      <motion.div className="relative size-14 sm:size-13 aspect-square" onHoverStart={() => setIsHovered(true)} onHoverEnd={() => setIsHovered(false)}>
         <Link href="/">
           <AnimatePresence mode="wait">
             <motion.div
@@ -94,14 +94,14 @@ export default function Profile() {
         </Link>
       </motion.div>
 
-      <div className="group" onMouseEnter={handleHover}>
+      <div className="sm:space-y-0.5" onMouseEnter={handleHover}>
         <div className="flex items-center gap-2">
           <H1>{person.name}</H1>
 
           <Image className={cn('size-6', isAnimating && 'animate-cursoring')} src={person.cursor} alt="bozzhik cursor" />
         </div>
 
-        <SPAN>{randomTagline}</SPAN>
+        <SPAN className="sm:line-clamp-1">{randomTagline}</SPAN>
       </div>
     </div>
   )
