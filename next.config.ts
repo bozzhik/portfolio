@@ -10,7 +10,7 @@ const nextConfig: NextConfig = {
         basePath: false,
       },
       {
-        source: '/cv-pdf',
+        source: '/cv',
         destination: '/cv-maxim-bozhik.pdf',
         permanent: true,
         basePath: false,

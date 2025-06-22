@@ -1,6 +1,6 @@
 import Container from '~/Global/Container'
 import About from '~~/home/About'
-import Projects from '@/components/App/works/Projects'
+import Projects from '~~/works/Projects'
 
 export default function HomePage() {
   return (

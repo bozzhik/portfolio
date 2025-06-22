@@ -36,7 +36,7 @@ export const CONTENT = {
       pictures: [BozzhikImage, BozzhikImage2, BozzhikImage3],
       cursor: CursorIcon,
     },
-    socials: {
+    navigation: {
       github: {
         link: 'https://github.com/bozzhik',
         content: GithubIcon,
@@ -50,7 +50,7 @@ export const CONTENT = {
         content: TelegramIcon,
       },
       cv: {
-        link: '/cv-pdf',
+        link: '/cv',
         content: 'Resume',
         color: null,
         contrast: false,
