@@ -21,7 +21,7 @@ export default function Header() {
             as="link"
             href={item.link}
             variant="primary"
-            className="sm:last:w-full"
+            className={cn('max-h-10', 'last:pt-1.75 sm:last:pt-1.25 sm:last:w-full')}
             target="_blank"
             {...(key !== 'cv' && {
               rel: 'noopener noreferrer',
