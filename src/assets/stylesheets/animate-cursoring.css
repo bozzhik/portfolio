@@ -1,0 +1,24 @@
+.animate-cursoring {
+  animation: animate-cursoring 2.5s;
+}
+
+@keyframes animate-cursoring {
+  0% {
+    transform: translate(0, 0);
+  }
+  20% {
+    transform: translate(0, -10px);
+  }
+  40% {
+    transform: translate(15px, 0);
+  }
+  60% {
+    transform: translate(0, 5px);
+  }
+  80% {
+    transform: translate(10px, 0);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}

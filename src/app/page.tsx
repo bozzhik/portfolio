@@ -1,15 +1,12 @@
-import Container from '#/Global/Container'
+import Container from '~/Global/Container'
+import About from '~~/home/About'
+import Projects from '~~/works/Projects'
 
-import Hero from '##/index/Hero'
-import Works from '##/index/Works'
-import Projects from '##/index/Projects'
-
-export default function IndexPage() {
+export default function HomePage() {
   return (
-    <Container className="space-y-10">
-      <Hero />
-      <Works />
-      <Projects />
+    <Container>
+      <About delay={0.2} />
+      <Projects view="home" delay={0.4} />
     </Container>
   )
 }

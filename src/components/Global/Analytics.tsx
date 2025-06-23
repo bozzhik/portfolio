@@ -1,7 +1,11 @@
 import NextScript from 'next/script'
 
 export default function Analytics() {
-  const counterId = '91843332'
+  const counterId = process.env.NEXT_PUBLIC_METRIKA_COUNTER_ID
+
+  if (!counterId) {
+    return null
+  }
 
   return (
     <NextScript

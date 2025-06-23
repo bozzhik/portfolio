@@ -1,44 +1,40 @@
-'use client'
-
-import {motion} from 'framer-motion'
 import {cn} from '@/lib/utils'
 
-import Link from 'next/link'
+import Link, {type LinkProps} from 'next/link'
 
-type Props = {
-  text: string
-  link: string
-  blank?: boolean
-  className?: string
+type ButtonBaseProps = {
+  variant: 'primary' | 'secondary'
 }
 
-const MotionLink = motion.create(Link)
+type ButtonAsButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & ButtonBaseProps
+type ButtonAsLinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & LinkProps & ButtonBaseProps
 
-export default function Button({text, link, blank, className}: Props) {
+type ButtonProps = ({as: 'button'} & ButtonAsButtonProps) | ({as: 'link'} & ButtonAsLinkProps)
+
+export default function Button(props: ButtonProps) {
+  const {as, variant, className, children, ...rest} = props
+
+  const BUTTON_STYLES = {
+    base: cn('p-2 size-fit grid place-items-center', 'border rounded-[10px]', 'group active:scale-90 duration-300'),
+    variants: {
+      primary: 'bg-gray-button border-foreground/10',
+      secondary: 'bg-gray-button/50 border-foreground/7',
+    },
+  }
+
+  if (as === 'link') {
+    const linkProps = rest as ButtonAsLinkProps
+    return (
+      <Link {...linkProps} className={cn(BUTTON_STYLES.base, BUTTON_STYLES.variants[variant], className)}>
+        {children}
+      </Link>
+    )
+  }
+
+  const buttonProps = rest as ButtonAsButtonProps
   return (
-    <MotionLink
-      href={link}
-      target={blank ? '_blank' : '_self'}
-      className="inline-flex w-full overflow-hidden rounded-xl bg-[linear-gradient(120deg,#111_calc(var(--button-x)-25%),#333_var(--button-x),#111_calc(var(--button-x)+25%))] [--button-x:0%]"
-      initial={{
-        scale: 1,
-        '--button-x': '-100%',
-      }}
-      animate={{
-        '--button-x': '200%',
-      }}
-      transition={{
-        stiffness: 500,
-        damping: 20,
-        type: 'spring',
-        '--button-x': {
-          duration: 3.5,
-          repeat: Infinity,
-          ease: [0.445, 0.05, 0.55, 0.95],
-        },
-      }}
-    >
-      <span className={cn('w-full px-4 py-1.5 text-center', 'duration-200 hover:text-neutral-400 sm:hover:text-white sm:active:text-neutral-400', 'bg-neutral-800/50 border-[1px] border-b-0 border-neutral-800', 'm-[0.25rem] rounded-[calc(0.7rem-0.125rem)] backdrop-blur-sm', className)}>{text}</span>
-    </MotionLink>
+    <button {...buttonProps} className={cn(BUTTON_STYLES.base, BUTTON_STYLES.variants[variant], className)}>
+      {children}
+    </button>
   )
 }

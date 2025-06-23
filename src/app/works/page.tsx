@@ -1,28 +1,20 @@
-import type {Product} from '@/types/product'
-import {getWorks} from '##/index/Works'
+import type {Metadata} from 'next'
 
-import {Suspense} from 'react'
+export const metadata: Metadata = {
+  title: 'Works',
+}
 
-import Container from '#/Global/Container'
-import Block from '#/UI/Block'
-import WorksPlate from '##/works/WorksPlate'
+import Container from '~/Global/Container'
+import Projects from '~~/works/Projects'
 
-export default async function WorksPage() {
-  const works: Product[] = await getWorks()
+import NavigationButton from '~/UI/NavigationButton'
 
-  if (!works) {
-    return <mark>Произошла ошибка при получении данных!</mark>
-  }
-
-  works.sort((a, b) => a.id - b.id)
-
+export default function WorksPage() {
   return (
-    <Container>
-      <Block token={'works-index'} className="space-y-3" heading="my works">
-        <Suspense>
-          <WorksPlate works={works} />
-        </Suspense>
-      </Block>
+    <Container className="sm:gap-7">
+      <NavigationButton href="/" text="← Back home" />
+
+      <Projects view="works" delay={0.2} />
     </Container>
   )
 }

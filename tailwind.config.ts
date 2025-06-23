@@ -1,7 +1,5 @@
 import type {Config} from 'tailwindcss'
-
 import defaultTheme from 'tailwindcss/defaultTheme'
-import plugin from 'tailwindcss/plugin'
 
 export default {
   theme: {
@@ -10,24 +8,29 @@ export default {
       sm: {max: '500px'},
     },
     fontFamily: {
-      sans: ['var(--font-suisse-intl)', ...defaultTheme.fontFamily.sans],
+      sans: ['var(--font-sf-pro-display)', ...defaultTheme.fontFamily.sans],
     },
     fontWeight: {
-      normal: '400',
-      medium: '500',
+      normal: 400,
+      semibold: 600,
     },
+    colors: ({colors}) => ({
+      background: '#111111',
+      foreground: '#EEEEEE',
+      gray: {
+        DEFAULT: '#B4B4B4',
+        card: '#2A2A2A',
+        button: '#202020',
+      },
+
+      neutral: colors.neutral,
+      transparent: colors.transparent,
+    }),
     extend: {
-      colors: {
-        custom: {
-          black: '#090909',
-          gray: '#191919',
-        },
+      transitionDuration: {
+        '400': '400ms',
       },
     },
   },
-  plugins: [
-    plugin(function sizePlugin(api) {
-      api.matchUtilities({s: (value: string) => ({width: value, height: value})}, {values: api.theme('width')})
-    }),
-  ],
+  plugins: [],
 } satisfies Config

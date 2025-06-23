@@ -1,10 +1,8 @@
 @import 'tailwindcss';
 @config '../../tailwind.config.ts';
 
-@import '../assets/stylesheets/custom-scrollbar.css' layer(base);
-@import '../assets/stylesheets/animate-skeleton.css' layer(base);
-@import '../assets/stylesheets/animate-surfing.css' layer(base);
-@import '../assets/stylesheets/safelist-colors.css' layer(base);
+@import '../assets/stylesheets/scrollbar.css' layer(base);
+@import '../assets/stylesheets/animate-cursoring.css' layer(base);
 
 ::selection {
   @apply bg-neutral-800;

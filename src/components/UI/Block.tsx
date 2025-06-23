@@ -1,28 +1,27 @@
+'use client'
+
 import {cn} from '@/lib/utils'
 
-import Text from '#/UI/Text'
+import {motion} from 'motion/react'
 
-type Props = {
-  children?: React.ReactNode
-  token: string
-  heading: string
-  text?: string
-  className?: string
-  id?: string
-}
+import {H1} from '~/UI/Typography'
 
-export default function Block({children, token, heading, text, className, id}: Props) {
+export default function Block({section, heading, className, delay = 0, children}: {section: string; heading?: string; className?: string; delay?: number; children: React.ReactNode}) {
   return (
-    <section id={id || undefined} data-section={token} className={cn('space-y-6', className)}>
-      <div className="space-y-3 group w-fit">
-        <Text type="heading" className="flex items-center">
-          {heading}
-        </Text>
+    <motion.section
+      data-section={section}
+      className={cn('flex flex-col gap-2', className)}
+      initial={{opacity: 0, y: 20}}
+      animate={{opacity: 1, y: 0}}
+      transition={{
+        duration: 0.7,
+        delay,
+        ease: 'backOut',
+      }}
+    >
+      <H1 className="capitalize">{heading || section}</H1>
 
-        {text && <Text>{text}</Text>}
-      </div>
-
-      {children}
-    </section>
+      <div>{children}</div>
+    </motion.section>
   )
 }

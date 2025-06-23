@@ -1,13 +1,14 @@
 export {metadata} from '@/lib/layout-config'
-import {suisseIntl} from '@/lib/layout-config'
+import {sfProDisplay} from '@/lib/layout-config'
+
 import '@/app/globals.css'
+import {cn} from '@/lib/utils'
 
 import {SpeedInsights} from '@vercel/speed-insights/next'
 import {Analytics as VercelAnalytics} from '@vercel/analytics/react'
 
-import YandexMetrika from '#/Global/Analytics'
-import Header from '#/Global/Header'
-import Particles from '#/Global/Particles'
+import Header from '~/Global/Header'
+import YandexMetrika from '~/Global/Analytics'
 
 export default function RootLayout({
   children,
@@ -15,21 +16,18 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body className={`${suisseIntl.variable} antialiased bg-custom-black text-white`}>
+    <html lang="en">
+      <body className={cn(sfProDisplay.variable, 'space-y-16 sm:space-y-10', 'bg-background text-foreground', 'font-sans antialiased')}>
         <Header />
         {children}
-        <Particles className="fixed inset-0 h-screen overflow-hidden -z-10 opacity-70" />
 
-        <>
-          {process.env.NODE_ENV === 'production' && (
-            <>
-              <YandexMetrika />
-              <VercelAnalytics />
-            </>
-          )}
-          <SpeedInsights />
-        </>
+        {process.env.NODE_ENV === 'production' && (
+          <>
+            <SpeedInsights />
+            <VercelAnalytics />
+            <YandexMetrika />
+          </>
+        )}
       </body>
     </html>
   )
