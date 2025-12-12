@@ -13,7 +13,7 @@
     "@vercel/speed-insights": "^1.0.12",
     "clsx": "^2.1.1",
     "motion": "^12.18.1",
-    "next": "^16.0.7",
+    "next": "^16.0.10",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "tailwind-merge": "^3.3.1"
