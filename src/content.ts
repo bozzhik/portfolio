@@ -50,8 +50,8 @@ export const CONTENT = {
         content: TelegramIcon,
       },
       cv: {
-        link: '/cv',
-        content: 'Resume',
+        link: 'https://dub.sh/bozzhik-cv',
+        content: 'CV',
         color: null,
         contrast: false,
       },

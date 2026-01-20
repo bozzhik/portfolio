@@ -3,7 +3,7 @@ import {cn} from '@/lib/utils'
 import Link, {type LinkProps} from 'next/link'
 
 type ButtonBaseProps = {
-  variant: 'primary' | 'secondary'
+  variant: 'primary' | 'secondary' | 'light'
 }
 
 type ButtonAsButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & ButtonBaseProps
@@ -19,6 +19,7 @@ export default function Button(props: ButtonProps) {
     variants: {
       primary: 'bg-gray-button border-foreground/10',
       secondary: 'bg-gray-button/50 border-foreground/7',
+      light: 'bg-gray/20 border-foreground/10',
     },
   }
 
