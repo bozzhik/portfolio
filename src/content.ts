@@ -12,20 +12,19 @@ import ReactIcon from '$/icons/about/react.svg'
 import NextJSIcon from '$/icons/about/nextjs.svg'
 import TailwindCSSIcon from '$/icons/about/tailwindcss.svg'
 
-import GraphiteImage from '$/projects/graphite.png'
 import MurinoImage from '$/projects/murino.png'
+import OrientirImage from '$/projects/orientir.png'
+import MuellerImage from '$/projects/mueller.png'
+import KorostelevImage from '$/projects/korostelev.png'
 import SnableImage from '$/projects/snable.png'
+import ZapImage from '$/projects/zap.png'
 import CarmateImage from '$/projects/carmate.png'
 import HotkeysImage from '$/projects/hotkeys.png'
 import ArkaImage from '$/projects/arka.png'
 import HiddenImage from '$/projects/hidden.png'
-import OrientirImage from '$/projects/orientir.png'
 import KillaImage from '$/projects/killa.png'
-import Graphite2Image from '$/projects/graphite2.png'
-import MuellerImage from '$/projects/mueller.png'
-import KorostelevImage from '$/projects/korostelev.png'
+import GraphiteImage from '$/projects/graphite.png'
 import DrSpillerImage from '$/projects/drspiller.png'
-import ZapImage from '$/projects/zap.png'
 import UdelnayaImage from '$/projects/udelnaya.png'
 
 export const CONTENT = {
@@ -71,28 +70,52 @@ export const CONTENT = {
 }
 
 export const PROJECTS = {
-  graphite: {
-    name: 'Graphite House',
-    descriptor: "Venue's Event Page",
-    image: GraphiteImage,
-    link: 'https://graphite.house',
-    color: '#FB6BB3',
-    featured: true,
-  },
   murino: {
     name: 'Murino',
     descriptor: 'Football Complex Website',
     image: MurinoImage,
-    link: 'https://murino.ru',
+    link: 'https://murino-arena.ru',
     color: '#58944A',
+    featured: true,
+  },
+  orientir: {
+    name: 'Orientir',
+    descriptor: 'Property Developer Webite',
+    image: OrientirImage,
+    link: 'https://orientir.ru',
+    color: '#DA291C',
+    featured: true,
+  },
+  mueller: {
+    name: 'Mueller Wagner',
+    descriptor: 'Law Firm Website',
+    image: MuellerImage,
+    link: 'https://muellerwagner.ru',
+    color: '#30394A',
+    featured: true,
+  },
+  korostelev: {
+    name: 'Korostelev',
+    descriptor: 'Legal Firm Website',
+    image: KorostelevImage,
+    link: 'https://korostelev.legal',
+    color: '#C82A22',
     featured: true,
   },
   snable: {
     name: 'Snable Extension',
     descriptor: 'Chrome Extension Hub',
     image: SnableImage,
-    link: 'https://snable.website',
+    link: 'https://snable.bozzhik.com',
     color: '#525252',
+    featured: true,
+  },
+  zap: {
+    name: 'Zap',
+    descriptor: 'Express Delivery Website',
+    image: ZapImage,
+    link: 'https://zap.ae',
+    color: '#B2F711',
     featured: true,
   },
   carmate: {
@@ -127,14 +150,6 @@ export const PROJECTS = {
     color: '#C20000',
     featured: true,
   },
-  orientir: {
-    name: 'Orientir',
-    descriptor: 'Property Developer Webite',
-    image: OrientirImage,
-    link: 'https://orientir.ru',
-    color: '#DA291C',
-    featured: true,
-  },
   killa: {
     name: 'Killa Club',
     descriptor: 'NFT Collection Website',
@@ -143,28 +158,12 @@ export const PROJECTS = {
     color: '#286056',
     featured: true,
   },
-  graphite2: {
+  graphite: {
     name: 'Graphite Event Ak-47 Obladaet Dose Reptiloid',
     descriptor: 'Concert Event Page',
-    image: Graphite2Image,
+    image: GraphiteImage,
     link: 'https://graphite-house.vercel.app',
     color: '#FB6BB3',
-    featured: true,
-  },
-  mueller: {
-    name: 'Mueller Wagner',
-    descriptor: 'Law Firm Website',
-    image: MuellerImage,
-    link: 'https://muellerwagner.ru',
-    color: '#30394A',
-    featured: true,
-  },
-  korostelev: {
-    name: 'Korostelev',
-    descriptor: 'Legal Firm Website',
-    image: KorostelevImage,
-    link: 'https://korostelev.legal',
-    color: '#C82A22',
     featured: true,
   },
   drspiller: {
@@ -173,14 +172,6 @@ export const PROJECTS = {
     image: DrSpillerImage,
     link: 'https://dr-spiller.kz',
     color: '#7D756F',
-    featured: false,
-  },
-  zap: {
-    name: 'Zap',
-    descriptor: 'Express Delivery Website',
-    image: ZapImage,
-    link: 'https://zap.ae',
-    color: '#B2F711',
     featured: false,
   },
   udelnaya: {
