@@ -12,7 +12,10 @@ import ReactIcon from '$/icons/about/react.svg'
 import NextJSIcon from '$/icons/about/nextjs.svg'
 import TailwindCSSIcon from '$/icons/about/tailwindcss.svg'
 
+import FvlawImage from '$/projects/fvlaw.png'
+import PomoshImage from '$/projects/pomosh.png'
 import MurinoImage from '$/projects/murino.png'
+import XStatsImage from '$/projects/xstats.png'
 import OrientirImage from '$/projects/orientir.png'
 import MuellerImage from '$/projects/mueller.png'
 import KorostelevImage from '$/projects/korostelev.png'
@@ -70,12 +73,36 @@ export const CONTENT = {
 }
 
 export const PROJECTS = {
+  fvlaw: {
+    name: 'Feoktistov & Partners',
+    descriptor: 'Law Firm Website',
+    image: FvlawImage,
+    link: 'https://fvlaw.ru',
+    color: '#354469',
+    featured: true,
+  },
+  pomosh: {
+    name: 'Pomosh',
+    descriptor: 'Crisis Management Firm',
+    image: PomoshImage,
+    link: 'https://pomosh.wzx.cx', // TEMP
+    color: '#42061A',
+    featured: true,
+  },
   murino: {
     name: 'Murino',
     descriptor: 'Football Complex Website',
     image: MurinoImage,
     link: 'https://murino-arena.ru',
     color: '#58944A',
+    featured: true,
+  },
+  xstats: {
+    name: 'XStats',
+    descriptor: 'Twitter Analytics Tool',
+    image: XStatsImage,
+    link: 'https://suitrstats.com',
+    color: '#525252',
     featured: true,
   },
   orientir: {
