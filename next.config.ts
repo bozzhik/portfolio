@@ -18,7 +18,7 @@ const nextConfig: NextConfig = {
       },
       {
         source: '/cv',
-        destination: '/cv-maxim-bozhik.pdf',
+        destination: 'https://dub.sh/bozzhik-cv',
         permanent: true,
         basePath: false,
       },
