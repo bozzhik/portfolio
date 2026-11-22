@@ -3,7 +3,9 @@ import type {NextConfig} from 'next'
 const nextConfig: NextConfig = {
   experimental: {
     typedEnv: true,
-    browserDebugInfoInTerminal: true,
+  },
+  logging: {
+    browserToTerminal: true,
   },
   images: {
     qualities: [70, 100],
@@ -13,12 +15,6 @@ const nextConfig: NextConfig = {
       {
         source: '/:path*/snable',
         destination: 'https://snable.website',
-        permanent: true,
-        basePath: false,
-      },
-      {
-        source: '/cv',
-        destination: 'https://dub.sh/bozzhik-cv',
         permanent: true,
         basePath: false,
       },

@@ -17,13 +17,15 @@ export default function Header() {
 
       <div className="flex gap-1.25 sm:w-full">
         {Object.entries(navigation).map(([key, item]) => {
+          if (!('link' in item) || !item.link?.trim()) return null
+
           const isTextButton = typeof item.content === 'string'
           return (
             <Button
               as="link"
               href={item.link}
               variant={!isTextButton ? 'primary' : 'light'}
-              className={cn('max-h-10', 'last:pt-1.75 sm:last:pt-1.25 sm:last:w-full')}
+              className={cn('max-h-10', isTextButton && 'pt-1.75 sm:pt-1.25 sm:w-full')}
               target="_blank"
               {...(key !== 'cv' && {
                 rel: 'noopener noreferrer',
