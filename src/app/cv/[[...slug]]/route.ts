@@ -63,7 +63,7 @@ function shouldCount(request: Request) {
   return (
     request.method === 'GET' && !request.headers.has('range') &&
     !/prefetch|prerender/i.test(purpose) &&
-    !/bot|crawler|preview|linkedin|slack|telegram|discord/i.test(userAgent)
+    !/bot|crawler|preview|spider|facebookexternalhit|meta-(?:externalagent|externalfetcher|webindexer|externalads)/i.test(userAgent)
   )
 }
 
@@ -210,7 +210,8 @@ export async function GET(request: NextRequest, {params}: RouteContext<'/cv/[[..
 
     if (metadata.status === 404) return new Response(null, {status: 404, headers})
     if (!primary && metadata.status === 410) {
-      return new Response(null, {status: 307, headers: {...headers, Location: '/cv'}})
+      const destination = request.nextUrl.searchParams.get('download') === '1' ? '/cv?download=1' : '/cv'
+      return new Response(null, {status: 307, headers: {...headers, Location: destination}})
     }
     if (!metadata.ok) return new Response(null, {status: 502, headers})
 
